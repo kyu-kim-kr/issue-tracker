@@ -21,6 +21,10 @@
 		22780778266E0F510064B12D /* IssueTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22780777266E0F510064B12D /* IssueTrackerUITests.swift */; };
 		2278078C266E10D40064B12D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2278078B266E10D40064B12D /* Alamofire */; };
 		22780795266E115E0064B12D /* ServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22780794266E115E0064B12D /* ServerAPI.swift */; };
+		229E79662670EAC1008B0E49 /* LabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229E79652670EAC1008B0E49 /* LabelCollectionViewCell.xib */; };
+		229E79742670FC8E008B0E49 /* CellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E79732670FC8E008B0E49 /* CellLabel.swift */; };
+		229E797F2671073D008B0E49 /* LabelFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E797E2671073D008B0E49 /* LabelFlowLayout.swift */; };
+		22A6CB3926707E130030F2AE /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6CB3726707E130030F2AE /* LabelCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,10 @@
 		22780777266E0F510064B12D /* IssueTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerUITests.swift; sourceTree = "<group>"; };
 		22780779266E0F510064B12D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22780794266E115E0064B12D /* ServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAPI.swift; sourceTree = "<group>"; };
+		229E79652670EAC1008B0E49 /* LabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCollectionViewCell.xib; sourceTree = "<group>"; };
+		229E79732670FC8E008B0E49 /* CellLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellLabel.swift; sourceTree = "<group>"; };
+		229E797E2671073D008B0E49 /* LabelFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFlowLayout.swift; sourceTree = "<group>"; };
+		22A6CB3726707E130030F2AE /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,10 @@
 			children = (
 				22330AC4266F13FD0062B78B /* IssueListViewController.swift */,
 				22330AC9266F4BF40062B78B /* IssueListTableViewCell.swift */,
+				229E797E2671073D008B0E49 /* LabelFlowLayout.swift */,
+				22A6CB3726707E130030F2AE /* LabelCollectionViewCell.swift */,
+				229E79652670EAC1008B0E49 /* LabelCollectionViewCell.xib */,
+				229E79732670FC8E008B0E49 /* CellLabel.swift */,
 			);
 			path = IssueList;
 			sourceTree = "<group>";
@@ -289,6 +301,7 @@
 				22780762266E0F510064B12D /* LaunchScreen.storyboard in Resources */,
 				2278075F266E0F510064B12D /* Assets.xcassets in Resources */,
 				2278075D266E0F4B0064B12D /* Main.storyboard in Resources */,
+				229E79662670EAC1008B0E49 /* LabelCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,10 +329,13 @@
 				22330AD3266F58FB0062B78B /* NSObject+ClassNameProtocol.swift in Sources */,
 				2278075A266E0F4B0064B12D /* OAuthViewController.swift in Sources */,
 				22780756266E0F4B0064B12D /* AppDelegate.swift in Sources */,
+				229E797F2671073D008B0E49 /* LabelFlowLayout.swift in Sources */,
+				22A6CB3926707E130030F2AE /* LabelCollectionViewCell.swift in Sources */,
 				22330AC5266F13FD0062B78B /* IssueListViewController.swift in Sources */,
 				22330ACA266F4BF40062B78B /* IssueListTableViewCell.swift in Sources */,
 				22330ADB266F66A90062B78B /* UIColor.swift in Sources */,
 				22780758266E0F4B0064B12D /* SceneDelegate.swift in Sources */,
+				229E79742670FC8E008B0E49 /* CellLabel.swift in Sources */,
 				22780795266E115E0064B12D /* ServerAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

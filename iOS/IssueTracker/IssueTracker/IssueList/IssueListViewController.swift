@@ -43,7 +43,13 @@ class IssueListViewController: UIViewController {
 }
 
 extension IssueListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250
+    }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
 }
 
 extension IssueListViewController: UITableViewDataSource {
@@ -53,10 +59,9 @@ extension IssueListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: IssueListTableViewCell.className) as? IssueListTableViewCell else { return UITableViewCell() }
-        cell.title.text = "Hello~!~!"
+        cell.title.text = "title"
         return cell
     }
-    
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "삭제") { (action, view, completion) in
