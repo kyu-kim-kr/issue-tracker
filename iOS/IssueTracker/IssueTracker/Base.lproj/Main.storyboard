@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="TMONBlack.ttf">
+            <string>TmonMonsoriBlack</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Auth View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -45,21 +50,41 @@
                                     <constraint firstAttribute="height" constant="50" id="uf9-pc-sy6"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9JI-aO-Gp6">
+                                <rect key="frame" x="82" y="350" width="250" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9JI-aO-Gp6" secondAttribute="height" id="4CN-FO-59o"/>
+                                    <constraint firstAttribute="width" constant="250" id="aAs-BU-uT5"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이슈 트래커" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agI-dd-Dm8">
+                                <rect key="frame" x="50" y="629" width="314" height="39"/>
+                                <fontDescription key="fontDescription" name="TmonMonsoriBlack" family="TmonMonsori" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fYr-Vj-Hni" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="3SV-D6-w3R"/>
+                            <constraint firstItem="9JI-aO-Gp6" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="5hv-Vm-I5D"/>
                             <constraint firstItem="HOh-rA-c1k" firstAttribute="top" secondItem="fYr-Vj-Hni" secondAttribute="bottom" constant="20" id="Qlf-u0-E5d"/>
+                            <constraint firstItem="9JI-aO-Gp6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YLI-lh-AQu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fYr-Vj-Hni" secondAttribute="trailing" constant="50" id="aae-wI-rnd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HOh-rA-c1k" secondAttribute="bottom" constant="54" id="abm-Ut-NaI"/>
                             <constraint firstItem="HOh-rA-c1k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ctD-WQ-nrg"/>
+                            <constraint firstItem="agI-dd-Dm8" firstAttribute="trailing" secondItem="fYr-Vj-Hni" secondAttribute="trailing" id="fUG-cJ-TQA"/>
+                            <constraint firstItem="fYr-Vj-Hni" firstAttribute="top" secondItem="agI-dd-Dm8" secondAttribute="bottom" constant="20" id="jc9-2R-sEv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HOh-rA-c1k" secondAttribute="trailing" constant="50" id="jcl-Yh-q4e"/>
+                            <constraint firstItem="agI-dd-Dm8" firstAttribute="leading" secondItem="fYr-Vj-Hni" secondAttribute="leading" id="za5-xC-4Zk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NBC-zL-kvC"/>
                     <connections>
                         <outlet property="buttonStackView" destination="HOh-rA-c1k" id="IAq-Kb-ObP"/>
+                        <outlet property="lotiView" destination="9JI-aO-Gp6" id="QGf-P1-fuu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

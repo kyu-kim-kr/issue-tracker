@@ -9,22 +9,38 @@ import Foundation
 import UIKit
 import OctoKit
 import AuthenticationServices
+import Lottie
 
 class OAuthViewController: UIViewController {
     var webAuthSession: ASWebAuthenticationSession?
     var oauthManager: OAuthManager!
     @IBOutlet weak var buttonStackView: UIStackView!
+    @IBOutlet weak var lotiView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.oauthManager = OAuthManager()
         self.configOAuth()
         self.setAppleSignInButton()
+        self.makeAnimationView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    private func makeAnimationView() {
+        let animationView = AnimationView(name: "danceAlert")
+        lotiView.addSubview(animationView)
+        animationView.contentMode = .scaleAspectFit
+        animationView.play()
+        animationView.loopMode = .loop
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.topAnchor.constraint(equalTo: lotiView.topAnchor).isActive = true
+        animationView.bottomAnchor.constraint(equalTo: lotiView.bottomAnchor).isActive = true
+        animationView.rightAnchor.constraint(equalTo: lotiView.rightAnchor).isActive = true
+        animationView.leftAnchor.constraint(equalTo: lotiView.leftAnchor).isActive = true
     }
     
     func configOAuth() {

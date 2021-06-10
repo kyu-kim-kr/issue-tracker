@@ -11,6 +11,7 @@
 		22330ACA266F4BF40062B78B /* IssueListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AC9266F4BF40062B78B /* IssueListTableViewCell.swift */; };
 		22330AD3266F58FB0062B78B /* NSObject+ClassNameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AD2266F58FB0062B78B /* NSObject+ClassNameProtocol.swift */; };
 		22330ADB266F66A90062B78B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330ADA266F66A90062B78B /* UIColor.swift */; };
+		223F4A052671C3F3007E9C77 /* TMONBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 223F4A042671C3F2007E9C77 /* TMONBlack.ttf */; };
 		225BA79B26710B9700BCA2B8 /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 225BA79A26710B9700BCA2B8 /* OctoKit */; };
 		225BA7A526710DCC00BCA2B8 /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225BA7A426710DCC00BCA2B8 /* GithubUser.swift */; };
 		22780756266E0F4B0064B12D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22780755266E0F4B0064B12D /* AppDelegate.swift */; };
@@ -29,8 +30,10 @@
 		229E79742670FC8E008B0E49 /* CellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E79732670FC8E008B0E49 /* CellLabel.swift */; };
 		229E797F2671073D008B0E49 /* LabelFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E797E2671073D008B0E49 /* LabelFlowLayout.swift */; };
 		22A6CB3926707E130030F2AE /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6CB3726707E130030F2AE /* LabelCollectionViewCell.swift */; };
+		22B28F142671BE6B001E74C1 /* danceAlert.json in Resources */ = {isa = PBXBuildFile; fileRef = 22B28F132671BE6B001E74C1 /* danceAlert.json */; };
 		22E6D6BD26719C9900943003 /* AppleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6BC26719C9900943003 /* AppleViewController.swift */; };
 		22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */; };
+		22E6D6DB2671BD0C00943003 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 22E6D6DA2671BD0C00943003 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,7 @@
 		22330AC9266F4BF40062B78B /* IssueListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListTableViewCell.swift; sourceTree = "<group>"; };
 		22330AD2266F58FB0062B78B /* NSObject+ClassNameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassNameProtocol.swift"; sourceTree = "<group>"; };
 		22330ADA266F66A90062B78B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		223F4A042671C3F2007E9C77 /* TMONBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TMONBlack.ttf; sourceTree = "<group>"; };
 		225BA7A426710DCC00BCA2B8 /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
 		22780752266E0F4B0064B12D /* IssueTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IssueTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22780755266E0F4B0064B12D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,7 @@
 		229E79732670FC8E008B0E49 /* CellLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellLabel.swift; sourceTree = "<group>"; };
 		229E797E2671073D008B0E49 /* LabelFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFlowLayout.swift; sourceTree = "<group>"; };
 		22A6CB3726707E130030F2AE /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		22B28F132671BE6B001E74C1 /* danceAlert.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = danceAlert.json; sourceTree = "<group>"; };
 		22E6D6B82671931D00943003 /* IssueTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueTracker.entitlements; sourceTree = "<group>"; };
 		22E6D6BC26719C9900943003 /* AppleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleViewController.swift; sourceTree = "<group>"; };
 		22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +94,7 @@
 			files = (
 				225BA79B26710B9700BCA2B8 /* OctoKit in Frameworks */,
 				2278078C266E10D40064B12D /* Alamofire in Frameworks */,
+				22E6D6DB2671BD0C00943003 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				22E6D6B82671931D00943003 /* IssueTracker.entitlements */,
+				22B28F132671BE6B001E74C1 /* danceAlert.json */,
+				223F4A042671C3F2007E9C77 /* TMONBlack.ttf */,
 				22780755266E0F4B0064B12D /* AppDelegate.swift */,
 				22780757266E0F4B0064B12D /* SceneDelegate.swift */,
 				22330ABC266F12EC0062B78B /* OAuth */,
@@ -259,6 +267,7 @@
 			packageProductDependencies = (
 				2278078B266E10D40064B12D /* Alamofire */,
 				225BA79A26710B9700BCA2B8 /* OctoKit */,
+				22E6D6DA2671BD0C00943003 /* Lottie */,
 			);
 			productName = IssueTracker;
 			productReference = 22780752266E0F4B0064B12D /* IssueTracker.app */;
@@ -334,6 +343,7 @@
 			packageReferences = (
 				2278078A266E10D40064B12D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				225BA79926710B9700BCA2B8 /* XCRemoteSwiftPackageReference "octokit" */,
+				22E6D6D92671BD0C00943003 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 22780753266E0F4B0064B12D /* Products */;
 			projectDirPath = "";
@@ -351,10 +361,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223F4A052671C3F3007E9C77 /* TMONBlack.ttf in Resources */,
 				22780762266E0F510064B12D /* LaunchScreen.storyboard in Resources */,
 				2278075F266E0F510064B12D /* Assets.xcassets in Resources */,
 				2278075D266E0F4B0064B12D /* Main.storyboard in Resources */,
 				229E79662670EAC1008B0E49 /* LabelCollectionViewCell.xib in Resources */,
+				22B28F142671BE6B001E74C1 /* danceAlert.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +753,14 @@
 				minimumVersion = 5.4.3;
 			};
 		};
+		22E6D6D92671BD0C00943003 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -753,6 +773,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2278078A266E10D40064B12D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		22E6D6DA2671BD0C00943003 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22E6D6D92671BD0C00943003 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
