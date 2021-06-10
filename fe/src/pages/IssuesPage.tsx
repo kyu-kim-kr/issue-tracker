@@ -1,3 +1,4 @@
+import Wrapper from 'components/common/Wrapper';
 import Header from 'components/header/Header';
 import Navbar from 'components/navbar/Navbar';
 
@@ -6,6 +7,7 @@ const IssuesPage = () => {
     <>
       <Header />
       <Navbar />
+      <Wrapper/>
     </>
   );
 };
