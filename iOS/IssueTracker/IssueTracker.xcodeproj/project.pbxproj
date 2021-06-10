@@ -29,6 +29,8 @@
 		229E79742670FC8E008B0E49 /* CellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E79732670FC8E008B0E49 /* CellLabel.swift */; };
 		229E797F2671073D008B0E49 /* LabelFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E797E2671073D008B0E49 /* LabelFlowLayout.swift */; };
 		22A6CB3926707E130030F2AE /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6CB3726707E130030F2AE /* LabelCollectionViewCell.swift */; };
+		22E6D6BD26719C9900943003 /* AppleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6BC26719C9900943003 /* AppleViewController.swift */; };
+		22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,9 @@
 		229E79732670FC8E008B0E49 /* CellLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellLabel.swift; sourceTree = "<group>"; };
 		229E797E2671073D008B0E49 /* LabelFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFlowLayout.swift; sourceTree = "<group>"; };
 		22A6CB3726707E130030F2AE /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		22E6D6B82671931D00943003 /* IssueTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueTracker.entitlements; sourceTree = "<group>"; };
+		22E6D6BC26719C9900943003 /* AppleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleViewController.swift; sourceTree = "<group>"; };
+		22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,9 +168,11 @@
 		22780754266E0F4B0064B12D /* IssueTracker */ = {
 			isa = PBXGroup;
 			children = (
+				22E6D6B82671931D00943003 /* IssueTracker.entitlements */,
 				22780755266E0F4B0064B12D /* AppDelegate.swift */,
 				22780757266E0F4B0064B12D /* SceneDelegate.swift */,
 				22330ABC266F12EC0062B78B /* OAuth */,
+				22E6D6C72671B2DA00943003 /* TabBar */,
 				22330AC0266F12F70062B78B /* IssueList */,
 				22780790266E10D80064B12D /* Network */,
 				225BA7A326710DA400BCA2B8 /* DTO */,
@@ -173,6 +180,7 @@
 				2278075E266E0F510064B12D /* Assets.xcassets */,
 				22780760266E0F510064B12D /* LaunchScreen.storyboard */,
 				22780763266E0F510064B12D /* Info.plist */,
+				22E6D6BC26719C9900943003 /* AppleViewController.swift */,
 				22330AD1266F58E30062B78B /* extension */,
 			);
 			path = IssueTracker;
@@ -222,6 +230,14 @@
 				227EE2C92671143F008B02BB /* OAuthManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		22E6D6C72671B2DA00943003 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +381,7 @@
 			files = (
 				22330AD3266F58FB0062B78B /* NSObject+ClassNameProtocol.swift in Sources */,
 				227EE2CA2671143F008B02BB /* OAuthManager.swift in Sources */,
+				22E6D6BD26719C9900943003 /* AppleViewController.swift in Sources */,
 				225BA7A526710DCC00BCA2B8 /* GithubUser.swift in Sources */,
 				2278075A266E0F4B0064B12D /* OAuthViewController.swift in Sources */,
 				22780756266E0F4B0064B12D /* AppDelegate.swift in Sources */,
@@ -376,6 +393,7 @@
 				22330ADB266F66A90062B78B /* UIColor.swift in Sources */,
 				22780758266E0F4B0064B12D /* SceneDelegate.swift in Sources */,
 				229E79742670FC8E008B0E49 /* CellLabel.swift in Sources */,
+				22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */,
 				22780795266E115E0064B12D /* ServerAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +570,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = IssueTracker/IssueTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IssueTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -570,6 +589,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = IssueTracker/IssueTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IssueTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

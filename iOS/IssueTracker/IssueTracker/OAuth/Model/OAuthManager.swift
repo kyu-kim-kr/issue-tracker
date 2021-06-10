@@ -12,12 +12,12 @@ import AuthenticationServices
 class OAuthManager {
     let alamofireNetworkManager: AlamofireNetworkManager
     var errorHandler: ((String) -> ())?
-    lazy var config = OAuthConfiguration.init(token: "asdfasdfasdfasdfasdf", //MARK: - 클라이언트 아이디를 채우자
+    lazy var config = OAuthConfiguration.init(token: "5478b59babc40b37205d", //MARK: - 클라이언트 아이디를 채우자
                                               secret: "",
                                               scopes: ["user"])
     
     init() {
-        self.alamofireNetworkManager = AlamofireNetworkManager(baseAddress: "123123") //MARK: - url 확인하시오
+        self.alamofireNetworkManager = AlamofireNetworkManager(baseAddress: "https://f88e009a-3e2b-4862-838e-1f2cde9b95ed.mock.pstmn.io")
     }
     
     func initPostLoginCodeWebAuthSession(completion: @escaping (GithubUser) -> ()) -> ASWebAuthenticationSession? {

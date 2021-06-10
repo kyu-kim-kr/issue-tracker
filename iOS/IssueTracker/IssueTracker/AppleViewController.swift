@@ -1,46 +1,26 @@
 //
-//  ViewController.swift
+//  AppleViewController.swift
 //  IssueTracker
 //
-//  Created by Issac on 2021/06/07.
+//  Created by Issac on 2021/06/10.
 //
 
-import Foundation
 import UIKit
-import OctoKit
 import AuthenticationServices
 
-class OAuthViewController: UIViewController {
-    var webAuthSession: ASWebAuthenticationSession?
-    var oauthManager: OAuthManager!
-    @IBOutlet weak var buttonStackView: UIStackView!
+class AppleViewController: UIViewController {
+    @IBOutlet weak var appleSigninButton: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.oauthManager = OAuthManager()
-        self.configOAuth()
         self.setAppleSignInButton()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    func configOAuth() {
-        webAuthSession = self.oauthManager.initPostLoginCodeWebAuthSession() { (githubUser) in
-            DispatchQueue.main.async {
-                guard let vc = self.storyboard?.instantiateViewController(identifier: IssueTrackerViewController.className) as? IssueTrackerViewController else { return }
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-        }
-        webAuthSession?.presentationContextProvider = self
+        // Do any additional setup after loading the view.
     }
     
     func setAppleSignInButton() {
         let authorizationButton = ASAuthorizationAppleIDButton(type: .signIn, style: .whiteOutline)
         authorizationButton.addTarget(self, action: #selector(appleSignInButtonPress(_:)), for: .touchUpInside)
-        self.buttonStackView.addArrangedSubview(authorizationButton)
+        self.appleSigninButton.addArrangedSubview(authorizationButton)
     }
     
     @objc func appleSignInButtonPress(_ sender: ASAuthorizationAppleIDButton) {
@@ -53,26 +33,15 @@ class OAuthViewController: UIViewController {
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
-
-    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
-        return self.view.window ?? ASPresentationAnchor()
-    }
-    
-    @IBAction func loginWithGithub(_ sender: Any) {
-        webAuthSession?.start()
-    }
 }
 
-extension OAuthViewController: ASWebAuthenticationPresentationContextProviding { }
-
-
-extension OAuthViewController: ASAuthorizationControllerPresentationContextProviding {
+extension AppleViewController: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
 }
 
-extension OAuthViewController: ASAuthorizationControllerDelegate {
+extension AppleViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:

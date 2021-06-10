@@ -8,6 +8,5 @@
 import Foundation
 
 struct GithubUser: Codable {
-    var id: String
-    var email: String
+    var jwt: String
 }

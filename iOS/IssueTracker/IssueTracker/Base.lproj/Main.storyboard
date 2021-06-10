@@ -16,20 +16,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcL-uP-26G">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="loginWithGithub:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3SZ-lA-aZ4"/>
-                                    <segue destination="OmG-gX-t7r" kind="show" id="C2t-s5-0oO"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fYr-Vj-Hni">
+                                <rect key="frame" x="50" y="688" width="314" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dm3-Hx-ndn">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="50" minY="10" maxX="215" maxY="10"/>
+                                        <state key="normal" title="Login With Github" image="githubLogoWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginWithGithub:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Omg-D5-whq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dgu-PJ-1J1"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HOh-rA-c1k">
+                                <rect key="frame" x="50" y="758" width="314" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uf9-pc-sy6"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fYr-Vj-Hni" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="3SV-D6-w3R"/>
+                            <constraint firstItem="HOh-rA-c1k" firstAttribute="top" secondItem="fYr-Vj-Hni" secondAttribute="bottom" constant="20" id="Qlf-u0-E5d"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fYr-Vj-Hni" secondAttribute="trailing" constant="50" id="aae-wI-rnd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HOh-rA-c1k" secondAttribute="bottom" constant="54" id="abm-Ut-NaI"/>
+                            <constraint firstItem="HOh-rA-c1k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ctD-WQ-nrg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HOh-rA-c1k" secondAttribute="trailing" constant="50" id="jcl-Yh-q4e"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NBC-zL-kvC"/>
+                    <connections>
+                        <outlet property="buttonStackView" destination="HOh-rA-c1k" id="IAq-Kb-ObP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HMP-oC-8wF">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueListTableViewCell" id="gDW-yP-hTD" customClass="IssueListTableViewCell" customModule="IssueTracker" customModuleProvider="target">
@@ -219,18 +250,28 @@
         <!--Item-->
         <scene sceneID="set-3S-JFA">
             <objects>
-                <viewController id="Rxk-fB-1pU" sceneMemberID="viewController">
+                <viewController id="Rxk-fB-1pU" customClass="AppleViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i57-Pw-hKa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Jf-xs-tm5">
+                                <rect key="frame" x="133" y="268" width="240" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xpg-NC-i0I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="dgy-NR-CVr"/>
+                    <connections>
+                        <outlet property="appleSigninButton" destination="1Jf-xs-tm5" id="3r1-YC-QCX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAE-lo-kyR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1251" y="865"/>
+            <point key="canvasLocation" x="1249" y="865"/>
         </scene>
         <!--Item-->
         <scene sceneID="dOc-tO-QBE">
@@ -264,12 +305,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBv-HY-Ixk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.57971014492756" y="128.57142857142856"/>
+            <point key="canvasLocation" x="143" y="129"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Issue Tracker View Controller-->
         <scene sceneID="tsh-50-Fkg">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="OmG-gX-t7r" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="IssueTrackerViewController" storyboardIdentifier="IssueTrackerViewController" automaticallyAdjustsScrollViewInsets="NO" id="OmG-gX-t7r" customClass="IssueTrackerViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fHQ-0V-stx"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MbD-Gc-qjz">
@@ -291,6 +332,7 @@
     </scenes>
     <resources>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="githubLogoWhite" width="770" height="512"/>
         <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="signpost.right" catalog="system" width="128" height="118"/>
@@ -299,6 +341,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
