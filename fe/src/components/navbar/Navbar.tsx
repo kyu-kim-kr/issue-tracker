@@ -1,5 +1,5 @@
+import IssueFilter from 'components/common/IssueFilter';
 import styled from 'styled-components';
-import IssueFilter from './IssueFilter';
 
 const Navbar = () => {
   return (
