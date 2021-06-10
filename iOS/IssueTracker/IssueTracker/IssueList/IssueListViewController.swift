@@ -10,11 +10,20 @@ import UIKit
 class IssueListViewController: UIViewController {
     @IBOutlet weak var issueListTableView: UITableView!
     @IBOutlet weak var writeButton: UIButton!
+    private var searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.makeBarButton()
         self.configureWriteButton()
+        self.setupSearchController()
+    }
+    
+    private func setupSearchController() {
+        self.navigationItem.searchController = self.searchController
+        self.navigationItem.searchController?.searchResultsUpdater = self
+        self.navigationItem.searchController?.obscuresBackgroundDuringPresentation = false
+        self.navigationItem.hidesSearchBarWhenScrolling = true
     }
     
     private func configureWriteButton() {
@@ -79,4 +88,12 @@ extension IssueListViewController: UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [close, delete])
     }
     
+}
+
+extension IssueListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let query = searchController.searchBar.text
+        
+        
+    }
 }

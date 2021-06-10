@@ -17,7 +17,7 @@ class LabelCollectionViewCell: UICollectionViewCell {
     
     func setLabelLayer() {
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = self.frame.width / 10
+        self.layer.cornerRadius = (self.frame.width + 40) / 20
     }
     
     func configure(text: String, backgroundColor: UIColor) {
