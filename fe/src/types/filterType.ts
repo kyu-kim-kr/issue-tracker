@@ -8,10 +8,9 @@ export type FilterItemType = {
 
 export type FilterListType = {
   filterList: FilterItemType[];
-  popupState: PopupState;
 };
 
 export type FilterItemPropsType = {
-  popupState: PopupState;
   filterItem: FilterItemType;
+  isEnd: boolean;
 };

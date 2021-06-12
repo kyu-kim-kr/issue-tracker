@@ -1,15 +1,8 @@
-import {
-  Button,
-  FormControl,
-  FormLabel,
-  Menu,
-  RadioGroup,
-} from '@material-ui/core';
-import PopupState, { bindMenu, bindTrigger } from 'material-ui-popup-state';
-import { useState } from 'react';
+import { Button } from '@material-ui/core';
+import { createRef, useState } from 'react';
 import styled from 'styled-components';
 import FilterList from './FilterList';
-
+import Popover from '@material-ui/core/Popover';
 const testArray = [
   { description: '테스트필터1' },
   { description: '테스트필터2' },
@@ -17,36 +10,42 @@ const testArray = [
   { description: '테스트필터4' },
 ];
 
-const IssueFilter = () => {
-  const [value, setValue] = useState('');
+export default function IssueFilter() {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const ref = createRef();
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue((event.target as HTMLInputElement).value);
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
     <>
-      <PopupState variant="popover" popupId="demo-popup-menu">
-        {(popupState) => (
-          <>
-            <FilterButton variant="contained" {...bindTrigger(popupState)}>
-              필터
-            </FilterButton>
-
-            <CustomMenu {...bindMenu(popupState)}>
-              <FormControl component="fieldset">
-                <FormLabel component="legend">이슈 필터</FormLabel>
-                <RadioGroup value={value} onChange={handleChange}>
-                  <FilterList filterList={testArray} popupState={popupState} />
-                </RadioGroup>
-              </FormControl>
-            </CustomMenu>
-          </>
-        )}
-      </PopupState>
+      <FilterButton variant="contained" onClick={handleClick}>
+        필터
+      </FilterButton>
+      <CustomMenu
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        ref={ref}
+      >
+        <FilterList filterList={testArray} />
+      </CustomMenu>
     </>
   );
-};
+}
 
 const FilterButton = styled(Button)`
   background-color: ${({ theme }) => theme.color.grayscale.background};
@@ -54,10 +53,14 @@ const FilterButton = styled(Button)`
   font-weight: ${({ theme }) => theme.fontWeight.bold2};
   border: 1px solid ${({ theme }) => theme.color.grayscale.line};
   box-shadow: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 `;
 
-const CustomMenu = styled(Menu)`
-  margin-top: 10.5rem;
+const CustomMenu = styled(Popover)`
+  margin-top: 0.5rem;
+  .MuiPaper-elevation8 {
+    border-radius: 25px;
+    background-color: ${({ theme }) => theme.color.grayscale.inputBG};
+  }
 `;
-
-export default IssueFilter;

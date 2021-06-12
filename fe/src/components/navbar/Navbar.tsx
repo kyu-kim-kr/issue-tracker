@@ -11,6 +11,7 @@ const Navbar = () => {
 
 const Nav = styled.nav`
   width: 100%;
+  position: relative;
 `;
 
 export default Navbar;
