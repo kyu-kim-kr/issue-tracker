@@ -7,6 +7,7 @@ import LoginPage from 'pages/LoginPage';
 import OAuthPage from 'pages/OAuthPage';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import { unstable_createMuiStrictModeTheme } from '@material-ui/core/styles';
+import NewIssuePage from 'pages/NewIssuePage';
 const MuiTheme = unstable_createMuiStrictModeTheme();
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
           <Switch>
             <Route path={['/', '/issues']} exact>
               <IssuesPage />
+            </Route>
+            <Route path={'/issues/new-issue'} exact>
+              <NewIssuePage />
             </Route>
             <Route path="/login" exact>
               <LoginPage />

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import IssueItem from './IssueItem';
 import IssueList from './IssueList';
 import IssuesHeader from './IssuesHeader';
 
