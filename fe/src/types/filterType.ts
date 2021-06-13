@@ -1,5 +1,3 @@
-import { PopupState } from 'material-ui-popup-state/core';
-
 export type FilterItemType = {
   description: string;
   imgurl?: string | null;

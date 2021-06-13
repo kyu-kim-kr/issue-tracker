@@ -2,6 +2,7 @@ import { Button } from '@material-ui/core';
 import { createRef, useState } from 'react';
 import styled from 'styled-components';
 import FilterList from './FilterList';
+import { ReactComponent as ArrowDown } from 'icons/arrow-down.svg';
 import Popover from '@material-ui/core/Popover';
 const testArray = [
   { description: '테스트필터1' },
@@ -24,7 +25,7 @@ export default function IssueFilter() {
   return (
     <>
       <FilterButton variant="contained" onClick={handleClick}>
-        필터
+        필터 <ArrowDownIcon aria-checked={Boolean(anchorEl)} />
       </FilterButton>
       <CustomMenu
         anchorOrigin={{
@@ -55,6 +56,20 @@ const FilterButton = styled(Button)`
   box-shadow: none;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  &[aria-checked='true'] {
+    transform: rotate(180);
+  }
+`;
+
+const ArrowDownIcon = styled(ArrowDown)`
+  margin-left: 1rem;
+  &[aria-checked='true'] {
+    transform: rotate(180deg);
+  }
+
+  path {
+    stroke: ${({ theme }) => theme.color.grayscale.label};
+  }
 `;
 
 const CustomMenu = styled(Popover)`
