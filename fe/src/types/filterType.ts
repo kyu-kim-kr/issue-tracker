@@ -6,9 +6,15 @@ export type FilterItemType = {
 
 export type FilterListType = {
   filterList: FilterItemType[];
+  filterTitle: string;
 };
 
 export type FilterItemPropsType = {
   filterItem: FilterItemType;
   isEnd: boolean;
 };
+
+export type FilterPropsType = {
+  filterTitle: string;
+  filterList: FilterItemType[];
+}

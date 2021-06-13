@@ -42,7 +42,7 @@ export default function IssueFilter() {
         onClose={handleClose}
         ref={ref}
       >
-        <FilterList filterList={testArray} />
+        <FilterList filterTitle="이슈" filterList={testArray} />
       </CustomMenu>
     </>
   );
@@ -56,9 +56,6 @@ const FilterButton = styled(Button)`
   box-shadow: none;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  &[aria-checked='true'] {
-    transform: rotate(180);
-  }
 `;
 
 const ArrowDownIcon = styled(ArrowDown)`
