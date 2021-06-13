@@ -4,6 +4,8 @@ import { ReactComponent as Close } from 'icons/closeIssue.svg';
 import { ReactComponent as Milestone } from 'icons/openMilestone.svg';
 import styled from 'styled-components';
 import { IssueItemType } from 'types/issueType';
+import AuthorAvatar from 'components/common/AuthorAvatar';
+import IssueItemLeft from './IssueItemLeft';
 
 const IssueItem = ({
   isOpen,
@@ -16,21 +18,15 @@ const IssueItem = ({
 }: IssueItemType) => {
   return (
     <StyledIssueItem>
-      <IssueItemLeft>
-        <div>
-          <Checkbox color="primary" /> 
-          <span>
-            <OpenSvg />
-            {title}
-          </span>
-        </div>
-        <IssueSubtitle>
-          #{issueNumber} {createdTime} <MilestoneSvg/> {milestoneTitle}
-        </IssueSubtitle>
-      </IssueItemLeft>
+      <IssueItemLeft
+        {...{ title, labeList, issueNumber, createdTime, milestoneTitle }}
+      />
       <IssueItemRight>
-
-
+        <AuthorAvatar
+          name={author.name}
+          profileImg={author.profileImg}
+          size="S"
+        />
       </IssueItemRight>
     </StyledIssueItem>
   );
@@ -40,26 +36,11 @@ export default IssueItem;
 
 const StyledIssueItem = styled.li`
   ${({ theme }) => theme.style.flexSpaceBetween}
-`;
-const IssueItemLeft = styled.div`
-  ${({ theme }) => theme.style.flexColum}
-`;
-const IssueItemRight = styled.div``;
-
-const OpenSvg = styled(Open)`
-  path {
-    stroke: inherit;
-  }
-  margin-right: 0.2rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-top: 1px solid ${({ theme }) => theme.color.grayscale.line};
 `;
 
-
-const MilestoneSvg = styled(Milestone)`
-  path {
-    stroke: inherit;
-  }
-  margin-right: 0.2rem;
+const IssueItemRight = styled.div`
+  padding-right: 1.4rem;
 `;
-
-
-const IssueSubtitle = styled.span``;

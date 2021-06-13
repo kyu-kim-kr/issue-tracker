@@ -12,7 +12,7 @@ const AuthorAvatar = ({
 }) => {
   return (
     <CustomAvatar alt={name} aria-controls={size} src={profileImg}>
-      {profileImg ? null : name[0].toUpperCase() }
+      {profileImg ? null : name[0].toUpperCase()}
     </CustomAvatar>
   );
 };
@@ -28,5 +28,7 @@ const CustomAvatar = styled(Avatar)`
   &[aria-controls='S'] {
     width: 20px;
     height: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
   }
 `;
