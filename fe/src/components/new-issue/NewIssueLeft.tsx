@@ -1,39 +1,34 @@
 import { TextField } from '@material-ui/core';
 import AuthorAvatar from 'components/common/AuthorAvatar';
+import CommentInput from 'components/common/CommentInput';
+import IssueTitleInput from 'components/common/IssueTitleInput';
 import styled from 'styled-components';
 
 const NewIssueLeft = () => {
   return (
-    <>
-      <AuthorAvatar size="L" name="eamon" />
-      <CustomTextField label="제목" variant="filled" />
-    </>
+    <StyledNewIssueLeft>
+      <NewIssueTitle>
+        <AuthorAvatar size="L" name="eamon" />
+        <IssueTitleInput />
+      </NewIssueTitle>
+      <StyledCommentInput>
+        <CommentInput />
+      </StyledCommentInput>
+    </StyledNewIssueLeft>
   );
 };
 
 export default NewIssueLeft;
 
-const CustomTextField = styled(TextField)`
-  width: 60%;
-  margin-left: 1rem;
-  .MuiInputLabel-filled {
-    margin-left: 1rem;
-  }
+const StyledCommentInput = styled.div`
+  padding-top: 2rem;
+  padding-left: 3.6rem;
+`;
+const StyledNewIssueLeft = styled.div`
+  ${({ theme }) => theme.style.flexColum}
+  width: 75%;
+`;
 
-  .MuiFilledInput-root {
-    border-radius: 14px;
-    padding: 0 1rem;
-  }
-  .MuiFilledInput-underline::before {
-    border-bottom: 0px solid;
-  }
-  .MuiFilledInput-underline::after {
-    border-bottom: 0px solid;
-  }
-  label.MuiFormLabel-root.Mui-focused {
-    color: ${({ theme }) => theme.color.grayscale.label};
-  }
-  .MuiInputLabel-filled.MuiInputLabel-shrink {
-    transform: translate(12px, 10px) scale(0.6);
-  }
+const NewIssueTitle = styled.div`
+  display: flex;
 `;
