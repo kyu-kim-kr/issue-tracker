@@ -17,6 +17,7 @@ const StyledLabel = styled.div<{ backgroundColor: string }>`
   font-size: 0.3rem;
   margin-left: 1rem;
   padding: 0.2rem 0.9rem;
+  font-weight: 600;
   &[aria-controls='white'] {
     color: white;
   }

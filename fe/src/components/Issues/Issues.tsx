@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import IssueItem from './IssueItem';
+import IssueList from './IssueList';
 import IssuesHeader from './IssuesHeader';
 
 const Issues = () => {
@@ -9,15 +10,7 @@ const Issues = () => {
         <IssuesHeader />
       </StyledIssuesHeader>
       <StyledIssuesContent>
-        <IssueItem
-          isOpen={true}
-          title="이슈 제목"
-          labeList={[{ title: '레이블 이름', colorCode: '#4444',textColor: 'white' }]}
-          issueNumber={1}
-          author={{ name: 'eamon', profileImg: undefined }}
-          createdTime={'2021-06-21 12:11'}
-          milestoneTitle={'마스터즈 코스'}
-        />
+        <IssueList />
       </StyledIssuesContent>
     </StyledIssues>
   );

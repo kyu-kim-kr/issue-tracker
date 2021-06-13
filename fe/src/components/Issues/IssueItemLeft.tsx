@@ -18,13 +18,15 @@ const IssueItemLeft = ({
       <IssueTitle>
         <Checkbox color="primary" />
         <span>
-          <OpenSvg /> 
+          <OpenSvg />
           {title}
         </span>
-        <Label {...{...labeList[0]}} />  
+        {labeList.length
+          ? labeList.map((label,idx) => <Label key={idx} {...{ ...label }} />)
+          : null}
       </IssueTitle>
       <IssueSubtitle>
-        #{issueNumber}  {createdTime} <MilestoneSvg /> {milestoneTitle}
+        #{issueNumber} {createdTime} <MilestoneSvg /> {milestoneTitle}
       </IssueSubtitle>
     </StyledIssueItemLeft>
   );
