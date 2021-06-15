@@ -6,7 +6,7 @@ import { ReactComponent as ArrowDown } from 'icons/arrow-down.svg';
 import Popover from '@material-ui/core/Popover';
 import { FilterPropsType, FilterSelectorType } from 'types/filterType';
 import { useRecoilValue } from 'recoil';
-import { filterSelector, labelQuery } from 'store';
+import { filterSelector } from 'store';
 
 export default function Filter({ filterType }: FilterPropsType) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

@@ -1,11 +1,4 @@
-import {
-  Button,
-  ButtonBase,
-  Divider,
-  InputAdornment,
-  InputBase,
-  TextField,
-} from '@material-ui/core';
+import { Button, Divider, InputAdornment, InputBase } from '@material-ui/core';
 import IssueFilter from 'components/common/IssueFilter';
 import styled from 'styled-components';
 import { ReactComponent as SearchIconSvg } from 'icons/search.svg';
