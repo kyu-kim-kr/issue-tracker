@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import qs from 'qs';
 import useAxios from 'hook/useAxios';
 import { useEffect } from 'react';
-import { getUrl } from 'utils/url';
+import { getUrl } from 'utils/util';
 
 const OAuthPage = () => {
   const location = useLocation();

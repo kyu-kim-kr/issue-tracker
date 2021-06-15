@@ -1,35 +1,18 @@
-import { Button, Divider, InputAdornment, InputBase } from '@material-ui/core';
+import { Button, Divider, InputBase } from '@material-ui/core';
 import IssueFilter from 'components/common/IssueFilter';
 import styled from 'styled-components';
 import { ReactComponent as SearchIconSvg } from 'icons/search.svg';
-import { ReactComponent as PlusIconSvg } from 'icons/pluse.svg';
 import { ReactComponent as LabelIconSvg } from 'icons/label.svg';
 import { ReactComponent as MilestoneIconSvg } from 'icons/openMilestone.svg';
+import CreateButton from 'components/buttons/CreateButton';
 
 const Navbar = () => {
   return (
     <Nav>
       <NavbarLeft>
         <IssueFilter />
-        <FilterSearchBar
-          inputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-        />
-        {/* <TextField
-          variant="filled"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-        /> */}
+        <SearchIcon />
+        <FilterSearchBar />
       </NavbarLeft>
 
       <NavbarRight>
@@ -44,7 +27,7 @@ const Navbar = () => {
             <div className="button-count">(0)</div>
           </MilestoneButton>
         </LabelAndMilestone>
-        <NewIssueButton startIcon={<PlusIcon />}>이슈 작성</NewIssueButton>
+        <CreateButton>이슈 작성</CreateButton>
       </NavbarRight>
     </Nav>
   );
@@ -64,10 +47,11 @@ const FilterSearchBar = styled(InputBase)`
   border-left: 1px solid ${({ theme }) => theme.color.grayscale.line};
   background-color: ${({ theme }) => theme.color.grayscale.inputBG};
   color: ${({ theme }) => theme.color.grayscale.placeholder};
-  padding-left: 1.625rem;
+  padding-left: 2rem;
 `;
 
 const NavbarLeft = styled.div`
+  position: relative;
   display: flex;
   border: 1px solid ${({ theme }) => theme.color.grayscale.line};
   border-radius: ${({ theme }) => theme.border.radius.S};
@@ -84,22 +68,11 @@ const LabelAndMilestone = styled.div`
   display: flex;
 `;
 
-const NewIssueButton = styled(Button)`
-  background-color: ${({ theme }) => theme.color.blue};
-  color: ${({ theme }) => theme.color.grayscale.offWhite};
-  font-weight: ${({ theme }) => theme.fontWeight.bold2};
-  width: 7.5rem;
-  height: 2.5rem;
-  border-radius: ${({ theme }) => theme.border.radius.S};
-  margin-left: 1rem;
-`;
-
-const SearchIcon = styled(SearchIconSvg)``;
-
-const PlusIcon = styled(PlusIconSvg)`
-  path {
-    stroke: ${({ theme }) => theme.color.grayscale.offWhite};
-  }
+const SearchIcon = styled(SearchIconSvg)`
+  position: absolute;
+  top: 12px;
+  left: 107px;
+  z-index: 99;
 `;
 
 const LabelIcon = styled(LabelIconSvg)`

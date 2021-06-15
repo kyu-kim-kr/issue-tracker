@@ -36,7 +36,7 @@ const Label = styled.label`
 const CustomTextField = styled.textarea`
   box-sizing: border-box;
   width: 100%;
-  height: 20rem;
+  height: 18rem;
   background-color: rgba(0, 0, 0, 0.09);
   transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   border-top-left-radius: 14px;
