@@ -1,2 +1,4 @@
 # issue-tracker
-그룹프로젝트 #5
+
+dev/BE - 백엔드 코드 확인 가능
+dev/FE - 프론트 코드 확인 가능
