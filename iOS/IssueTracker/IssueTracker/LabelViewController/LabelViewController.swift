@@ -1,0 +1,65 @@
+//
+//  LabelViewController.swift
+//  IssueTracker
+//
+//  Created by Issac on 2021/06/16.
+//
+
+import UIKit
+
+class LabelViewController: UIViewController {
+    @IBOutlet weak var labelListTableView: UITableView!
+    var labelDataCenter: LabelDataCenter!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.labelDataCenter = LabelDataCenter()
+        self.makeBarButton()
+        self.bind()
+        self.labelDataCenter.getLabels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.tabBarController?.navigationItem.title = "레이블"
+    }
+    
+    func bind() {
+        self.labelDataCenter.labelLoadHandler = {
+            self.labelListTableView.reloadData()
+        }
+    }
+    
+    private func makeBarButton() {
+        let rightBarImageButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(selectPlusButton(_:)))
+        self.tabBarController?.navigationItem.leftBarButtonItem = rightBarImageButton
+    }
+    
+    @objc func selectPlusButton(_ sender: UIBarButtonItem) {
+        print("추가")
+    }
+}
+
+extension LabelViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //TODO: -
+//        return self.labelDataCenter.labelList.count
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelListTableViewCell.className, for: indexPath) as? LabelListTableViewCell else { return UITableViewCell() }
+        //TODO: -
+//        cell.configure(labelInfo: self.labelDataCenter.labelList[indexPath.row])
+        let labelInfo = Label(id: 1, title: "헬로우", labelDescription: "이것은 설명란입니다", colorCode: "#AD1FF3", textColor: "black")
+        cell.configure(labelInfo: labelInfo)
+        return cell
+    }
+}
+
+extension LabelViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+}

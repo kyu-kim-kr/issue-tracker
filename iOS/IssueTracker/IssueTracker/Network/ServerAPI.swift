@@ -16,6 +16,7 @@ struct ServerAPI {
         case detail = "/detail"
         case github = "/api/login/auth"
         case list = "/api/issues"
+        case labels = "/api/labels"
     }
 }
 

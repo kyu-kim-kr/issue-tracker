@@ -12,6 +12,9 @@
 		2205F72326724DF900FA4F91 /* IssueListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205F72226724DF900FA4F91 /* IssueListDataSource.swift */; };
 		2205F7292672504C00FA4F91 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205F7282672504C00FA4F91 /* FilterViewController.swift */; };
 		2205F72F267255E300FA4F91 /* FilterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205F72E267255E300FA4F91 /* FilterStatus.swift */; };
+		221E95A52679CC29007B7180 /* MilestoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95A42679CC29007B7180 /* MilestoneViewController.swift */; };
+		221E95B12679CCBD007B7180 /* MilestoneDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95B02679CCBD007B7180 /* MilestoneDataCenter.swift */; };
+		221E95B72679CD5A007B7180 /* MilestoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95B62679CD5A007B7180 /* MilestoneTableViewCell.swift */; };
 		22330AC5266F13FD0062B78B /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AC4266F13FD0062B78B /* IssueListViewController.swift */; };
 		22330ACA266F4BF40062B78B /* IssueListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AC9266F4BF40062B78B /* IssueListTableViewCell.swift */; };
 		22330AD3266F58FB0062B78B /* NSObject+ClassNameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AD2266F58FB0062B78B /* NSObject+ClassNameProtocol.swift */; };
@@ -40,6 +43,10 @@
 		22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */; };
 		22E6D6DB2671BD0C00943003 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 22E6D6DA2671BD0C00943003 /* Lottie */; };
 		22FC5B7B26798F2100DC2794 /* IssueListCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC5B7A26798F2100DC2794 /* IssueListCenter.swift */; };
+		22FC5B8B26799EA400DC2794 /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC5B8A26799EA400DC2794 /* LabelViewController.swift */; };
+		22FC5B912679A2A300DC2794 /* LabelListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC5B902679A2A300DC2794 /* LabelListTableViewCell.swift */; };
+		22FC5B972679A42300DC2794 /* LabelDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC5B962679A42300DC2794 /* LabelDataCenter.swift */; };
+		22FC5B9C2679A4C600DC2794 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC5B9B2679A4C600DC2794 /* Label.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +72,9 @@
 		2205F72226724DF900FA4F91 /* IssueListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListDataSource.swift; sourceTree = "<group>"; };
 		2205F7282672504C00FA4F91 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		2205F72E267255E300FA4F91 /* FilterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterStatus.swift; sourceTree = "<group>"; };
+		221E95A42679CC29007B7180 /* MilestoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneViewController.swift; sourceTree = "<group>"; };
+		221E95B02679CCBD007B7180 /* MilestoneDataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneDataCenter.swift; sourceTree = "<group>"; };
+		221E95B62679CD5A007B7180 /* MilestoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneTableViewCell.swift; sourceTree = "<group>"; };
 		22330AC4266F13FD0062B78B /* IssueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
 		22330AC9266F4BF40062B78B /* IssueListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListTableViewCell.swift; sourceTree = "<group>"; };
 		22330AD2266F58FB0062B78B /* NSObject+ClassNameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassNameProtocol.swift"; sourceTree = "<group>"; };
@@ -97,6 +107,10 @@
 		22E6D6BC26719C9900943003 /* AppleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleViewController.swift; sourceTree = "<group>"; };
 		22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerViewController.swift; sourceTree = "<group>"; };
 		22FC5B7A26798F2100DC2794 /* IssueListCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListCenter.swift; sourceTree = "<group>"; };
+		22FC5B8A26799EA400DC2794 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
+		22FC5B902679A2A300DC2794 /* LabelListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelListTableViewCell.swift; sourceTree = "<group>"; };
+		22FC5B962679A42300DC2794 /* LabelDataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelDataCenter.swift; sourceTree = "<group>"; };
+		22FC5B9B2679A4C600DC2794 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +158,32 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		221E95A32679CBEB007B7180 /* Milestone */ = {
+			isa = PBXGroup;
+			children = (
+				221E95A42679CC29007B7180 /* MilestoneViewController.swift */,
+				221E95B52679CD2E007B7180 /* View */,
+				221E95AC2679CC8E007B7180 /* Model */,
+			);
+			path = Milestone;
+			sourceTree = "<group>";
+		};
+		221E95AC2679CC8E007B7180 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				221E95B02679CCBD007B7180 /* MilestoneDataCenter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		221E95B52679CD2E007B7180 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				221E95B62679CD5A007B7180 /* MilestoneTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		22330ABC266F12EC0062B78B /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +219,7 @@
 				225BA7A426710DCC00BCA2B8 /* GithubUser.swift */,
 				2205F70F2672468A00FA4F91 /* Issue.swift */,
 				2205F714267247EC00FA4F91 /* IssueLabel.swift */,
+				22FC5B9B2679A4C600DC2794 /* Label.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -215,6 +256,8 @@
 				22E6D6C72671B2DA00943003 /* TabBar */,
 				22330AC0266F12F70062B78B /* IssueList */,
 				2205F72726724F6300FA4F91 /* Filter */,
+				22FC5B8626799E5600DC2794 /* LabelViewController */,
+				221E95A32679CBEB007B7180 /* Milestone */,
 				22780790266E10D80064B12D /* Network */,
 				225BA7A326710DA400BCA2B8 /* DTO */,
 				2278075B266E0F4B0064B12D /* Main.storyboard */,
@@ -286,6 +329,32 @@
 			isa = PBXGroup;
 			children = (
 				22FC5B7A26798F2100DC2794 /* IssueListCenter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22FC5B8626799E5600DC2794 /* LabelViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22FC5B8A26799EA400DC2794 /* LabelViewController.swift */,
+				22FC5B8F2679A28700DC2794 /* View */,
+				22FC5B952679A3B500DC2794 /* Model */,
+			);
+			path = LabelViewController;
+			sourceTree = "<group>";
+		};
+		22FC5B8F2679A28700DC2794 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				22FC5B902679A2A300DC2794 /* LabelListTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		22FC5B952679A3B500DC2794 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22FC5B962679A42300DC2794 /* LabelDataCenter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -436,9 +505,11 @@
 				22330AD3266F58FB0062B78B /* NSObject+ClassNameProtocol.swift in Sources */,
 				2205F7102672468A00FA4F91 /* Issue.swift in Sources */,
 				227EE2CA2671143F008B02BB /* OAuthManager.swift in Sources */,
+				221E95A52679CC29007B7180 /* MilestoneViewController.swift in Sources */,
 				22E6D6BD26719C9900943003 /* AppleViewController.swift in Sources */,
 				2205F715267247EC00FA4F91 /* IssueLabel.swift in Sources */,
 				225BA7A526710DCC00BCA2B8 /* GithubUser.swift in Sources */,
+				22FC5B912679A2A300DC2794 /* LabelListTableViewCell.swift in Sources */,
 				2278075A266E0F4B0064B12D /* OAuthViewController.swift in Sources */,
 				22780756266E0F4B0064B12D /* AppDelegate.swift in Sources */,
 				2205F72326724DF900FA4F91 /* IssueListDataSource.swift in Sources */,
@@ -446,15 +517,20 @@
 				227EE2C52671102B008B02BB /* URL.swift in Sources */,
 				22A6CB3926707E130030F2AE /* LabelCollectionViewCell.swift in Sources */,
 				22330AC5266F13FD0062B78B /* IssueListViewController.swift in Sources */,
+				22FC5B8B26799EA400DC2794 /* LabelViewController.swift in Sources */,
 				22330ACA266F4BF40062B78B /* IssueListTableViewCell.swift in Sources */,
+				221E95B72679CD5A007B7180 /* MilestoneTableViewCell.swift in Sources */,
 				2205F7292672504C00FA4F91 /* FilterViewController.swift in Sources */,
 				22330ADB266F66A90062B78B /* UIColor.swift in Sources */,
+				22FC5B9C2679A4C600DC2794 /* Label.swift in Sources */,
 				22780758266E0F4B0064B12D /* SceneDelegate.swift in Sources */,
 				2205F72F267255E300FA4F91 /* FilterStatus.swift in Sources */,
 				22FC5B7B26798F2100DC2794 /* IssueListCenter.swift in Sources */,
 				229E79742670FC8E008B0E49 /* CellLabel.swift in Sources */,
 				22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */,
 				22780795266E115E0064B12D /* ServerAPI.swift in Sources */,
+				22FC5B972679A42300DC2794 /* LabelDataCenter.swift in Sources */,
+				221E95B12679CCBD007B7180 /* MilestoneDataCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
