@@ -12,7 +12,8 @@ class IssueListTableViewCell: UITableViewCell {
     @IBOutlet weak var issueDescroption: UILabel!
     @IBOutlet weak var milestone: UILabel!
     @IBOutlet weak var labelCollectionView: UICollectionView!
-    
+    private var issueListCenter: IssueListCenter!
+    private var currentCellIndex: Int!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,19 @@ class IssueListTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func setIssueListCenter(_ issueListCenter: IssueListCenter) {
+        self.issueListCenter = issueListCenter
+    }
+    
+    func configure(index: Int) {
+        self.currentCellIndex = index
+        let issue = self.issueListCenter.issueList[index]
+        self.title.text = issue.title
+        self.issueDescroption.text = issue.issueDescription
+        self.milestone.text = issue.milestoneTitle
+        self.labelCollectionView.reloadData()
     }
     
     private func setLabelCollectionViewFlowLayout() {
@@ -41,19 +55,25 @@ class IssueListTableViewCell: UITableViewCell {
 
 extension IssueListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        guard let issueListCenter = issueListCenter else { return 0 }
+        return issueListCenter.issueList[currentCellIndex].labelList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LabelCollectionViewCell.className, for: indexPath) as? LabelCollectionViewCell else { return UICollectionViewCell() }
-        cell.configure(text: "Hello~!~!~!", backgroundColor: UIColor.init("#ADDF12"))
+        guard let issueListCenter = issueListCenter else { return cell }
+        let label = issueListCenter.issueList[currentCellIndex].labelList[indexPath.row]
+        cell.configure(text: label.title, backgroundColor: UIColor.init(label.hex))
         return cell
     }
 }
 
 extension IssueListTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var size = "Hello~!~!~!".size(withAttributes: [
+        guard let issueListCenter = issueListCenter,
+              let cellIndex = currentCellIndex else { return CGSize() }
+        let label = issueListCenter.issueList[cellIndex].labelList[indexPath.row]
+        var size = label.title.size(withAttributes: [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)
         ])
         size.width = size.width + 40

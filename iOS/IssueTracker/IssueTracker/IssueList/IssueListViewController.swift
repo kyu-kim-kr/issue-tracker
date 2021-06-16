@@ -11,19 +11,57 @@ class IssueListViewController: UIViewController {
     @IBOutlet weak var issueListTableView: UITableView!
     @IBOutlet weak var writeButton: UIButton!
     private var searchController = UISearchController(searchResultsController: nil)
-    
+    private lazy var dataSource = makeDataSource()
+    typealias DataSource = IssueListDataSource
+    typealias Snapshot = NSDiffableDataSourceSnapshot<IssueListSection, Issue>
+    var issueListCenter: IssueListCenter!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.issueListCenter = IssueListCenter()
+        self.bind()
         self.makeBarButton()
         self.configureWriteButton()
         self.setupSearchController()
+        self.issueListCenter.getIssueList()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNavigationController()
+    }
+    
+    private func bind() {
+        self.issueListCenter.listLoadHandler = { issueList in
+            self.applySnapshot(issueList: issueList, animatingDifferences: false)
+        }
+    }
+    
+    private func makeDataSource() -> DataSource {
+        DataSource.init(tableView: issueListTableView) { (tableView, indexPath, issue) -> UITableViewCell? in
+            let cell = tableView.dequeueReusableCell(withIdentifier: IssueListTableViewCell.className, for: indexPath) as? IssueListTableViewCell
+            cell?.setIssueListCenter(self.issueListCenter)
+            cell?.configure(index: indexPath.row)
+            return cell
+        }
+    }
+    
+    private func applySnapshot(issueList: [Issue], animatingDifferences: Bool = true) {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(issueList)
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+    }
+    
+    private func setNavigationController() {
+        self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.tabBarController?.navigationItem.title = "이슈"
     }
     
     private func setupSearchController() {
-        self.navigationItem.searchController = self.searchController
-        self.navigationItem.searchController?.searchResultsUpdater = self
-        self.navigationItem.searchController?.obscuresBackgroundDuringPresentation = false
-        self.navigationItem.hidesSearchBarWhenScrolling = true
+        self.tabBarController?.navigationItem.searchController = self.searchController
+        self.tabBarController?.navigationItem.searchController?.searchResultsUpdater = self
+        self.tabBarController?.navigationItem.searchController?.obscuresBackgroundDuringPresentation = false
+        self.tabBarController?.navigationItem.hidesSearchBarWhenScrolling = true
     }
     
     private func configureWriteButton() {
@@ -43,7 +81,8 @@ class IssueListViewController: UIViewController {
     }
     
     @objc func filterIssue(_ sender: UIBarButtonItem) {
-        print("filter")
+        guard let vc = self.storyboard?.instantiateViewController(identifier: FilterViewController.className) as? FilterViewController else { return }
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc func selectIssue(_ sender: UIBarButtonItem) {
@@ -53,28 +92,18 @@ class IssueListViewController: UIViewController {
 
 extension IssueListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        return 200
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
-}
-
-extension IssueListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: IssueListTableViewCell.className) as? IssueListTableViewCell else { return UITableViewCell() }
-        cell.title.text = "title"
-        return cell
-    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "삭제") { (action, view, completion) in
             print("delete")
+            self.issueListCenter.deleteIssue(index: indexPath.row)
+            completion(true)
         }
         let deleteImage = UIImage(systemName: "trash")
         delete.image = deleteImage
@@ -85,15 +114,16 @@ extension IssueListViewController: UITableViewDataSource {
         let closeImage = UIImage(systemName: "archivebox")
         close.image = closeImage
         close.backgroundColor = UIColor.init("#CCD4FF", alpha: 1)
-        return UISwipeActionsConfiguration(actions: [close, delete])
+        let swipeConfig = UISwipeActionsConfiguration(actions: [close, delete])
+        swipeConfig.performsFirstActionWithFullSwipe = false
+        return swipeConfig
     }
-    
 }
 
 extension IssueListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let query = searchController.searchBar.text
-        
-        
+        let issueList = self.issueListCenter.issueList.filter({ $0.title.contains(query ?? "") })
+        self.applySnapshot(issueList: issueList)
     }
 }

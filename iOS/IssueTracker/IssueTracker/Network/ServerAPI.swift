@@ -15,6 +15,7 @@ struct ServerAPI {
     enum Endpoint: String {
         case detail = "/detail"
         case github = "/api/login/auth"
+        case list = "/api/issues"
     }
 }
 
@@ -70,6 +71,7 @@ final class AlamofireNetworkManager {
                                parameters: [String: Any]?,
                                completionHandler: @escaping (Result<T, NetworkError>) -> Void) {
         let address = baseAddress + endPoint.rawValue
+        print(address)
         AF.request(address,
                    method: method,
                    parameters: parameters,

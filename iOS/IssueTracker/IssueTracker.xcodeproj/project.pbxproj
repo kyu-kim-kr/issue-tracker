@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2205F7102672468A00FA4F91 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205F70F2672468A00FA4F91 /* Issue.swift */; };
+		2205F715267247EC00FA4F91 /* IssueLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205F714267247EC00FA4F91 /* IssueLabel.swift */; };
+		2205F72326724DF900FA4F91 /* IssueListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205F72226724DF900FA4F91 /* IssueListDataSource.swift */; };
+		2205F7292672504C00FA4F91 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205F7282672504C00FA4F91 /* FilterViewController.swift */; };
+		2205F72F267255E300FA4F91 /* FilterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205F72E267255E300FA4F91 /* FilterStatus.swift */; };
 		22330AC5266F13FD0062B78B /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AC4266F13FD0062B78B /* IssueListViewController.swift */; };
 		22330ACA266F4BF40062B78B /* IssueListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AC9266F4BF40062B78B /* IssueListTableViewCell.swift */; };
 		22330AD3266F58FB0062B78B /* NSObject+ClassNameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AD2266F58FB0062B78B /* NSObject+ClassNameProtocol.swift */; };
@@ -34,6 +39,7 @@
 		22E6D6BD26719C9900943003 /* AppleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6BC26719C9900943003 /* AppleViewController.swift */; };
 		22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */; };
 		22E6D6DB2671BD0C00943003 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 22E6D6DA2671BD0C00943003 /* Lottie */; };
+		22FC5B7B26798F2100DC2794 /* IssueListCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC5B7A26798F2100DC2794 /* IssueListCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2205F70F2672468A00FA4F91 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		2205F714267247EC00FA4F91 /* IssueLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueLabel.swift; sourceTree = "<group>"; };
+		2205F72226724DF900FA4F91 /* IssueListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListDataSource.swift; sourceTree = "<group>"; };
+		2205F7282672504C00FA4F91 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		2205F72E267255E300FA4F91 /* FilterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterStatus.swift; sourceTree = "<group>"; };
 		22330AC4266F13FD0062B78B /* IssueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
 		22330AC9266F4BF40062B78B /* IssueListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListTableViewCell.swift; sourceTree = "<group>"; };
 		22330AD2266F58FB0062B78B /* NSObject+ClassNameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassNameProtocol.swift"; sourceTree = "<group>"; };
@@ -85,6 +96,7 @@
 		22E6D6B82671931D00943003 /* IssueTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueTracker.entitlements; sourceTree = "<group>"; };
 		22E6D6BC26719C9900943003 /* AppleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleViewController.swift; sourceTree = "<group>"; };
 		22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerViewController.swift; sourceTree = "<group>"; };
+		22FC5B7A26798F2100DC2794 /* IssueListCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +127,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2205F72726724F6300FA4F91 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				2205F7282672504C00FA4F91 /* FilterViewController.swift */,
+				2205F72D267255AE00FA4F91 /* Model */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		2205F72D267255AE00FA4F91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2205F72E267255E300FA4F91 /* FilterStatus.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		22330ABC266F12EC0062B78B /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				22330AC4266F13FD0062B78B /* IssueListViewController.swift */,
+				22FC5B7926798F0100DC2794 /* Model */,
 				229E7986267108E8008B0E49 /* View */,
 			);
 			path = IssueList;
@@ -147,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				225BA7A426710DCC00BCA2B8 /* GithubUser.swift */,
+				2205F70F2672468A00FA4F91 /* Issue.swift */,
+				2205F714267247EC00FA4F91 /* IssueLabel.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -182,6 +214,7 @@
 				22330ABC266F12EC0062B78B /* OAuth */,
 				22E6D6C72671B2DA00943003 /* TabBar */,
 				22330AC0266F12F70062B78B /* IssueList */,
+				2205F72726724F6300FA4F91 /* Filter */,
 				22780790266E10D80064B12D /* Network */,
 				225BA7A326710DA400BCA2B8 /* DTO */,
 				2278075B266E0F4B0064B12D /* Main.storyboard */,
@@ -228,6 +261,7 @@
 				22A6CB3726707E130030F2AE /* LabelCollectionViewCell.swift */,
 				229E79652670EAC1008B0E49 /* LabelCollectionViewCell.xib */,
 				229E79732670FC8E008B0E49 /* CellLabel.swift */,
+				2205F72226724DF900FA4F91 /* IssueListDataSource.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,6 +280,14 @@
 				22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		22FC5B7926798F0100DC2794 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22FC5B7A26798F2100DC2794 /* IssueListCenter.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,18 +434,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				22330AD3266F58FB0062B78B /* NSObject+ClassNameProtocol.swift in Sources */,
+				2205F7102672468A00FA4F91 /* Issue.swift in Sources */,
 				227EE2CA2671143F008B02BB /* OAuthManager.swift in Sources */,
 				22E6D6BD26719C9900943003 /* AppleViewController.swift in Sources */,
+				2205F715267247EC00FA4F91 /* IssueLabel.swift in Sources */,
 				225BA7A526710DCC00BCA2B8 /* GithubUser.swift in Sources */,
 				2278075A266E0F4B0064B12D /* OAuthViewController.swift in Sources */,
 				22780756266E0F4B0064B12D /* AppDelegate.swift in Sources */,
+				2205F72326724DF900FA4F91 /* IssueListDataSource.swift in Sources */,
 				229E797F2671073D008B0E49 /* LabelFlowLayout.swift in Sources */,
 				227EE2C52671102B008B02BB /* URL.swift in Sources */,
 				22A6CB3926707E130030F2AE /* LabelCollectionViewCell.swift in Sources */,
 				22330AC5266F13FD0062B78B /* IssueListViewController.swift in Sources */,
 				22330ACA266F4BF40062B78B /* IssueListTableViewCell.swift in Sources */,
+				2205F7292672504C00FA4F91 /* FilterViewController.swift in Sources */,
 				22330ADB266F66A90062B78B /* UIColor.swift in Sources */,
 				22780758266E0F4B0064B12D /* SceneDelegate.swift in Sources */,
+				2205F72F267255E300FA4F91 /* FilterStatus.swift in Sources */,
+				22FC5B7B26798F2100DC2794 /* IssueListCenter.swift in Sources */,
 				229E79742670FC8E008B0E49 /* CellLabel.swift in Sources */,
 				22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */,
 				22780795266E115E0064B12D /* ServerAPI.swift in Sources */,
