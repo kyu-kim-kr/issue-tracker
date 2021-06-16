@@ -21,13 +21,13 @@ class IssueListViewController: UIViewController {
         self.bind()
         self.makeBarButton()
         self.configureWriteButton()
-        self.setupSearchController()
         self.issueListCenter.getIssueList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationController()
+        self.setupSearchController()
     }
     
     private func bind() {

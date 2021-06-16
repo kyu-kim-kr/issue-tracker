@@ -8,6 +8,8 @@
 import UIKit
 
 class LabelViewController: UIViewController {
+    @IBOutlet weak var viewHeader: UIView!
+    @IBOutlet weak var viewHeaderConstraint: NSLayoutConstraint!
     @IBOutlet weak var labelListTableView: UITableView!
     var labelDataCenter: LabelDataCenter!
     
@@ -17,12 +19,14 @@ class LabelViewController: UIViewController {
         self.makeBarButton()
         self.bind()
         self.labelDataCenter.getLabels()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
         self.tabBarController?.navigationItem.title = "레이블"
+        self.tabBarController?.navigationItem.searchController = nil
     }
     
     func bind() {
@@ -61,5 +65,11 @@ extension LabelViewController: UITableViewDataSource {
 extension LabelViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
+    }
+}
+
+extension LabelViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        viewHeaderConstraint.constant = -scrollView.contentOffset.y
     }
 }

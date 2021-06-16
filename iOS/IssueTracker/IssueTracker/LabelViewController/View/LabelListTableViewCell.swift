@@ -28,7 +28,7 @@ class LabelListTableViewCell: UITableViewCell {
         
         self.descriptionLabel.text = labelInfo.labelDescription
         var size = (self.displayLabel.text ?? "").size(withAttributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)
         ])
         size.width = size.width + 40
         displayLabelWidth.constant = size.width

@@ -9,6 +9,7 @@ import UIKit
 
 class MilestoneViewController: UIViewController {
     @IBOutlet weak var milestoneTableView: UITableView!
+    @IBOutlet weak var viewHeaderConstraint: NSLayoutConstraint!
     var milestoneDataCenter: MilestoneDataCenter!
     
     override func viewDidLoad() {
@@ -24,6 +25,7 @@ class MilestoneViewController: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
         self.tabBarController?.navigationItem.title = "마일스톤"
+        self.tabBarController?.navigationItem.searchController = nil
     }
     
     func setTableView() {
@@ -58,5 +60,11 @@ extension MilestoneViewController: UITableViewDataSource {
 extension MilestoneViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
+    }
+}
+
+extension MilestoneViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        viewHeaderConstraint.constant = -scrollView.contentOffset.y
     }
 }
