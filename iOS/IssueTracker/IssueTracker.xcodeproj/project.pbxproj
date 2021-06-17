@@ -39,7 +39,7 @@
 		229E797F2671073D008B0E49 /* LabelFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E797E2671073D008B0E49 /* LabelFlowLayout.swift */; };
 		22A6CB3926707E130030F2AE /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6CB3726707E130030F2AE /* LabelCollectionViewCell.swift */; };
 		22B28F142671BE6B001E74C1 /* danceAlert.json in Resources */ = {isa = PBXBuildFile; fileRef = 22B28F132671BE6B001E74C1 /* danceAlert.json */; };
-		22E6D6BD26719C9900943003 /* AppleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6BC26719C9900943003 /* AppleViewController.swift */; };
+		22D13996267ADC6E000B1D97 /* NewLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D13995267ADC6E000B1D97 /* NewLabelViewController.swift */; };
 		22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */; };
 		22E6D6DB2671BD0C00943003 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 22E6D6DA2671BD0C00943003 /* Lottie */; };
 		22FC5B7B26798F2100DC2794 /* IssueListCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC5B7A26798F2100DC2794 /* IssueListCenter.swift */; };
@@ -103,8 +103,8 @@
 		229E797E2671073D008B0E49 /* LabelFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFlowLayout.swift; sourceTree = "<group>"; };
 		22A6CB3726707E130030F2AE /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		22B28F132671BE6B001E74C1 /* danceAlert.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = danceAlert.json; sourceTree = "<group>"; };
+		22D13995267ADC6E000B1D97 /* NewLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLabelViewController.swift; sourceTree = "<group>"; };
 		22E6D6B82671931D00943003 /* IssueTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueTracker.entitlements; sourceTree = "<group>"; };
-		22E6D6BC26719C9900943003 /* AppleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleViewController.swift; sourceTree = "<group>"; };
 		22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerViewController.swift; sourceTree = "<group>"; };
 		22FC5B7A26798F2100DC2794 /* IssueListCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListCenter.swift; sourceTree = "<group>"; };
 		22FC5B8A26799EA400DC2794 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +257,7 @@
 				22330AC0266F12F70062B78B /* IssueList */,
 				2205F72726724F6300FA4F91 /* Filter */,
 				22FC5B8626799E5600DC2794 /* LabelViewController */,
+				22D13994267ADC51000B1D97 /* NewLabelViewController */,
 				221E95A32679CBEB007B7180 /* Milestone */,
 				22780790266E10D80064B12D /* Network */,
 				225BA7A326710DA400BCA2B8 /* DTO */,
@@ -264,7 +265,6 @@
 				2278075E266E0F510064B12D /* Assets.xcassets */,
 				22780760266E0F510064B12D /* LaunchScreen.storyboard */,
 				22780763266E0F510064B12D /* Info.plist */,
-				22E6D6BC26719C9900943003 /* AppleViewController.swift */,
 				22330AD1266F58E30062B78B /* extension */,
 			);
 			path = IssueTracker;
@@ -315,6 +315,14 @@
 				227EE2C92671143F008B02BB /* OAuthManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		22D13994267ADC51000B1D97 /* NewLabelViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22D13995267ADC6E000B1D97 /* NewLabelViewController.swift */,
+			);
+			path = NewLabelViewController;
 			sourceTree = "<group>";
 		};
 		22E6D6C72671B2DA00943003 /* TabBar */ = {
@@ -506,7 +514,6 @@
 				2205F7102672468A00FA4F91 /* Issue.swift in Sources */,
 				227EE2CA2671143F008B02BB /* OAuthManager.swift in Sources */,
 				221E95A52679CC29007B7180 /* MilestoneViewController.swift in Sources */,
-				22E6D6BD26719C9900943003 /* AppleViewController.swift in Sources */,
 				2205F715267247EC00FA4F91 /* IssueLabel.swift in Sources */,
 				225BA7A526710DCC00BCA2B8 /* GithubUser.swift in Sources */,
 				22FC5B912679A2A300DC2794 /* LabelListTableViewCell.swift in Sources */,
@@ -530,6 +537,7 @@
 				22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */,
 				22780795266E115E0064B12D /* ServerAPI.swift in Sources */,
 				22FC5B972679A42300DC2794 /* LabelDataCenter.swift in Sources */,
+				22D13996267ADC6E000B1D97 /* NewLabelViewController.swift in Sources */,
 				221E95B12679CCBD007B7180 /* MilestoneDataCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

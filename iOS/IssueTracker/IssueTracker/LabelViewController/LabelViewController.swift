@@ -42,11 +42,12 @@ class LabelViewController: UIViewController {
     private func makeBarButton() {
         let rightBarImageButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(selectPlusButton(_:)))
         self.tabBarController?.navigationItem.rightBarButtonItem = rightBarImageButton
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil
+        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem()
     }
     
     @objc func selectPlusButton(_ sender: UIBarButtonItem) {
-        print("추가")
+        guard let vc = self.storyboard?.instantiateViewController(identifier: NewLabelViewController.className) as? NewLabelViewController else { return }
+        self.navigationController?.present(vc, animated: true, completion: nil)
     }
 }
 

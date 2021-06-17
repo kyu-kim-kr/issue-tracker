@@ -35,7 +35,7 @@ class LabelListTableViewCell: UITableViewCell {
         print(displayLabel.frame, displayLabel.bounds)
         self.descriptionLabel.sizeToFit()
         self.displayLabel.layer.masksToBounds = true
-        self.displayLabel.layer.cornerRadius = size.width / 10
+        self.displayLabel.layer.cornerRadius = 10
         
     }
 }

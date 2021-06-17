@@ -43,7 +43,7 @@ class MilestoneViewController: UIViewController {
     private func makeBarButton() {
         let rightBarImageButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(selectPlusButton(_:)))
         self.tabBarController?.navigationItem.rightBarButtonItem = rightBarImageButton
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil
+        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem()
     }
     
     @objc func selectPlusButton(_ sender: UIBarButtonItem) {
