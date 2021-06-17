@@ -7,8 +7,8 @@ import { unstable_createMuiStrictModeTheme } from '@material-ui/core/styles';
 import Header from 'components/header/Header';
 import { RecoilRoot } from 'recoil';
 import { Suspense } from 'react';
-import Router from 'Router';
 
+import Router from 'Router';
 const MuiTheme = unstable_createMuiStrictModeTheme();
 
 function App() {
