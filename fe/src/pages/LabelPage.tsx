@@ -6,9 +6,8 @@ const LabelPage = () => {
   return (
     <>
       <NavbarButtons type="Label" />
-      <StyledSpace>
-        <Labels />
-      </StyledSpace>
+      <StyledSpace />
+      <Labels />
     </>
   );
 };
@@ -16,5 +15,5 @@ const LabelPage = () => {
 export default LabelPage;
 
 const StyledSpace = styled.div`
-  margin-top: 1.5rem;
+  height: 1.5rem;
 `;

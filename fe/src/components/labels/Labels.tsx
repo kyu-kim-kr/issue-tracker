@@ -11,7 +11,9 @@ const Labels = () => {
   return (
     <Wrapper>
       <Upper>
-        <LabelsHeader>{labelCount}개의 레이블</LabelsHeader>
+        <LabelsHeader>
+          <span>{labelCount}개의 레이블</span>
+        </LabelsHeader>
       </Upper>
       <Lower>
         {labelList.map((labelItem) => (
@@ -32,5 +34,10 @@ const Labels = () => {
 export default Labels;
 
 const LabelsHeader = styled.div`
-  padding: 1.3rem 1.6rem;
+  padding: 1.125rem 2rem;
+
+  span {
+    font-weight: ${({ theme }) => theme.fontWeight.bold2};
+    color: ${({ theme }) => theme.color.grayscale.label};
+  }
 `;
