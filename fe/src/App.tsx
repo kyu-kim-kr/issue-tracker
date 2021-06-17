@@ -1,49 +1,25 @@
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'style/GlobalStyle';
 import { theme } from 'style/theme';
-import IssuesPage from 'pages/IssuesPage';
-import LoginPage from 'pages/LoginPage';
-import OAuthPage from 'pages/OAuthPage';
+
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import { unstable_createMuiStrictModeTheme } from '@material-ui/core/styles';
-import NewIssuePage from 'pages/NewIssuePage';
+import Header from 'components/header/Header';
 import { RecoilRoot } from 'recoil';
 import { Suspense } from 'react';
-import LabelPage from 'pages/LabelPage';
-import MilestoneListPage from 'pages/MilestoneListPage';
+import Router from 'Router';
 
 const MuiTheme = unstable_createMuiStrictModeTheme();
 
 function App() {
   return (
-    <RecoilRoot> 
+    <RecoilRoot>
       <Suspense fallback={<div>Loading...</div>}>
         <MuiThemeProvider theme={MuiTheme}>
           <ThemeProvider theme={theme}>
             <GlobalStyle />
-            <BrowserRouter>
-              <Switch>
-                <Route path={['/', '/issues']} exact>
-                  <IssuesPage />
-                </Route>
-                <Route path={'/issues/new-issue'} exact>
-                  <NewIssuePage />
-                </Route>
-                <Route path="/login" exact>
-                  <LoginPage />
-                </Route>
-                <Route path="/login/oauth">
-                  <OAuthPage />
-                </Route>
-                <Route path="/labels" exact>
-                  <LabelPage />
-                </Route>
-                <Route path="/milestones" exact>
-                  <MilestoneListPage />
-                </Route>
-              </Switch>
-            </BrowserRouter>
+             <Header />
+            <Router />
           </ThemeProvider>
         </MuiThemeProvider>
       </Suspense>

@@ -1,4 +1,3 @@
-
 import Header from 'components/header/Header';
 import Labels from 'components/labels/Labels';
 import NavbarButtons from 'components/navbar/NavbarButtons';
@@ -7,7 +6,6 @@ import styled from 'styled-components';
 const LabelPage = () => {
   return (
     <>
-      <Header />
       <NavbarButtons type="Label" />
       <StyledSpace>
         <Labels />

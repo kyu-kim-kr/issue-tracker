@@ -7,7 +7,6 @@ import styled from 'styled-components';
 const MilestoneListPage = () => {
   return (
     <>
-      <Header />
       <NavbarButtons type="Milestone" />
       <StyledSpace>
         <Milestones />
