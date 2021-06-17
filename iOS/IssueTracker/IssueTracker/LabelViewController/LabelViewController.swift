@@ -16,7 +16,6 @@ class LabelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.labelDataCenter = LabelDataCenter()
-        self.makeBarButton()
         self.bind()
         self.labelDataCenter.getLabels()
         
@@ -24,6 +23,11 @@ class LabelViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.makeBarButton()
+        self.setNavigationController()
+    }
+    
+    func setNavigationController() {
         self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
         self.tabBarController?.navigationItem.title = "레이블"
         self.tabBarController?.navigationItem.searchController = nil
@@ -37,7 +41,8 @@ class LabelViewController: UIViewController {
     
     private func makeBarButton() {
         let rightBarImageButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(selectPlusButton(_:)))
-        self.tabBarController?.navigationItem.leftBarButtonItem = rightBarImageButton
+        self.tabBarController?.navigationItem.rightBarButtonItem = rightBarImageButton
+        self.tabBarController?.navigationItem.leftBarButtonItem = nil
     }
     
     @objc func selectPlusButton(_ sender: UIBarButtonItem) {

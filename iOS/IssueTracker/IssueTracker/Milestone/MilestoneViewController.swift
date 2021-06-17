@@ -15,7 +15,6 @@ class MilestoneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.milestoneDataCenter = MilestoneDataCenter()
-        self.makeBarButton()
         self.bind()
         self.setTableView()
     }
@@ -23,6 +22,11 @@ class MilestoneViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.setNavigationController()
+        self.makeBarButton()
+    }
+    
+    func setNavigationController() {
         self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
         self.tabBarController?.navigationItem.title = "마일스톤"
         self.tabBarController?.navigationItem.searchController = nil
@@ -38,7 +42,8 @@ class MilestoneViewController: UIViewController {
     
     private func makeBarButton() {
         let rightBarImageButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(selectPlusButton(_:)))
-        self.tabBarController?.navigationItem.leftBarButtonItem = rightBarImageButton
+        self.tabBarController?.navigationItem.rightBarButtonItem = rightBarImageButton
+        self.tabBarController?.navigationItem.leftBarButtonItem = nil
     }
     
     @objc func selectPlusButton(_ sender: UIBarButtonItem) {

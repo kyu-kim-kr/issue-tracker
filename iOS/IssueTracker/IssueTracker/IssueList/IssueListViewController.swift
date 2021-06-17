@@ -19,13 +19,13 @@ class IssueListViewController: UIViewController {
         super.viewDidLoad()
         self.issueListCenter = IssueListCenter()
         self.bind()
-        self.makeBarButton()
         self.configureWriteButton()
         self.issueListCenter.getIssueList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.makeBarButton()
         self.setNavigationController()
         self.setupSearchController()
     }
@@ -75,9 +75,9 @@ class IssueListViewController: UIViewController {
     
     private func makeBarButton() {
         let rightBarImageButton = UIBarButtonItem(image: UIImage(systemName: "checkmark.circle"), style: .plain, target: self, action: #selector(selectIssue(_:)))
-        self.tabBarController?.navigationItem.leftBarButtonItem = rightBarImageButton
+        self.tabBarController?.navigationItem.rightBarButtonItem = rightBarImageButton
         let leftBarImageButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease"), style: .plain, target: self, action: #selector(filterIssue(_:)))
-        self.tabBarController?.navigationItem.rightBarButtonItem = leftBarImageButton
+        self.tabBarController?.navigationItem.leftBarButtonItem = leftBarImageButton
     }
     
     @objc func filterIssue(_ sender: UIBarButtonItem) {
