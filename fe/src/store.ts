@@ -7,6 +7,7 @@ type LabelDataType = {
   title: string;
   description: string;
   color_code: string;
+  text_color: string;
 };
 
 type MilestoneDataType = {
@@ -41,8 +42,10 @@ export const labelQuery = selector<FilterItemType[]>({
 
     return data.map((labelItem: LabelDataType) => ({
       id: labelItem.id,
-      description: labelItem.title,
+      title: labelItem.title,
+      description: labelItem.description,
       labelColor: labelItem.color_code,
+      textColor: labelItem.text_color,
     }));
   },
 });
@@ -67,34 +70,34 @@ export const milestoneQuery = selector<FilterItemType[]>({
   },
 });
 
-// export const authorQuery = selector({
-//   key: 'authorQuery',
-//   get: async () => {
-//     const { data } = await axios.get(
-//       `${process.env.REACT_APP_API_URL}/api/authors`
-//     );
+export const authorQuery = selector({
+  key: 'authorQuery',
+  get: async () => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_URL}/api/authors`
+    );
 
-//     return data.map((user: UserDataType) => ({
-//       id: user.user_id,
-//       description: user.name,
-//       imgurl: user.avatar_url,
-//     }));
-//   },
-// });
+    return data.map((user: UserDataType) => ({
+      id: user.user_id,
+      description: user.name,
+      imgurl: user.avatar_url,
+    }));
+  },
+});
 
-// export const assigneeQuery = selector({
-//   key: 'assigneeQuery',
-//   get: async () => {
-//     const { data } = await axios.get(
-//       `${process.env.REACT_APP_API_URL}/api/assignees`
-//     );
-//     return data.map((user: UserDataType) => ({
-//       id: user.user_id,
-//       description: user.name,
-//       imgurl: user.avatar_url,
-//     }));
-//   },
-// });
+export const assigneeQuery = selector({
+  key: 'assigneeQuery',
+  get: async () => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_URL}/api/assignees`
+    );
+    return data.map((user: UserDataType) => ({
+      id: user.user_id,
+      description: user.name,
+      imgurl: user.avatar_url,
+    }));
+  },
+});
 
 export const filterSelector = selector<TestType>({
   key: 'filterSelector',
@@ -102,8 +105,8 @@ export const filterSelector = selector<TestType>({
     return {
       labelList: get(labelQuery),
       milestoneList: get(milestoneQuery),
-      // authorList: get(authorQuery),
-      // assigneeList: get(assigneeQuery),
+      authorList: get(authorQuery),
+      assigneeList: get(assigneeQuery),
     };
   },
 });
@@ -111,6 +114,6 @@ export const filterSelector = selector<TestType>({
 type TestType = {
   labelList: FilterItemType[];
   milestoneList: FilterItemType[];
-  // authorList: FilterItemType[];
-  // assigneeList: FilterItemType[];
+  authorList: FilterItemType[];
+  assigneeList: FilterItemType[];
 };
