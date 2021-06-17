@@ -22,5 +22,7 @@ const MilestonesItem = ({
 export default MilestonesItem;
 
 const StyledMilestonesItem = styled.div`
+box-sizing: border-box;
   ${({ theme }) => theme.style.flexSpaceBetween}
+  padding: 1rem 1.5rem;
 `;

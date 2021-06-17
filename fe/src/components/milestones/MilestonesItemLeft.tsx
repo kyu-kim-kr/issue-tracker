@@ -10,16 +10,14 @@ const MilestonesItemLeft = ({
   return (
     <StyledMilestonesItemLeft>
       <div>
-        <MilestonsIcon />
-        <MilestonsItemTitle>{title}</MilestonsItemTitle>
+        <MilestonesIcon />
+        <MilestonesItemTitle>{title}</MilestonesItemTitle>
         <DueDate>
           <DueDateIcon />
           {dueDate}
         </DueDate>
       </div>
-      <div>
-          {description}
-      </div>
+      <MilestionesDescription>{description}</MilestionesDescription>
     </StyledMilestonesItemLeft>
   );
 };
@@ -28,17 +26,22 @@ export default MilestonesItemLeft;
 
 const StyledMilestonesItemLeft = styled.div`
   ${({ theme }) => theme.style.flexColum}
+  
 `;
 
-const MilestonsItemTitle = styled.span`
- margin: 0  0.5rem;
+const MilestionesDescription = styled.span`
+  color: ${({ theme }) => theme.color.grayscale.label};
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+`;
+
+const MilestonesItemTitle = styled.span`
+  margin: 0 0.5rem;
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
-const MilestonsIcon = styled(MilestoneSvg)`
-
-`;
+const MilestonesIcon = styled(MilestoneSvg)``;
 
 const DueDateIcon = styled(CalendarSvg)``;
 const DueDate = styled.span`
-  color: ${({ theme }) => theme.color.grayscale.line};
+  color: ${({ theme }) => theme.color.grayscale.label};
 `;

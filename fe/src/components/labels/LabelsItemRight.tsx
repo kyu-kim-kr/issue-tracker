@@ -5,12 +5,10 @@ import { ReactComponent as DeleteSvg } from 'icons/delete.svg';
 const LabelsItemRight = () => {
   return (
     <StlyedLabelsItemRight>
-      <EditButton>
-        <EditIcon /> 편집
-      </EditButton>
-      <DeleteButton>
-        <DeleteIcon /> 삭제
-      </DeleteButton>
+      <Button startIcon={<EditIcon />}>편집</Button>
+      <Button color="secondary" startIcon={<DeleteIcon />}>
+        삭제
+      </Button>
     </StlyedLabelsItemRight>
   );
 };
@@ -21,12 +19,7 @@ const StlyedLabelsItemRight = styled.div`
   display: flex;
 `;
 
-const EditButton = styled(Button)``;
-
 const EditIcon = styled(EditSvg)``;
 
-const DeleteButton = styled(Button)`
-  color: ${({ theme }) => theme.color.red};
-`;
 
 const DeleteIcon = styled(DeleteSvg)``;
