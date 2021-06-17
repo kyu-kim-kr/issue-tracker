@@ -1,6 +1,5 @@
 import axios from 'axios';
-import useAxios from 'hook/useAxios';
-import { atom, selector } from 'recoil';
+import { selector } from 'recoil';
 import { FilterItemType } from 'types/filterType';
 type LabelDataType = {
   id: number;
