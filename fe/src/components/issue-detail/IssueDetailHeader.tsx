@@ -56,7 +56,6 @@ const IssueDetailHeader = () => (
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
 `;
 
 const IssueDetailHeaderLeft = styled.div``;

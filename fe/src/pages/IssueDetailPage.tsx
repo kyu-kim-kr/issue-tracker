@@ -8,9 +8,15 @@ const IssueDetailPage = () => (
   <>
     <Header />
     <IssueDetailHeader />
+    <Spacer />
     <Divider />
-    <IssueDetailBody></IssueDetailBody>
+    <Spacer />
+    <IssueDetailBody />
   </>
 );
+
+const Spacer = styled.div`
+  height: 2rem;
+`;
 
 export default IssueDetailPage;
