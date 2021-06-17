@@ -18,7 +18,12 @@ const StyledLabel = styled.div<{ backgroundColor: string }>`
   margin-left: 1rem;
   padding: 0.2rem 0.9rem;
   font-weight: 600;
+
   &[aria-controls='white'] {
-    color: white;
+    color: ${({ theme }) => theme.color.grayscale.offWhite};
+  }
+
+  &[aria-controls='black'] {
+    color: ${({ theme }) => theme.color.grayscale.titleActive};
   }
 `;

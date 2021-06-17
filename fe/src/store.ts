@@ -26,13 +26,13 @@ type UserDataType = {
 };
 
 export const totalCountOfLabels = selector<number>({
-  key: 'labellength',
+  key: 'totalCountOfLabels',
   get: ({ get }) => {
     return get(labelQuery).length;
   },
 });
 
-export const labelQuery = selector<FilterItemType[]>({
+export const labelQuery = selector<LabelItemType[]>({
   key: 'labelQuery',
   get: async () => {
     const { data } = await axios.get(
@@ -50,7 +50,7 @@ export const labelQuery = selector<FilterItemType[]>({
 });
 
 export const totalCountOfMilestone = selector<number>({
-  key: 'milestonelength',
+  key: 'totalCountOfMilestone',
   get: ({ get }) => {
     return get(milestoneQuery).length;
   },
@@ -111,8 +111,16 @@ export const filterSelector = selector<TestType>({
 });
 
 type TestType = {
-  labelList: FilterItemType[];
+  labelList: LabelItemType[];
   milestoneList: FilterItemType[];
   authorList: FilterItemType[];
   assigneeList: FilterItemType[];
+};
+
+type LabelItemType = {
+  id: number;
+  title: string;
+  description: string;
+  labelColor: string;
+  textColor: 'black' | 'white';
 };
