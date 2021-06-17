@@ -8,7 +8,7 @@ const LabelPage = () => {
   return (
     <>
       <Header />
-      <NavbarButtons buttonType="추가" />
+      <NavbarButtons type="Label" />
       <StyledSpace>
         <Labels />
       </StyledSpace>

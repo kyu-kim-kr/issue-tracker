@@ -17,7 +17,7 @@ const MuiTheme = unstable_createMuiStrictModeTheme();
 
 function App() {
   return (
-    <RecoilRoot>
+    <RecoilRoot> 
       <Suspense fallback={<div>Loading...</div>}>
         <MuiThemeProvider theme={MuiTheme}>
           <ThemeProvider theme={theme}>
