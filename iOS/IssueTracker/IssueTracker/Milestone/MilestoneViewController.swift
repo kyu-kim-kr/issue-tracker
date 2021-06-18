@@ -47,7 +47,8 @@ class MilestoneViewController: UIViewController {
     }
     
     @objc func selectPlusButton(_ sender: UIBarButtonItem) {
-        print("추가")
+        guard let vc = self.storyboard?.instantiateViewController(identifier: NewMilestoneViewController.className) as? NewMilestoneViewController else { return }
+        self.navigationController?.present(vc, animated: true, completion: nil)
     }
 }
 
