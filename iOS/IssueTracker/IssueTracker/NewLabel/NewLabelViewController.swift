@@ -39,22 +39,32 @@ class NewLabelViewController: UIViewController {
     }
     
     @IBAction func titleEditingChanged(_ sender: UITextField) {
-        saveButton.isEnabled = sender.text == "" ? false : true
+        saveButton.isEnabled = checkFillTextField()
         displayingLabel.text = sender.text
         setLabelWidth(of: self.displayingLabel, labelWidth: self.displayingLabelWidth)
     }
     
     @IBAction func hexColorEditingChanged(_ sender: UITextField) {
-        if sender.text?.count ?? 0 > 7 {
-            sender.text?.removeLast()
+        if !(sender.text ?? "").match(for: "^#(?:[0-9a-fA-F]{6})") {
+            self.displayingLabel.backgroundColor = .clear
+            self.saveButton.isEnabled = false
+        } else {
+            self.displayingLabel.backgroundColor = UIColor.init(sender.text ?? "")
+            saveButton.isEnabled = checkFillTextField()
         }
-        self.displayingLabel.backgroundColor = UIColor.init(sender.text ?? "")
+    }
+    
+    private func checkFillTextField() -> Bool {
+        return self.titleTextField.text != "" && self.hexColorTextField.text != ""
     }
     
     @IBAction func colorResetButton(_ sender: UIButton) {
-        self.displayingLabel.backgroundColor = .white
-        self.hexColorTextField.text = "#FFFFFF"
-        
+        let letters = "0123456789ABCDEF"
+        let hexColorCode = "#" + (0..<6).map({ Int -> String in String(letters.randomElement()!)
+        }).joined()
+        self.displayingLabel.backgroundColor = UIColor.init(hexColorCode)
+        self.hexColorTextField.text = hexColorCode
+        saveButton.isEnabled = checkFillTextField()
     }
     
     @IBAction func touchSaveButton(_ sender: UIButton) {

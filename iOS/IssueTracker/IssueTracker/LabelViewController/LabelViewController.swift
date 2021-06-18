@@ -31,6 +31,7 @@ class LabelViewController: UIViewController {
         self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
         self.tabBarController?.navigationItem.title = "레이블"
         self.tabBarController?.navigationItem.searchController = nil
+        
     }
     
     func bind() {

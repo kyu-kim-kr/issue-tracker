@@ -71,6 +71,6 @@ extension MilestoneViewController: UITableViewDelegate {
 
 extension MilestoneViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        viewHeaderConstraint.constant = -scrollView.contentOffset.y
+//        viewHeaderConstraint.constant = -scrollView.contentOffset.y
     }
 }

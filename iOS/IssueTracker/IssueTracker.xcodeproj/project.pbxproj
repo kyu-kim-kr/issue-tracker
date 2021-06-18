@@ -20,6 +20,7 @@
 		22330AD3266F58FB0062B78B /* NSObject+ClassNameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AD2266F58FB0062B78B /* NSObject+ClassNameProtocol.swift */; };
 		22330ADB266F66A90062B78B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330ADA266F66A90062B78B /* UIColor.swift */; };
 		223F4A052671C3F3007E9C77 /* TMONBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 223F4A042671C3F2007E9C77 /* TMONBlack.ttf */; };
+		2252FD89267C35B100E8E70E /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252FD88267C35B100E8E70E /* IssueDetailViewController.swift */; };
 		225BA79B26710B9700BCA2B8 /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 225BA79A26710B9700BCA2B8 /* OctoKit */; };
 		225BA7A526710DCC00BCA2B8 /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225BA7A426710DCC00BCA2B8 /* GithubUser.swift */; };
 		22780756266E0F4B0064B12D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22780755266E0F4B0064B12D /* AppDelegate.swift */; };
@@ -83,6 +84,7 @@
 		22330AD2266F58FB0062B78B /* NSObject+ClassNameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassNameProtocol.swift"; sourceTree = "<group>"; };
 		22330ADA266F66A90062B78B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		223F4A042671C3F2007E9C77 /* TMONBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TMONBlack.ttf; sourceTree = "<group>"; };
+		2252FD88267C35B100E8E70E /* IssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 		225BA7A426710DCC00BCA2B8 /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
 		22780752266E0F4B0064B12D /* IssueTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IssueTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22780755266E0F4B0064B12D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +222,14 @@
 			path = extension;
 			sourceTree = "<group>";
 		};
+		2252FD87267C359900E8E70E /* IssueDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2252FD88267C35B100E8E70E /* IssueDetailViewController.swift */,
+			);
+			path = IssueDetail;
+			sourceTree = "<group>";
+		};
 		225BA7A326710DA400BCA2B8 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +274,7 @@
 				22330AC0266F12F70062B78B /* IssueList */,
 				2205F72726724F6300FA4F91 /* Filter */,
 				22FC5B8626799E5600DC2794 /* LabelViewController */,
+				2252FD87267C359900E8E70E /* IssueDetail */,
 				22D13994267ADC51000B1D97 /* NewLabel */,
 				221E95A32679CBEB007B7180 /* Milestone */,
 				22A748CB267C18770028E28C /* NewMilestone */,
@@ -537,6 +548,7 @@
 			files = (
 				22330AD3266F58FB0062B78B /* NSObject+ClassNameProtocol.swift in Sources */,
 				2205F7102672468A00FA4F91 /* Issue.swift in Sources */,
+				2252FD89267C35B100E8E70E /* IssueDetailViewController.swift in Sources */,
 				227EE2CA2671143F008B02BB /* OAuthManager.swift in Sources */,
 				221E95A52679CC29007B7180 /* MilestoneViewController.swift in Sources */,
 				22A748CD267C18980028E28C /* NewMilestoneViewController.swift in Sources */,

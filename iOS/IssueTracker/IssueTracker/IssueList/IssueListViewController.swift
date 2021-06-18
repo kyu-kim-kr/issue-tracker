@@ -27,7 +27,6 @@ class IssueListViewController: UIViewController {
         super.viewWillAppear(animated)
         self.makeBarButton()
         self.setNavigationController()
-        self.setupSearchController()
     }
     
     private func bind() {
@@ -55,12 +54,6 @@ class IssueListViewController: UIViewController {
     private func setNavigationController() {
         self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
         self.tabBarController?.navigationItem.title = "이슈"
-    }
-    
-    private func setupSearchController() {
-        self.tabBarController?.navigationItem.searchController = self.searchController
-        self.tabBarController?.navigationItem.searchController?.searchResultsUpdater = self
-        self.tabBarController?.navigationItem.searchController?.obscuresBackgroundDuringPresentation = false
         self.tabBarController?.navigationItem.hidesSearchBarWhenScrolling = true
     }
     
@@ -117,13 +110,5 @@ extension IssueListViewController: UITableViewDelegate {
         let swipeConfig = UISwipeActionsConfiguration(actions: [close, delete])
         swipeConfig.performsFirstActionWithFullSwipe = false
         return swipeConfig
-    }
-}
-
-extension IssueListViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let query = searchController.searchBar.text
-        let issueList = self.issueListCenter.issueList.filter({ $0.title.contains(query ?? "") })
-        self.applySnapshot(issueList: issueList)
     }
 }
