@@ -77,6 +77,7 @@ extension IssueListTableViewCell: UICollectionViewDelegateFlowLayout {
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)
         ])
         size.width = size.width + 40
+        size.height = 30
         return size
     }
 }

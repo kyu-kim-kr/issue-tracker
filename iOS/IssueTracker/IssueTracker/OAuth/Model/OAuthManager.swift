@@ -12,7 +12,7 @@ import AuthenticationServices
 class OAuthManager {
     let alamofireNetworkManager: AlamofireNetworkManager
     var errorHandler: ((String) -> ())?
-    lazy var config = OAuthConfiguration.init(token: "5478b59babc40b37205d", //MARK: - 클라이언트 아이디를 채우자
+    lazy var config = OAuthConfiguration.init(token: "5478b59babc40b37205d",
                                               secret: "",
                                               scopes: ["user"])
     
