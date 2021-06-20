@@ -8,6 +8,14 @@
 import Foundation
 import Alamofire
 
+protocol Networkable {
+    func request<T: Decodable>(decodingType: T.Type,
+                               endPoint: ServerAPI.Endpoint,
+                               method: HTTPMethod,
+                               parameters: [String: Any]?,
+                               completionHandler: @escaping (Result<T, NetworkError>) -> Void)
+}
+
 struct ServerAPI {
     static var baseURL = "http://"
     static var scheme = "issue-tracker"
@@ -72,7 +80,6 @@ final class AlamofireNetworkManager {
                                parameters: [String: Any]?,
                                completionHandler: @escaping (Result<T, NetworkError>) -> Void) {
         let address = baseAddress + endPoint.rawValue
-        print(address)
         AF.request(address,
                    method: method,
                    parameters: parameters,

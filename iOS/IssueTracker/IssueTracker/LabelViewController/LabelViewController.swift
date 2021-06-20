@@ -44,6 +44,7 @@ class LabelViewController: UIViewController {
         let rightBarImageButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(selectPlusButton(_:)))
         self.tabBarController?.navigationItem.rightBarButtonItem = rightBarImageButton
         self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem()
+        self.tabBarController?.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     @objc func selectPlusButton(_ sender: UIBarButtonItem) {

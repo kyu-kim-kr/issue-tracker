@@ -30,6 +30,7 @@ class MilestoneViewController: UIViewController {
         self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
         self.tabBarController?.navigationItem.title = "마일스톤"
         self.tabBarController?.navigationItem.searchController = nil
+        self.tabBarController?.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func setTableView() {

@@ -55,6 +55,7 @@ class IssueListViewController: UIViewController {
         self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
         self.tabBarController?.navigationItem.title = "이슈"
         self.tabBarController?.navigationItem.hidesSearchBarWhenScrolling = true
+        self.tabBarController?.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func configureWriteButton() {
