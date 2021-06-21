@@ -17,7 +17,7 @@ const OAuthPage = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      localStorage.setItem('jwt', JSON.stringify(data));
+      localStorage.setItem('jwt', data.jwt);
       history.push('/issues');
     }
   });
