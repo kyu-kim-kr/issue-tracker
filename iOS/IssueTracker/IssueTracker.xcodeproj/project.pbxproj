@@ -15,6 +15,8 @@
 		221E95A52679CC29007B7180 /* MilestoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95A42679CC29007B7180 /* MilestoneViewController.swift */; };
 		221E95B12679CCBD007B7180 /* MilestoneDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95B02679CCBD007B7180 /* MilestoneDataCenter.swift */; };
 		221E95B72679CD5A007B7180 /* MilestoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95B62679CD5A007B7180 /* MilestoneTableViewCell.swift */; };
+		2229BF74267F842400AEBE53 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = 2229BF73267F842400AEBE53 /* MarkdownView */; };
+		2229BF7C268014F500AEBE53 /* WriteInfoDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229BF7B268014F500AEBE53 /* WriteInfoDataCenter.swift */; };
 		22330AC5266F13FD0062B78B /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AC4266F13FD0062B78B /* IssueListViewController.swift */; };
 		22330ACA266F4BF40062B78B /* IssueListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AC9266F4BF40062B78B /* IssueListTableViewCell.swift */; };
 		22330AD3266F58FB0062B78B /* NSObject+ClassNameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22330AD2266F58FB0062B78B /* NSObject+ClassNameProtocol.swift */; };
@@ -80,6 +82,7 @@
 		221E95A42679CC29007B7180 /* MilestoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneViewController.swift; sourceTree = "<group>"; };
 		221E95B02679CCBD007B7180 /* MilestoneDataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneDataCenter.swift; sourceTree = "<group>"; };
 		221E95B62679CD5A007B7180 /* MilestoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneTableViewCell.swift; sourceTree = "<group>"; };
+		2229BF7B268014F500AEBE53 /* WriteInfoDataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteInfoDataCenter.swift; sourceTree = "<group>"; };
 		22330AC4266F13FD0062B78B /* IssueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
 		22330AC9266F4BF40062B78B /* IssueListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListTableViewCell.swift; sourceTree = "<group>"; };
 		22330AD2266F58FB0062B78B /* NSObject+ClassNameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassNameProtocol.swift"; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 			files = (
 				225BA79B26710B9700BCA2B8 /* OctoKit in Frameworks */,
 				2278078C266E10D40064B12D /* Alamofire in Frameworks */,
+				2229BF74267F842400AEBE53 /* MarkdownView in Frameworks */,
 				22E6D6DB2671BD0C00943003 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +198,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2229BF80268014F900AEBE53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2229BF7B268014F500AEBE53 /* WriteInfoDataCenter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		22330ABC266F12EC0062B78B /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				2246877F267EC7C900D7150A /* WriteViewController.swift */,
+				2229BF80268014F900AEBE53 /* Model */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -434,6 +447,7 @@
 				2278078B266E10D40064B12D /* Alamofire */,
 				225BA79A26710B9700BCA2B8 /* OctoKit */,
 				22E6D6DA2671BD0C00943003 /* Lottie */,
+				2229BF73267F842400AEBE53 /* MarkdownView */,
 			);
 			productName = IssueTracker;
 			productReference = 22780752266E0F4B0064B12D /* IssueTracker.app */;
@@ -510,6 +524,7 @@
 				2278078A266E10D40064B12D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				225BA79926710B9700BCA2B8 /* XCRemoteSwiftPackageReference "octokit" */,
 				22E6D6D92671BD0C00943003 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				2229BF72267F842400AEBE53 /* XCRemoteSwiftPackageReference "MarkdownView" */,
 			);
 			productRefGroup = 22780753266E0F4B0064B12D /* Products */;
 			projectDirPath = "";
@@ -574,6 +589,7 @@
 				227EE2C52671102B008B02BB /* URL.swift in Sources */,
 				22A6CB3926707E130030F2AE /* LabelCollectionViewCell.swift in Sources */,
 				22330AC5266F13FD0062B78B /* IssueListViewController.swift in Sources */,
+				2229BF7C268014F500AEBE53 /* WriteInfoDataCenter.swift in Sources */,
 				22FC5B8B26799EA400DC2794 /* LabelViewController.swift in Sources */,
 				22468780267EC7C900D7150A /* WriteViewController.swift in Sources */,
 				22330ACA266F4BF40062B78B /* IssueListTableViewCell.swift in Sources */,
@@ -921,6 +937,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2229BF72267F842400AEBE53 /* XCRemoteSwiftPackageReference "MarkdownView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/keitaoouchi/MarkdownView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.1;
+			};
+		};
 		225BA79926710B9700BCA2B8 /* XCRemoteSwiftPackageReference "octokit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nerdishbynature/octokit.swift";
@@ -948,6 +972,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2229BF73267F842400AEBE53 /* MarkdownView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2229BF72267F842400AEBE53 /* XCRemoteSwiftPackageReference "MarkdownView" */;
+			productName = MarkdownView;
+		};
 		225BA79A26710B9700BCA2B8 /* OctoKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 225BA79926710B9700BCA2B8 /* XCRemoteSwiftPackageReference "octokit" */;
