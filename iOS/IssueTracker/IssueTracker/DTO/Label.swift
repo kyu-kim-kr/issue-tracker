@@ -12,12 +12,12 @@ struct Label: Codable {
     var title: String
     var labelDescription: String
     var colorCode: String
-    var textColor: String
+    var isWhiteFontColor: Bool
     
     enum CodingKeys: String, CodingKey {
         case id, title
         case labelDescription = "description"
         case colorCode = "color_code"
-        case textColor = "text_color"
+        case isWhiteFontColor = "font_light"
     }
 }

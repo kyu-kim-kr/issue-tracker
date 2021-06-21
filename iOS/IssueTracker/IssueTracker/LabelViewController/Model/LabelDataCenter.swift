@@ -25,7 +25,8 @@ class LabelDataCenter {
         self.alamofireNetworkManager.request(decodingType: [Label].self,
                                              endPoint: ServerAPI.Endpoint.labels,
                                              method: .get,
-                                             parameters: nil) { (result) in
+                                             parameters: nil,
+                                             headers: nil) { (result) in
             switch result {
             case .success(let labels):
                 self.labelList = labels

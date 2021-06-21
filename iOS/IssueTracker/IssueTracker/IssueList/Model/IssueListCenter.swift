@@ -29,7 +29,8 @@ class IssueListCenter {
         self.alamofireNetworkManager.request(decodingType: [Issue].self,
                                              endPoint: ServerAPI.Endpoint.list,
                                              method: .get,
-                                             parameters: nil) { (result) in
+                                             parameters: nil,
+                                             headers: nil) { (result) in
             switch result {
             case .success(let issues):
                 self.issueList = issues

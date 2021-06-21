@@ -24,7 +24,7 @@ class LabelListTableViewCell: UITableViewCell {
     func configure(labelInfo: Label) {
         self.displayLabel.text = labelInfo.title
         self.displayLabel.backgroundColor = UIColor.init(labelInfo.colorCode)
-        self.displayLabel.textColor = UIColor.init(named: labelInfo.textColor)
+        self.displayLabel.textColor = labelInfo.isWhiteFontColor ? .white : .black
         
         self.descriptionLabel.text = labelInfo.labelDescription
         var size = (self.displayLabel.text ?? "").size(withAttributes: [

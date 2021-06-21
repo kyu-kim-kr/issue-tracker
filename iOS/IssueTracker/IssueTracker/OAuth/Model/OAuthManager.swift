@@ -12,12 +12,12 @@ import AuthenticationServices
 class OAuthManager {
     let alamofireNetworkManager: AlamofireNetworkManager
     var errorHandler: ((String) -> ())?
-    lazy var config = OAuthConfiguration.init(token: "5478b59babc40b37205d",
+    lazy var config = OAuthConfiguration.init(token: "34a66f51f68864c9adfd", //1f8b844e0951dd8b43cb, ios 5478b59babc40b37205d
                                               secret: "",
                                               scopes: ["user"])
     
     init() {
-        self.alamofireNetworkManager = AlamofireNetworkManager(baseAddress: "https://f88e009a-3e2b-4862-838e-1f2cde9b95ed.mock.pstmn.io")
+        self.alamofireNetworkManager = AlamofireNetworkManager(baseAddress: "http://3.35.48.70:8080")
     }
     
     func initPostLoginCodeWebAuthSession(completion: @escaping (GithubUser) -> ()) -> ASWebAuthenticationSession? {
@@ -30,15 +30,18 @@ class OAuthManager {
                 return
             }
             guard let successURL = callBack else { return }
-            let callBackURLCode = successURL.extractCallbackURLCode()
+            let callBackURLCode = successURL.extractCallbackURLCode()          
             self.alamofireNetworkManager.request(decodingType: GithubUser.self,
                                                  endPoint: .github,
                                                  method: .get,
-                                                 parameters: ["code": callBackURLCode]) { (result) in
+                                                 parameters: ["client": "ios",
+                                                              "code": callBackURLCode],
+                                                 headers: ["code": callBackURLCode]) { (result) in
                 switch result {
                 case .success(let githubUser):
                     completion(githubUser)
                 case .failure(let error):
+                    print(error.description)
                     self.errorHandler?(error.description)
                 }
             }

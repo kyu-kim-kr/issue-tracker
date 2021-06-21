@@ -21,9 +21,9 @@ class WriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.writeInfoDataCenter = WriteInfoDataCenter()
+        self.markdownView = makeMarkdownView()
         self.setNavigationController()
         self.setMarkdownTextView()
-        self.markdownView = makeMarkdownView()
         self.setSegmentedControl()
         self.checkfilledText()
     }
@@ -76,7 +76,7 @@ class WriteViewController: UIViewController {
         return md
     }
     
-    @IBAction func titleValueChanged(_ sender: UITextField) {
+    @IBAction func changedTitleValue(_ sender: UITextField) {
         self.writeInfoDataCenter.saveTitle(sender.text)
         checkfilledText()
     }
@@ -86,7 +86,6 @@ class WriteViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
 }
 

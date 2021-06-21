@@ -19,10 +19,10 @@ protocol Networkable {
 struct ServerAPI {
     static var baseURL = "http://"
     static var scheme = "issue-tracker"
-    
     enum Endpoint: String {
         case detail = "/detail"
         case github = "/api/login/auth"
+        case tmpGithub = "/authorize"
         case list = "/api/issues"
         case labels = "/api/labels"
     }
@@ -78,15 +78,16 @@ final class AlamofireNetworkManager {
                                endPoint: ServerAPI.Endpoint,
                                method: HTTPMethod,
                                parameters: [String: Any]?,
+                               headers: HTTPHeaders? = ["Content-Type":"application/json", "Accept":"application/json"],
                                completionHandler: @escaping (Result<T, NetworkError>) -> Void) {
         let address = baseAddress + endPoint.rawValue
         AF.request(address,
                    method: method,
                    parameters: parameters,
                    encoding: URLEncoding.default,
-                   headers: self.baseHeaders)
+                   headers: headers)
             .responseDecodable(of: decodingType) { dataResponse in
-                
+                print(address, parameters, headers)
             guard let statusCode = dataResponse.response?.statusCode else {
                 return completionHandler(.failure(NetworkError.internet))
             }
@@ -112,7 +113,6 @@ final class AlamofireNetworkManager {
 
 final class AlamofireImageLoadManager {
     private let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-
     func load(from imageUrl: String, completionHandler: @escaping (String) -> ()) {
         guard let fileName = URL(string: imageUrl)?.lastPathComponent else { return }
         

@@ -64,7 +64,7 @@ extension LabelViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelListTableViewCell.className, for: indexPath) as? LabelListTableViewCell else { return UITableViewCell() }
         //TODO: -
 //        cell.configure(labelInfo: self.labelDataCenter.labelList[indexPath.row])
-        let labelInfo = Label(id: 1, title: "헬로우", labelDescription: "이것은 설명란입니다", colorCode: "#AD1FF3", textColor: "black")
+        let labelInfo = Label(id: 1, title: "헬로우", labelDescription: "이것은 설명란입니다", colorCode: "#AD1FF3", isWhiteFontColor: false)
         cell.configure(labelInfo: labelInfo)
         return cell
     }

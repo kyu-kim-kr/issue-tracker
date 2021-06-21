@@ -68,8 +68,7 @@ class IssueListViewController: UIViewController {
     }
     
     private func makeBarButton() {
-        let rightBarImageButton = UIBarButtonItem(image: UIImage(systemName: "checkmark.circle"), style: .plain, target: self, action: #selector(selectIssue(_:)))
-        self.tabBarController?.navigationItem.rightBarButtonItem = rightBarImageButton
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem()
         let leftBarImageButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease"), style: .plain, target: self, action: #selector(filterIssue(_:)))
         self.tabBarController?.navigationItem.leftBarButtonItem = leftBarImageButton
     }
