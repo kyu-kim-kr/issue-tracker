@@ -7,9 +7,10 @@
 
 import UIKit
 import MarkdownView
+import PhotosUI
 
 class WriteViewController: UIViewController {
-    @IBOutlet weak var markdownTextView: UITextView!
+    @IBOutlet weak var markdownTextView: MarkdownTextView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var titleFieldBottomBorderView: UIView!
@@ -26,6 +27,21 @@ class WriteViewController: UIViewController {
         self.setMarkdownTextView()
         self.setSegmentedControl()
         self.checkfilledText()
+        self.configureImageMenuItem()
+        self.markdownTextView.becomeFirstResponder()
+    }
+    
+    private func configureImageMenuItem() {
+        let imageMenuItem = UIMenuItem(title: "Insert Photo", action: #selector(openPhotoLibrary))
+        UIMenuController.shared.menuItems = [imageMenuItem]
+    }
+    
+    @objc private func openPhotoLibrary() {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .any(of: [.images])
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
     }
     
     private func checkfilledText() {
@@ -107,5 +123,21 @@ extension WriteViewController: UITextViewDelegate {
             textView.text = "코멘트는 여기에 작성하세요"
             textView.textColor = .lightGray
         }
+    }
+}
+
+extension WriteViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: nil)
+        let itemProvider = results.first?.itemProvider
+        if let itemProvider = itemProvider,
+           itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                DispatchQueue.main.async {
+                    //MARK: - 이미지를 네트워크로 보내고 주소를 받아야 함
+                }
+            }
+        }
+        
     }
 }

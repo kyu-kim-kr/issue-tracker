@@ -43,6 +43,7 @@
 		22780795266E115E0064B12D /* ServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22780794266E115E0064B12D /* ServerAPI.swift */; };
 		227EE2C52671102B008B02BB /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227EE2C42671102B008B02BB /* URL.swift */; };
 		227EE2CA2671143F008B02BB /* OAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227EE2C92671143F008B02BB /* OAuthManager.swift */; };
+		2296AD272680D535003CAFB4 /* MarkdownTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296AD262680D535003CAFB4 /* MarkdownTextView.swift */; };
 		229E79662670EAC1008B0E49 /* LabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229E79652670EAC1008B0E49 /* LabelCollectionViewCell.xib */; };
 		229E79742670FC8E008B0E49 /* CellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E79732670FC8E008B0E49 /* CellLabel.swift */; };
 		229E797F2671073D008B0E49 /* LabelFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E797E2671073D008B0E49 /* LabelFlowLayout.swift */; };
@@ -121,6 +122,7 @@
 		22780794266E115E0064B12D /* ServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAPI.swift; sourceTree = "<group>"; };
 		227EE2C42671102B008B02BB /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		227EE2C92671143F008B02BB /* OAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthManager.swift; sourceTree = "<group>"; };
+		2296AD262680D535003CAFB4 /* MarkdownTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTextView.swift; sourceTree = "<group>"; };
 		229E79652670EAC1008B0E49 /* LabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		229E79732670FC8E008B0E49 /* CellLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellLabel.swift; sourceTree = "<group>"; };
 		229E797E2671073D008B0E49 /* LabelFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFlowLayout.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				2246877F267EC7C900D7150A /* WriteViewController.swift */,
+				2296AD252680D51A003CAFB4 /* View */,
 				2229BF80268014F900AEBE53 /* Model */,
 			);
 			path = Write;
@@ -386,6 +389,14 @@
 				22780794266E115E0064B12D /* ServerAPI.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		2296AD252680D51A003CAFB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2296AD262680D535003CAFB4 /* MarkdownTextView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		229E7986267108E8008B0E49 /* View */ = {
@@ -644,6 +655,7 @@
 				2229BF7C268014F500AEBE53 /* WriteInfoDataCenter.swift in Sources */,
 				225D0A9A26805ED100711537 /* CategoryDataCenter.swift in Sources */,
 				2229BF8926802F0600AEBE53 /* SelectCategoryViewController.swift in Sources */,
+				2296AD272680D535003CAFB4 /* MarkdownTextView.swift in Sources */,
 				22FC5B8B26799EA400DC2794 /* LabelViewController.swift in Sources */,
 				22468780267EC7C900D7150A /* WriteViewController.swift in Sources */,
 				22330ACA266F4BF40062B78B /* IssueListTableViewCell.swift in Sources */,

@@ -355,7 +355,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKD-85-hs2">
                                 <rect key="frame" x="20" y="116" width="374" height="672"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fzE-LE-4ua">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fzE-LE-4ua" customClass="MarkdownTextView" customModule="IssueTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="672"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -443,7 +443,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgr-n1-9vi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4723" y="119"/>
+            <point key="canvasLocation" x="4512" y="119"/>
         </scene>
         <!--Category-->
         <scene sceneID="cmF-Dq-ccK">
@@ -528,7 +528,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOf-av-HzE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5467" y="119"/>
+            <point key="canvasLocation" x="5257" y="119"/>
         </scene>
         <!--Detail Category View Controller-->
         <scene sceneID="o6a-mk-jcu">
@@ -589,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grS-FO-9hX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6223" y="119"/>
+            <point key="canvasLocation" x="6012" y="119"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="FTH-nm-OYi">
@@ -1357,7 +1357,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODe-vi-KLu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3943" y="119"/>
+            <point key="canvasLocation" x="3732" y="119"/>
         </scene>
     </scenes>
     <resources>
