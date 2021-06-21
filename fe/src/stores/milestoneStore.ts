@@ -1,9 +1,9 @@
+import { MilestonesItemProps } from './../types/issueType';
 import axios from 'axios';
 import { selector } from 'recoil';
-import { FilterItemType } from 'types/filterType';
 import { MilestoneDataType } from 'types/storeTypes';
 
-export const milestoneQuery = selector<FilterItemType[]>({
+export const milestoneQuery = selector<MilestonesItemProps[]>({
   key: 'milestoneQuery',
   get: async () => {
     const token = localStorage.getItem('jwt');
@@ -23,7 +23,7 @@ export const milestoneQuery = selector<FilterItemType[]>({
   },
 });
 
-export const openedMilestoneQuery = selector<FilterItemType[]>({
+export const openedMilestoneQuery = selector<MilestonesItemProps[]>({
   key: 'openedMilestoneQuery',
   get: async () => {
     const token = localStorage.getItem('jwt');
@@ -47,7 +47,7 @@ export const openedMilestoneQuery = selector<FilterItemType[]>({
   },
 });
 
-export const closedMilestoneQuery = selector<FilterItemType[]>({
+export const closedMilestoneQuery = selector<MilestonesItemProps[]>({
   key: 'closedMilestoneQuery',
   get: async () => {
     const token = localStorage.getItem('jwt');
