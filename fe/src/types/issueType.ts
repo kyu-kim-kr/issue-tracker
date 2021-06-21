@@ -2,17 +2,17 @@ export type NavType = 'All' | 'Milestone' | 'Label';
 
 export type IssueItemLeftPropsType = {
   title: string;
-  labeList: LabelItemType[];
+  labeList: LabelItemType[]; 
   issueNumber: number;
   createdTime: string;
   milestoneTitle: string;
 };
 
 export interface IssueItemType extends IssueItemLeftPropsType {
-  isOpen: boolean;
+  id: number;
   author: authorType;
-}
-
+} 
+ 
 export type LabelItemType = {
   id: number;
   title: string;

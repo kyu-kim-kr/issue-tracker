@@ -3,17 +3,26 @@ import { Button, Checkbox } from '@material-ui/core';
 import { ReactComponent as Open } from 'icons/openIssue.svg';
 import { ReactComponent as Close } from 'icons/closeIssue.svg';
 import Filter from 'components/common/Filter';
+import { useSetRecoilState } from 'recoil';
+import { issuesStateAtom } from 'store';
+import { MouseEvent } from 'react';
 
 const IssuesHeader = () => {
-
+  const setIssuesState = useSetRecoilState(issuesStateAtom);
+  const clickOpenHandler = (e: MouseEvent) => {
+    setIssuesState(false);
+  };
+  const clickCloseHandler = (e: MouseEvent) => {
+    setIssuesState(true);
+  };
   return (
     <StyledIssuesHeader>
       <IssuesHeaderLeft>
         <Checkbox color="primary" />
-        <IssuesButton>
+        <IssuesButton onClick={clickOpenHandler}>
           <OpenSvg /> 열린 이슈(2)
         </IssuesButton>
-        <IssuesButton>
+        <IssuesButton onClick={clickCloseHandler}>
           <CloseSvg />
           닫힌 이슈(0)
         </IssuesButton>

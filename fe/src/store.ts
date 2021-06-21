@@ -1,12 +1,13 @@
 import { TestType } from './types/storeTypes';
 import axios from 'axios';
-import { selector } from 'recoil';
+import { selector, atom } from 'recoil';
 import { FilterItemType } from 'types/filterType';
-import { LabelItemType } from 'types/issueType';
+import { LabelItemType, IssueItemType } from 'types/issueType';
 import {
   LabelDataType,
   MilestoneDataType,
   UserDataType,
+  IssueDataType,
 } from 'types/storeTypes';
 
 export const totalCountOfLabels = selector<number>({
@@ -14,6 +15,55 @@ export const totalCountOfLabels = selector<number>({
   get: ({ get }) => {
     return get(labelQuery).length;
   },
+});
+
+export const issuesStateAtom = atom<boolean>({
+  key: 'issuesState',
+  default: false,
+});
+
+export const issuesQuery = selector<IssueItemType[]>({
+  key: 'issuesQuery',
+  get: async ({ get }) => {
+    const state = get(issuesStateAtom);
+    const token = localStorage.getItem('jwt');
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_URL}/api/issues?closed=${state}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return data.map(
+      ({
+        id,
+        title,
+        label_list,
+        issue_number,
+        created_time,
+        milestone_title,
+        author,
+      }: IssueDataType) => ({
+        id: id,
+        title: title,
+        labeList: label_list.map(parsedLabelData),
+        issueNumber: issue_number,
+        createdTime: created_time,
+        milestoneTitle: milestone_title,
+        author: parsedAuthorData(author),
+      })
+    );
+  },
+});
+
+const parsedLabelData = (labelItem: LabelDataType) => ({
+  id: labelItem.id,
+  title: labelItem.title,
+  description: labelItem.description,
+  labelColor: labelItem.color_code,
+  textColor: labelItem.text_color,
 });
 
 export const labelQuery = selector<LabelItemType[]>({
@@ -29,13 +79,7 @@ export const labelQuery = selector<LabelItemType[]>({
       }
     );
 
-    return data.map((labelItem: LabelDataType) => ({
-      id: labelItem.id,
-      title: labelItem.title,
-      description: labelItem.description,
-      labelColor: labelItem.color_code,
-      textColor: labelItem.text_color,
-    }));
+    return data.map(parsedLabelData);
   },
 });
 
@@ -64,6 +108,11 @@ export const milestoneQuery = selector<FilterItemType[]>({
       description: milestoneItem.title,
     }));
   },
+});
+
+const parsedAuthorData = (user: UserDataType) => ({
+  name: user.name,
+  profileImg: user.avatar_url,
 });
 
 export const authorQuery = selector({
