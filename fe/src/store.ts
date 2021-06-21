@@ -1,13 +1,9 @@
 import { TestType } from './types/storeTypes';
 import axios from 'axios';
 import { selector } from 'recoil';
-import { FilterItemType } from 'types/filterType';
 import { LabelItemType } from 'types/issueType';
-import {
-  LabelDataType,
-  MilestoneDataType,
-  UserDataType,
-} from 'types/storeTypes';
+import { LabelDataType, UserDataType } from 'types/storeTypes';
+import { milestoneQuery } from 'stores/milestoneStore';
 
 export const totalCountOfLabels = selector<number>({
   key: 'totalCountOfLabels',
@@ -35,33 +31,6 @@ export const labelQuery = selector<LabelItemType[]>({
       description: labelItem.description,
       labelColor: labelItem.color_code,
       textColor: labelItem.text_color,
-    }));
-  },
-});
-
-export const totalCountOfMilestone = selector<number>({
-  key: 'totalCountOfMilestone',
-  get: ({ get }) => {
-    return get(milestoneQuery).length;
-  },
-});
-
-export const milestoneQuery = selector<FilterItemType[]>({
-  key: 'milestoneQuery',
-  get: async () => {
-    const token = localStorage.getItem('jwt');
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_API_URL}/api/milestones`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
-    return data.map((milestoneItem: MilestoneDataType) => ({
-      id: milestoneItem.id,
-      description: milestoneItem.title,
     }));
   },
 });
