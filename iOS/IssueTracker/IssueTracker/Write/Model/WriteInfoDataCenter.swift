@@ -23,4 +23,8 @@ class WriteInfoDataCenter {
     func saveBody(_ body: String) {
         self.body = body
     }
+    
+    func appendBody(_ body: String) {
+        self.body += body
+    }
 }

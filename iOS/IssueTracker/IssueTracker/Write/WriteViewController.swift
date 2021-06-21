@@ -8,6 +8,7 @@
 import UIKit
 import MarkdownView
 import PhotosUI
+import Vision
 
 class WriteViewController: UIViewController {
     @IBOutlet weak var markdownTextView: MarkdownTextView!
@@ -29,7 +30,48 @@ class WriteViewController: UIViewController {
         self.checkfilledText()
         self.configureImageMenuItem()
         self.markdownTextView.becomeFirstResponder()
+        
+
     }
+    
+    //MARK: - 이미지 네트워크 시 사용해야함
+    private func recognizeText() {
+        //MARK: - 이미지 수정해야 함
+        guard let cgImage = UIImage(named: "text")?.cgImage else { return }
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage)
+        let request = VNRecognizeTextRequest { [weak self] (request, error) in
+            guard let observation = request.results as? [VNRecognizedTextObservation],
+                  error == nil else { return }
+            let text = observation.compactMap({
+                $0.topCandidates(1).first?.string
+            }).joined(separator: "\n")
+            
+            if text.match(for: "[\\{\\}]+|[\\[\\]]+|[\\(\\)]+|[\\=]+") {
+                DispatchQueue.main.async {
+                    self?.askPasteOCRCode(text: "```\n\(text)\n```")
+                }
+            }
+        }
+        do {
+            try requestHandler.perform([request])
+        } catch {
+            print("Unable to perform the requests: \(error).")
+        }
+    }
+    
+    private func askPasteOCRCode(text: String) {
+        let alert = UIAlertController(title: "이미지 속에 코드가 있습니다. \n인식해서 붙여넣을까여?", message: nil, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
+        let admit = UIAlertAction(title: "확인", style: .destructive) { [weak self] (_) in
+            self?.markdownTextView.text = text
+            self?.writeInfoDataCenter.appendBody(text)
+        }
+        alert.addAction(cancel)
+        alert.addAction(admit)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
     
     private func configureImageMenuItem() {
         let imageMenuItem = UIMenuItem(title: "Insert Photo", action: #selector(openPhotoLibrary))
@@ -37,6 +79,8 @@ class WriteViewController: UIViewController {
     }
     
     @objc private func openPhotoLibrary() {
+        PHPhotoLibrary.requestAuthorization(for: .readWrite) { (authorizationStatus) in
+        }
         var configuration = PHPickerConfiguration()
         configuration.filter = .any(of: [.images])
         let picker = PHPickerViewController(configuration: configuration)
