@@ -36,7 +36,7 @@ const Div = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  top:0;
+  top: 0;
   width: 100%;
   height: 100vh;
   font-size: 3rem;
