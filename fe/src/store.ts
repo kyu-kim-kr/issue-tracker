@@ -2,7 +2,7 @@ import { TestType } from './types/storeTypes';
 import axios from 'axios';
 import { selector, atom } from 'recoil';
 import { FilterItemType } from 'types/filterType';
-import { LabelItemType, IssueItemType } from 'types/issueType';
+import { LabelItemType, IssueItemType, IssuesCountType } from 'types/issueType';
 import {
   LabelDataType,
   MilestoneDataType,
@@ -22,13 +22,32 @@ export const issuesStateAtom = atom<boolean>({
   default: false,
 });
 
+export const totalCountOfIssue = selector<IssuesCountType>({
+  key: 'totalCountOfIssue',
+  get: async () => {
+    const token = localStorage.getItem('jwt');
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/issues/count`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return { open: data.opened_issue_count, close: data.closed_issue_count };
+    } catch {
+      return { open: null, close: null };
+    }
+  },
+});
+
 export const issuesQuery = selector<IssueItemType[]>({
   key: 'issuesQuery',
   get: async ({ get }) => {
-    const state = get(issuesStateAtom);
     const token = localStorage.getItem('jwt');
     const { data } = await axios.get(
-      `${process.env.REACT_APP_API_URL}/api/issues?closed=${state}`,
+      `${process.env.REACT_APP_API_URL}/api/issues?closed=${get(issuesStateAtom)}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
