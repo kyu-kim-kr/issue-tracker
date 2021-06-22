@@ -12,7 +12,7 @@ import AuthenticationServices
 class OAuthManager {
     let alamofireNetworkManager: AlamofireNetworkManager
     var errorHandler: ((String) -> ())?
-    lazy var config = OAuthConfiguration.init(token: "34a66f51f68864c9adfd", //1f8b844e0951dd8b43cb, ios 5478b59babc40b37205d
+    lazy var config = OAuthConfiguration.init(token: "5478b59babc40b37205d", //1f8b844e0951dd8b43cb, ios 5478b59babc40b37205d ?? 34a66f51f68864c9adfd
                                               secret: "",
                                               scopes: ["user"])
     
@@ -41,7 +41,6 @@ class OAuthManager {
                 case .success(let githubUser):
                     completion(githubUser)
                 case .failure(let error):
-                    print(error.description)
                     self.errorHandler?(error.description)
                 }
             }

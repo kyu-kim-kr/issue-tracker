@@ -46,7 +46,7 @@ class WriteViewController: UIViewController {
                 $0.topCandidates(1).first?.string
             }).joined(separator: "\n")
             
-            if text.match(for: "[\\{\\}]+|[\\[\\]]+|[\\(\\)]+|[\\=]+") {
+            if let isContainCode = self?.isContainCode(of: text), isContainCode {
                 DispatchQueue.main.async {
                     self?.askPasteOCRCode(text: "```\n\(text)\n```")
                 }
@@ -57,6 +57,10 @@ class WriteViewController: UIViewController {
         } catch {
             print("Unable to perform the requests: \(error).")
         }
+    }
+    
+    private func isContainCode(of text: String) -> Bool {
+        return text.match(for: "[\\{\\}]+|[\\[\\]]+|[\\(\\)]+|[\\=]+")
     }
     
     private func askPasteOCRCode(text: String) {

@@ -24,14 +24,21 @@ class OAuthViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
         
         self.oauthManager = OAuthManager()
-        self.configOAuth()
         self.setAppleSignInButton()
         self.makeAnimationView()
+        self.bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.configOAuth()
+    }
+    
+    private func bind() {
+        self.oauthManager.errorHandler = { error in
+            print(error)
+        }
     }
     
     private func makeAnimationView() {

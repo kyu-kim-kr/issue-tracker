@@ -95,7 +95,7 @@ extension IssueListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "삭제") { (action, view, completion) in
             print("delete")
-            self.issueListCenter.deleteIssue(index: indexPath.row)
+            self.askDeleteIssue(index: indexPath.row)
             completion(true)
         }
         let deleteImage = UIImage(systemName: "trash")
@@ -110,5 +110,17 @@ extension IssueListViewController: UITableViewDelegate {
         let swipeConfig = UISwipeActionsConfiguration(actions: [close, delete])
         swipeConfig.performsFirstActionWithFullSwipe = false
         return swipeConfig
+    }
+    
+    private func askDeleteIssue(index: Int) {
+        let alert = UIAlertController(title: "정말로 이슈를 삭제하시겠습니까?", message: nil, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
+        let admit = UIAlertAction(title: "확인", style: .destructive) { [weak self] (_) in
+            //MARK: - 삭제 네트워크
+            self?.issueListCenter.deleteIssue(index: index)
+        }
+        alert.addAction(cancel)
+        alert.addAction(admit)
+        present(alert, animated: true, completion: nil)
     }
 }
