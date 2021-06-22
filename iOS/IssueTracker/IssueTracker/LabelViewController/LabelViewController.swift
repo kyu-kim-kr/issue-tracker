@@ -18,7 +18,6 @@ class LabelViewController: UIViewController {
         self.labelDataCenter = LabelDataCenter()
         self.bind()
         self.labelDataCenter.getLabels()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +48,8 @@ class LabelViewController: UIViewController {
     
     @objc func selectPlusButton(_ sender: UIBarButtonItem) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: NewLabelViewController.className) as? NewLabelViewController else { return }
-        self.navigationController?.present(vc, animated: true, completion: nil)
+        vc.setLabelDataCenter(self.labelDataCenter)
+        self.tabBarController?.navigationController?.present(vc, animated: true, completion: nil)
     }
 }
 
@@ -68,6 +68,21 @@ extension LabelViewController: UITableViewDataSource {
 extension LabelViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "삭제") { (action, view, completion) in
+            print("delete")
+            self.labelDataCenter.deleteLabel(index: indexPath.row) {
+                self.labelDataCenter.deleteLocalLabel(index: indexPath.row)
+            }
+            completion(true)
+        }
+        let deleteImage = UIImage(systemName: "trash")
+        delete.image = deleteImage
+        let swipeConfig = UISwipeActionsConfiguration(actions: [delete])
+        swipeConfig.performsFirstActionWithFullSwipe = true
+        return swipeConfig
     }
 }
 

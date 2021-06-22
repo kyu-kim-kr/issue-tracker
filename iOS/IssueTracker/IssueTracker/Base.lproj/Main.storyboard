@@ -59,7 +59,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이슈 트래커" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agI-dd-Dm8">
-                                <rect key="frame" x="50" y="631.5" width="314" height="36.5"/>
+                                <rect key="frame" x="50" y="629" width="314" height="39"/>
                                 <fontDescription key="fontDescription" name="TmonMonsoriBlack" family="TmonMonsori" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -824,15 +824,15 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="44.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch6-n6-Q5U">
-                                                        <rect key="frame" x="0.0" y="0.0" width="29.5" height="44.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="57" height="44.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="(필수 입력)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="No9-bT-JXJ">
-                                                        <rect key="frame" x="86.5" y="0.0" width="307.5" height="44.5"/>
+                                                        <rect key="frame" x="114" y="0.0" width="280" height="44.5"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="8hw-fQ-XTw"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="8hw-fQ-XTw"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -846,18 +846,21 @@
                                                 <rect key="frame" x="0.0" y="44.5" width="394" height="44.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVR-AZ-KBp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="29.5" height="44.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="57" height="44.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="(선택 사항)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="md2-Rk-sFn">
-                                                        <rect key="frame" x="86.5" y="0.0" width="307.5" height="44.5"/>
+                                                        <rect key="frame" x="114" y="0.0" width="280" height="44.5"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="jfb-xg-jPl"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="jfb-xg-jPl"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="changeDescription:" destination="9tD-IC-HiG" eventType="editingChanged" id="5xf-kS-ny1"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>

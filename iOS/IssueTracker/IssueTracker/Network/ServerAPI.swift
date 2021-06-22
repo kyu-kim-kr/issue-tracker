@@ -31,8 +31,9 @@ struct ServerAPI {
         case github
         case list
         case labels
+        case deleteIssue(Int)
+        case closeIssue(Int)
         case deleteLabel(Int)
-        case closeLabel(Int)
         
         var value: String {
             switch self {
@@ -40,8 +41,9 @@ struct ServerAPI {
             case .github: return "/api/login/auth"
             case .list: return "/api/issues"
             case .labels: return "/api/labels"
-            case .deleteLabel(let id): return "\(Endpoint.list.value)/\(id)"
-            case .closeLabel(let id): return "\(Endpoint.list.value)/\(id)" //MARK: - 이상함
+            case .deleteIssue(let id): return "\(Endpoint.list.value)/\(id)"
+            case .closeIssue(let id): return "\(Endpoint.list.value)/\(id)" //MARK: - 이상함
+            case .deleteLabel(let id): return "\(Endpoint.labels.value)/\(id)"
             }
         }
     
@@ -84,11 +86,10 @@ final class AlamofireNetworkManager {
     init() {
         self.baseAddress = ServerAPI.baseURL
         self.baseHeaders = [
-//            "Content-Type": "application/json",
-//            "Accept": "application/json",
             "Authorization": "Barear \(SessionModel.shared.jwt)"
         ]
     }
+    
     
     func request<T: Decodable>(decodingType: T.Type,
                                endPoint: ServerAPI.Endpoint,
@@ -100,7 +101,7 @@ final class AlamofireNetworkManager {
         AF.request(address,
                    method: method,
                    parameters: parameters,
-                   encoding: URLEncoding.default,
+                   encoding: JSONEncoding.default,
                    headers: headers == nil ? self.baseHeaders : headers)
             .responseDecodable(of: decodingType) { dataResponse in
                 print(address, parameters, headers, self.baseHeaders)
@@ -114,7 +115,7 @@ final class AlamofireNetworkManager {
                     print(dataResponse.response)
                     print(dataResponse.error)
                     print(dataResponse.description)
-                    print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
+//                    print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
                     return completionHandler(.failure(NetworkError.noResult))
                 }
                 completionHandler(.success(data))

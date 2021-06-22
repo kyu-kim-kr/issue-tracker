@@ -8,7 +8,7 @@
 import UIKit
 
 class NewLabelViewController: UIViewController {
-    var labelDataCenter: labelDataCenter!
+    private var labelDataCenter: LabelDataCenter!
     @IBOutlet weak var displayingLabel: UILabel!
     @IBOutlet weak var displayingLabelWidth: NSLayoutConstraint!
     @IBOutlet weak var titleTextField: UITextField!
@@ -18,12 +18,15 @@ class NewLabelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setLabelWidth(of: self.displayingLabel, labelWidth: self.displayingLabelWidth)
+        self.setLabelWidth(of: self.displayingLabel, labelWidth: displayingLabelWidth)
+    }
+    
+    func setLabelDataCenter(_ center: LabelDataCenter) {
+        self.labelDataCenter = center
     }
     
     private func setLabelWidth(of label: UILabel, labelWidth: NSLayoutConstraint) {
@@ -42,7 +45,12 @@ class NewLabelViewController: UIViewController {
     @IBAction func titleEditingChanged(_ sender: UITextField) {
         saveButton.isEnabled = checkFillTextField()
         displayingLabel.text = sender.text
-        setLabelWidth(of: self.displayingLabel, labelWidth: self.displayingLabelWidth)
+        self.setLabelWidth(of: self.displayingLabel, labelWidth: displayingLabelWidth)
+        self.labelDataCenter.setLabelTitle(sender.text ?? "")
+    }
+    
+    @IBAction func changeDescription(_ sender: UITextField) {
+        self.labelDataCenter.setLabelDescription(sender.text ?? "")
     }
     
     @IBAction func hexColorEditingChanged(_ sender: UITextField) {
@@ -53,6 +61,7 @@ class NewLabelViewController: UIViewController {
             self.displayingLabel.backgroundColor = UIColor.init(sender.text ?? "")
             saveButton.isEnabled = checkFillTextField()
         }
+        self.labelDataCenter.setHexCode(sender.text ?? "")
     }
     
     private func checkFillTextField() -> Bool {
@@ -65,11 +74,16 @@ class NewLabelViewController: UIViewController {
         }).joined()
         self.displayingLabel.backgroundColor = UIColor.init(hexColorCode)
         self.hexColorTextField.text = hexColorCode
+        self.labelDataCenter.setHexCode(hexColorCode)
         saveButton.isEnabled = checkFillTextField()
     }
     
     @IBAction func touchSaveButton(_ sender: UIButton) {
         print("저장")
-        dismiss(animated: true, completion: nil)
+        self.labelDataCenter.makeLabels { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                self?.labelDataCenter.getLabels()
+            })
+        }
     }
 }

@@ -60,8 +60,8 @@ class IssueListCenter {
     func requestDeleteIssue(index: Int) {
         let issueID = self.issueList[index].id
         self.alamofireNetworkManager
-            .request(decodingType: IssueDelete.self,
-                     endPoint: .deleteLabel(issueID),
+            .request(decodingType: Deleted.self,
+                     endPoint: .deleteIssue(issueID),
                      method: .patch,
                      parameters: nil,
                      headers: nil) { [weak self] (result) in

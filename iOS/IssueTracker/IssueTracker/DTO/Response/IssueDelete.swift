@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct IssueDelete: Codable {
+struct Deleted: Codable {
     var deleted: Bool
 }
