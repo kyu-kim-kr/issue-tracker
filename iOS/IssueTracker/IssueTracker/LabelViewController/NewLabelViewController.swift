@@ -8,6 +8,7 @@
 import UIKit
 
 class NewLabelViewController: UIViewController {
+    var labelDataCenter: labelDataCenter!
     @IBOutlet weak var displayingLabel: UILabel!
     @IBOutlet weak var displayingLabelWidth: NSLayoutConstraint!
     @IBOutlet weak var titleTextField: UITextField!
@@ -69,5 +70,6 @@ class NewLabelViewController: UIViewController {
     
     @IBAction func touchSaveButton(_ sender: UIButton) {
         print("저장")
+        dismiss(animated: true, completion: nil)
     }
 }

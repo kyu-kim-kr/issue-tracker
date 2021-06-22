@@ -22,6 +22,7 @@ class LabelCollectionViewCell: UICollectionViewCell {
     
     func configure(text: String, backgroundColor: UIColor) {
         self.cellLabel.text = "\(text)"
+        self.cellLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         self.backgroundColor = backgroundColor
         self.setLabelLayer()
         self.cellLabel.sizeToFit()

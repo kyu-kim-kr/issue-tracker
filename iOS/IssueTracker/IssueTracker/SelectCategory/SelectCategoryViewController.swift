@@ -47,7 +47,7 @@ extension SelectCategoryViewController: UITableViewDataSource {
 extension SelectCategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: DetailCategoryViewController.className) as? DetailCategoryViewController else { return }
-        vc.categoryDataCenter = self.categoryDataCenter
+        vc.setCategoryDataCenter(self.categoryDataCenter)
         switch indexPath.row {
         case 0: self.categoryDataCenter.selectedCategory = .label(self.categoryDataCenter.labelList)
         case 1: self.categoryDataCenter.selectedCategory = .milestone(self.categoryDataCenter.milestoneList)

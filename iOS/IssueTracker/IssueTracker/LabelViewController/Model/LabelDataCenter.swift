@@ -17,7 +17,7 @@ class LabelDataCenter {
     }
     
     init() {
-        self.alamofireNetworkManager = AlamofireNetworkManager(baseAddress: "https://f88e009a-3e2b-4862-838e-1f2cde9b95ed.mock.pstmn.io")
+        self.alamofireNetworkManager = AlamofireNetworkManager()
         self.labelList = [Label]()
     }
     

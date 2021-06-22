@@ -17,14 +17,34 @@ protocol Networkable {
 }
 
 struct ServerAPI {
-    static var baseURL = "http://"
+//    static var baseURL = "http://3.35.48.70:8080"
+    static var baseURL = "http://15.164.68.136"
+    static var redirectURLKey = "redirect_url"
+    static var redirectURLValue = "\(scheme)://login"
     static var scheme = "issue-tracker"
-    enum Endpoint: String {
-        case detail = "/detail"
-        case github = "/api/login/auth"
-        case tmpGithub = "/authorize"
-        case list = "/api/issues"
-        case labels = "/api/labels"
+    static var clientID = "34a66f51f68864c9adfd"
+    static var githubScopes = ["user"]
+    static var githubAuthenticateURLQueryItem = URLQueryItem(name: ServerAPI.redirectURLKey, value: ServerAPI.redirectURLValue)
+    
+    enum Endpoint {
+        case detail
+        case github
+        case list
+        case labels
+        case deleteLabel(Int)
+        case closeLabel(Int)
+        
+        var value: String {
+            switch self {
+            case .detail: return "/detail"
+            case .github: return "/api/login/auth"
+            case .list: return "/api/issues"
+            case .labels: return "/api/labels"
+            case .deleteLabel(let id): return "\(Endpoint.list.value)/\(id)"
+            case .closeLabel(let id): return "\(Endpoint.list.value)/\(id)" //MARK: - 이상함
+            }
+        }
+    
     }
 }
 
@@ -59,41 +79,42 @@ extension NetworkError: CustomStringConvertible {
 
 final class AlamofireNetworkManager {
     private let baseAddress: String
-    private let baseHeaders: HTTPHeaders
-    var scheme: String {
-        return ServerAPI.scheme
-    }
+    private var baseHeaders: HTTPHeaders?
     
-    init(baseAddress: String, baseHeaders: HTTPHeaders) {
-        self.baseAddress = baseAddress
-        self.baseHeaders = baseHeaders
-    }
-    
-    convenience init(baseAddress: String) {
-        let baseHeaders: HTTPHeaders = ["Content-Type":"application/json", "Accept":"application/json"]
-        self.init(baseAddress: baseAddress, baseHeaders: baseHeaders)
+    init() {
+        self.baseAddress = ServerAPI.baseURL
+        self.baseHeaders = [
+//            "Content-Type": "application/json",
+//            "Accept": "application/json",
+            "Authorization": "Barear \(SessionModel.shared.jwt)"
+        ]
     }
     
     func request<T: Decodable>(decodingType: T.Type,
                                endPoint: ServerAPI.Endpoint,
                                method: HTTPMethod,
                                parameters: [String: Any]?,
-                               headers: HTTPHeaders? = ["Content-Type":"application/json", "Accept":"application/json"],
+                               headers: HTTPHeaders?,
                                completionHandler: @escaping (Result<T, NetworkError>) -> Void) {
-        let address = baseAddress + endPoint.rawValue
+        let address = baseAddress + endPoint.value
         AF.request(address,
                    method: method,
                    parameters: parameters,
                    encoding: URLEncoding.default,
-                   headers: headers)
+                   headers: headers == nil ? self.baseHeaders : headers)
             .responseDecodable(of: decodingType) { dataResponse in
-                print(address, parameters, headers)
+                print(address, parameters, headers, self.baseHeaders)
             guard let statusCode = dataResponse.response?.statusCode else {
                 return completionHandler(.failure(NetworkError.internet))
             }
             switch statusCode {
             case 200..<300:
                 guard let data = dataResponse.value else {
+                    print(dataResponse.result)
+                    print(dataResponse.response)
+                    print(dataResponse.error)
+                    print(dataResponse.description)
+                    print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
                     return completionHandler(.failure(NetworkError.noResult))
                 }
                 completionHandler(.success(data))
@@ -102,43 +123,16 @@ final class AlamofireNetworkManager {
             case 400..<500:
                 completionHandler(.failure(NetworkError.notAllowed))
             case 500...:
+                print(dataResponse.result)
+                print(dataResponse.response)
+                print(dataResponse.error)
+                print(dataResponse.description)
+                print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
                 completionHandler(.failure(NetworkError.server))
             default:
                 completionHandler(.failure(NetworkError.unknown))
             }
         }
-    }
-    
-}
-
-final class AlamofireImageLoadManager {
-    private let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-    func load(from imageUrl: String, completionHandler: @escaping (String) -> ()) {
-        guard let fileName = URL(string: imageUrl)?.lastPathComponent else { return }
-        
-        if let cache = availableCache(of: fileName) {
-            return completionHandler(cache)
-        }
-        
-        let request = downloadRequest(of: imageUrl, fileName: fileName)
-        request.responseURL { response in
-            if response.error == nil, let filePath = response.fileURL?.path {
-                completionHandler(filePath)
-            }
-        }
-    }
-    
-    private func availableCache(of fileName: String) -> String? {
-        let expectedPath = cacheURL.path + "/\(fileName)"
-        return FileManager.default.fileExists(atPath: expectedPath) ? expectedPath : nil
-    }
-    
-    private func downloadRequest(of imageURL: String, fileName: String) -> DownloadRequest {
-        let destination: DownloadRequest.Destination = { _,_ in
-            let fileURL = self.cacheURL.appendingPathComponent(fileName)
-            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
-        }
-        return AF.download(imageURL, to: destination)
     }
     
 }

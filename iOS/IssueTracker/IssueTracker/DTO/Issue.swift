@@ -11,16 +11,16 @@ struct Issue: Codable, Hashable {
     var id: Int
     var title: String
     var issueDescription: String
-    var authorAvatarURL: String
+    var assignees: [Assign?]
+    var author: Author
     var labelList: [IssueLabel]
     var issueNumber: Int
     var createdTime: String
-    var milestoneTitle: String
+    var milestoneTitle: String?
     
     enum CodingKeys: String, CodingKey {
-        case id, title
+        case id, title, assignees, author
         case issueDescription = "description"
-        case authorAvatarURL = "author_avatar_url"
         case labelList = "label_list"
         case issueNumber = "issue_number"
         case createdTime = "created_time"

@@ -55,17 +55,12 @@ class LabelViewController: UIViewController {
 
 extension LabelViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO: -
-//        return self.labelDataCenter.labelList.count
-        return 3
+        return self.labelDataCenter.labelList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelListTableViewCell.className, for: indexPath) as? LabelListTableViewCell else { return UITableViewCell() }
-        //TODO: -
-//        cell.configure(labelInfo: self.labelDataCenter.labelList[indexPath.row])
-        let labelInfo = Label(id: 1, title: "헬로우", labelDescription: "이것은 설명란입니다", colorCode: "#AD1FF3", isWhiteFontColor: false)
-        cell.configure(labelInfo: labelInfo)
+        cell.configure(labelInfo: self.labelDataCenter.labelList[indexPath.row])
         return cell
     }
 }

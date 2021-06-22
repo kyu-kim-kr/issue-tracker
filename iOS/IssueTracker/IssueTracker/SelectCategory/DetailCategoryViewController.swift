@@ -14,6 +14,10 @@ class DetailCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    func setCategoryDataCenter(_ center: CategoryDataCenter) {
+        self.categoryDataCenter = center
+    }
 
 }
 

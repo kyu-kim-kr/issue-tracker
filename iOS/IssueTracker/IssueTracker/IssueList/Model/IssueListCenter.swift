@@ -8,8 +8,24 @@
 import Foundation
 
 class IssueListCenter {
+    enum StatusDescription: CustomStringConvertible {
+        case completeDelete
+        case failDelete
+        
+        var description: String {
+            switch self {
+            case .completeDelete:
+                return "이슈 삭제가 완료됐습니다"
+            case .failDelete:
+                return "이슈 삭제가 완료되지 않았습니다"
+            }
+        }
+    }
+    
+    
     let alamofireNetworkManager: AlamofireNetworkManager
     var listLoadHandler: (([Issue]) -> ())?
+    var networkCompleteHandler: ((String) -> ())?
     var issueList: [Issue] {
         didSet {
             listLoadHandler?(issueList)
@@ -17,7 +33,7 @@ class IssueListCenter {
     }
     
     init() {
-        self.alamofireNetworkManager = AlamofireNetworkManager(baseAddress: "https://f88e009a-3e2b-4862-838e-1f2cde9b95ed.mock.pstmn.io")
+        self.alamofireNetworkManager = AlamofireNetworkManager()
         self.issueList = [Issue]()
     }
     
@@ -26,17 +42,35 @@ class IssueListCenter {
     }
     
     func getIssueList() {
-        self.alamofireNetworkManager.request(decodingType: [Issue].self,
-                                             endPoint: ServerAPI.Endpoint.list,
-                                             method: .get,
-                                             parameters: nil,
-                                             headers: nil) { (result) in
-            switch result {
-            case .success(let issues):
-                self.issueList = issues
-            case .failure(let error):
-                NSLog(error.description)
-            }
+        self.alamofireNetworkManager
+            .request(decodingType: [Issue].self,
+                     endPoint: ServerAPI.Endpoint.list,
+                     method: .get,
+                     parameters: nil,
+                     headers: nil) { (result) in
+                switch result {
+                case .success(let issues):
+                    self.issueList = issues
+                case .failure(let error):
+                    NSLog(error.description)
+                }
         }
+    }
+    
+    func requestDeleteIssue(index: Int) {
+        let issueID = self.issueList[index].id
+        self.alamofireNetworkManager
+            .request(decodingType: IssueDelete.self,
+                     endPoint: .deleteLabel(issueID),
+                     method: .patch,
+                     parameters: nil,
+                     headers: nil) { [weak self] (result) in
+                switch result {
+                case .success(_):
+                    self?.networkCompleteHandler?(StatusDescription.completeDelete.description)
+                case .failure(let error):
+                    self?.networkCompleteHandler?("\(StatusDescription.failDelete.description) \(error.description)")
+                }
+            }
     }
 }
