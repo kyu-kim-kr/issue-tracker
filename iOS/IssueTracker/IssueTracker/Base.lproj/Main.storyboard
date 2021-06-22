@@ -1119,6 +1119,7 @@
                                         <connections>
                                             <outlet property="closeIssue" destination="74g-Z5-xSa" id="Tsb-a9-zvs"/>
                                             <outlet property="due" destination="ClP-ZS-GNP" id="ohb-sL-oAz"/>
+                                            <outlet property="issueProgress" destination="gOt-Hn-Xtc" id="dNV-7i-dLa"/>
                                             <outlet property="milestoneDescription" destination="jR1-Y8-2F9" id="T60-aZ-jVU"/>
                                             <outlet property="openIssue" destination="60s-3N-hDg" id="66s-S9-X9b"/>
                                             <outlet property="title" destination="cUo-Om-BU9" id="21Q-Yo-cku"/>
@@ -1283,6 +1284,10 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="descriptionChanged:" destination="dE6-Wh-pCs" eventType="editingChanged" id="N7M-aH-qA0"/>
+                                                            <action selector="descriptionChanged:" destination="dE6-Wh-pCs" eventType="editingDidEnd" id="q3P-uv-CXJ"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>

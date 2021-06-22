@@ -17,8 +17,8 @@ class MilestoneViewController: UIViewController {
         self.milestoneDataCenter = MilestoneDataCenter()
         self.bind()
         self.setTableView()
+        self.milestoneDataCenter.getMilestones()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,7 +38,9 @@ class MilestoneViewController: UIViewController {
     }
     
     func bind() {
-        
+        self.milestoneDataCenter.milestoneLoadHandler = {
+            self.milestoneTableView.reloadData()
+        }
     }
     
     private func makeBarButton() {
@@ -49,17 +51,19 @@ class MilestoneViewController: UIViewController {
     
     @objc func selectPlusButton(_ sender: UIBarButtonItem) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: NewMilestoneViewController.className) as? NewMilestoneViewController else { return }
+        vc.setMilestoneDataCenter(self.milestoneDataCenter)
         self.navigationController?.present(vc, animated: true, completion: nil)
     }
 }
 
 extension MilestoneViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.milestoneDataCenter.milestoneList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MilestoneTableViewCell.className, for: indexPath) as? MilestoneTableViewCell else { return UITableViewCell() }
+        cell.configure(milestone: self.milestoneDataCenter.milestoneList[indexPath.row])
         return cell
     }
 }
@@ -68,10 +72,19 @@ extension MilestoneViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
-}
-
-extension MilestoneViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        viewHeaderConstraint.constant = -scrollView.contentOffset.y
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "삭제") { (action, view, completion) in
+            print("delete")
+            self.milestoneDataCenter.deleteMilestone(index: indexPath.row) {
+                self.milestoneDataCenter.deleteLocalMilestone(index: indexPath.row)
+            }
+            completion(true)
+        }
+        let deleteImage = UIImage(systemName: "trash")
+        delete.image = deleteImage
+        let swipeConfig = UISwipeActionsConfiguration(actions: [delete])
+        swipeConfig.performsFirstActionWithFullSwipe = true
+        return swipeConfig
     }
 }

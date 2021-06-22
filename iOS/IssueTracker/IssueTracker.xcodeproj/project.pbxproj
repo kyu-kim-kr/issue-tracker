@@ -64,6 +64,7 @@
 		22A748CD267C18980028E28C /* NewMilestoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A748CC267C18980028E28C /* NewMilestoneViewController.swift */; };
 		22A748D2267C1E8E0028E28C /* String+regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A748D1267C1E8E0028E28C /* String+regex.swift */; };
 		22B28F142671BE6B001E74C1 /* danceAlert.json in Resources */ = {isa = PBXBuildFile; fileRef = 22B28F132671BE6B001E74C1 /* danceAlert.json */; };
+		22CBF4C126825378007A9CA8 /* MakerdMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CBF4C026825378007A9CA8 /* MakerdMilestone.swift */; };
 		22D13996267ADC6E000B1D97 /* NewLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D13995267ADC6E000B1D97 /* NewLabelViewController.swift */; };
 		22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */; };
 		22E6D6DB2671BD0C00943003 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 22E6D6DA2671BD0C00943003 /* Lottie */; };
@@ -155,6 +156,7 @@
 		22A748CC267C18980028E28C /* NewMilestoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMilestoneViewController.swift; sourceTree = "<group>"; };
 		22A748D1267C1E8E0028E28C /* String+regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+regex.swift"; sourceTree = "<group>"; };
 		22B28F132671BE6B001E74C1 /* danceAlert.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = danceAlert.json; sourceTree = "<group>"; };
+		22CBF4C026825378007A9CA8 /* MakerdMilestone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakerdMilestone.swift; sourceTree = "<group>"; };
 		22D13995267ADC6E000B1D97 /* NewLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLabelViewController.swift; sourceTree = "<group>"; };
 		22E6D6B82671931D00943003 /* IssueTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueTracker.entitlements; sourceTree = "<group>"; };
 		22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				221E95A42679CC29007B7180 /* MilestoneViewController.swift */,
+				22A748CC267C18980028E28C /* NewMilestoneViewController.swift */,
 				221E95B52679CD2E007B7180 /* View */,
 				221E95AC2679CC8E007B7180 /* Model */,
 			);
@@ -344,6 +347,7 @@
 				2275892C2681772200DAB55A /* IssueDetailMilestone.swift */,
 				227589312681784000DAB55A /* IssueDetailLabel.swift */,
 				220A76CE26823FD100B6403D /* MakedLabel.swift */,
+				22CBF4C026825378007A9CA8 /* MakerdMilestone.swift */,
 				220A76D3268240A100B6403D /* Response */,
 			);
 			path = DTO;
@@ -407,10 +411,9 @@
 				2246877E267EC7A400D7150A /* Write */,
 				2229BF8726802B7F00AEBE53 /* SelectCategory */,
 				2205F72726724F6300FA4F91 /* Filter */,
-				22FC5B8626799E5600DC2794 /* LabelViewController */,
 				2252FD87267C359900E8E70E /* IssueDetail */,
+				22FC5B8626799E5600DC2794 /* LabelViewController */,
 				221E95A32679CBEB007B7180 /* Milestone */,
-				22A748CB267C18770028E28C /* NewMilestone */,
 				22A748C2267C15E50028E28C /* Account */,
 				22780790266E10D80064B12D /* Network */,
 				225BA7A326710DA400BCA2B8 /* DTO */,
@@ -485,14 +488,6 @@
 				22A748C3267C16010028E28C /* AccountViewController.swift */,
 			);
 			path = Account;
-			sourceTree = "<group>";
-		};
-		22A748CB267C18770028E28C /* NewMilestone */ = {
-			isa = PBXGroup;
-			children = (
-				22A748CC267C18980028E28C /* NewMilestoneViewController.swift */,
-			);
-			path = NewMilestone;
 			sourceTree = "<group>";
 		};
 		22E6D6C72671B2DA00943003 /* TabBar */ = {
@@ -701,6 +696,7 @@
 				227589322681784000DAB55A /* IssueDetailLabel.swift in Sources */,
 				22A748D2267C1E8E0028E28C /* String+regex.swift in Sources */,
 				2205F72326724DF900FA4F91 /* IssueListDataSource.swift in Sources */,
+				22CBF4C126825378007A9CA8 /* MakerdMilestone.swift in Sources */,
 				2275891B2681693B00DAB55A /* IssueDetailTableViewCell.swift in Sources */,
 				229E797F2671073D008B0E49 /* LabelFlowLayout.swift in Sources */,
 				227EE2C52671102B008B02BB /* URL.swift in Sources */,

@@ -31,9 +31,11 @@ struct ServerAPI {
         case github
         case list
         case labels
+        case milestone
         case deleteIssue(Int)
         case closeIssue(Int)
         case deleteLabel(Int)
+        case deleteMilestone(Int)
         
         var value: String {
             switch self {
@@ -41,9 +43,11 @@ struct ServerAPI {
             case .github: return "/api/login/auth"
             case .list: return "/api/issues"
             case .labels: return "/api/labels"
+            case .milestone: return "/api/milestones"
             case .deleteIssue(let id): return "\(Endpoint.list.value)/\(id)"
             case .closeIssue(let id): return "\(Endpoint.list.value)/\(id)" //MARK: - 이상함
             case .deleteLabel(let id): return "\(Endpoint.labels.value)/\(id)"
+            case .deleteMilestone(let id): return "\(Endpoint.milestone.value)/\(id)"
             }
         }
     

@@ -14,6 +14,16 @@ struct Milestone: Codable {
     var due: String
     var opendIssueCount: Int
     var closedIssueCount: Int
+    var displayOpenCount: String {
+        return "열린 이슈 \(opendIssueCount)게"
+    }
+    var displayCloseCount: String {
+        return "닫힌 이슈 \(closedIssueCount)게"
+    }
+    var issueProgress: String {
+        let persent = Int(floor(Double(closedIssueCount) / Double(opendIssueCount + closedIssueCount) * 100))
+        return "\(persent)%"
+    }
     
     enum CodingKeys: String, CodingKey {
         case id, title
