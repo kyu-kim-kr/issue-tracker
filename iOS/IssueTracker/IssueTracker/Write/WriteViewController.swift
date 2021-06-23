@@ -9,6 +9,7 @@ import UIKit
 import MarkdownView
 import PhotosUI
 import Vision
+import NVActivityIndicatorView
 
 class WriteViewController: UIViewController {
     @IBOutlet weak var markdownTextView: MarkdownTextView!
@@ -19,6 +20,7 @@ class WriteViewController: UIViewController {
     @IBOutlet weak var nextBarButton: UIBarButtonItem!
     var markdownView: MarkdownView!
     var writeInfoDataCenter: WriteInfoDataCenter!
+    var indicator: NVActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +30,20 @@ class WriteViewController: UIViewController {
         self.setSegmentedControl()
         self.checkfilledText()
         self.configureImageMenuItem()
+        self.setActivityIndicator()
         self.markdownTextView.becomeFirstResponder()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? SelectCategoryViewController
         vc?.setWriteInfoDataCenter(self.writeInfoDataCenter)
+    }
+    
+    private func setActivityIndicator() {
+        let frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.indicator = NVActivityIndicatorView(frame: frame, type: .circleStrokeSpin, color: .darkGray, padding: 0)
+        self.indicator.center = self.view.center
+        self.view.addSubview(self.indicator)
     }
     
     func makeWriteInfoDataCenter(reloadHandler: (() -> ())?) {
@@ -71,10 +81,13 @@ class WriteViewController: UIViewController {
     
     private func askPasteOCRCode(text: String) {
         let alert = UIAlertController(title: "이미지 속에 코드가 있습니다. \n인식해서 붙여넣을까여?", message: nil, preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
+        let cancel = UIAlertAction(title: "취소", style: .default) { [weak self] (_) in
+            self?.stopAnimatingIndicator()
+        }
         let admit = UIAlertAction(title: "확인", style: .destructive) { [weak self] (_) in
             self?.markdownTextView.text = text
             self?.writeInfoDataCenter.appendBody(text)
+            self?.stopAnimatingIndicator()
         }
         alert.addAction(cancel)
         alert.addAction(admit)
@@ -178,20 +191,32 @@ extension WriteViewController: UITextViewDelegate {
             textView.textColor = .lightGray
         }
     }
+    
+    private func startAnimatingIndicator() {
+        self.view.bringSubviewToFront(self.indicator)
+        self.indicator.startAnimating()
+    }
+    
+    private func stopAnimatingIndicator() {
+        self.indicator.stopAnimating()
+    }
 }
 
 extension WriteViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true, completion: nil)
-        let itemProvider = results.first?.itemProvider
-        if let itemProvider = itemProvider,
-           itemProvider.canLoadObject(ofClass: UIImage.self) {
-            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                DispatchQueue.main.async {
-                    //MARK: - 이미지를 네트워크로 보내고 주소를 받아야 함
+        self.startAnimatingIndicator()
+        picker.dismiss(animated: true) {
+            self.recognizeText()
+            let itemProvider = results.first?.itemProvider
+            if let itemProvider = itemProvider,
+               itemProvider.canLoadObject(ofClass: UIImage.self) {
+                itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                    DispatchQueue.main.async {
+                        //MARK: - 이미지를 네트워크로 보내고 주소를 받아야 함
+                    }
                 }
             }
+            
         }
-        
     }
 }

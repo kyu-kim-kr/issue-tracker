@@ -16,6 +16,7 @@
 		220A76D5268240BA00B6403D /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220A76D4268240BA00B6403D /* StatusResponse.swift */; };
 		2210643D26837730002701AB /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2210643C26837730002701AB /* String+Date.swift */; };
 		22106442268378DF002701AB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22106441268378DF002701AB /* DateFormatter.swift */; };
+		221064482683887A002701AB /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 221064472683887A002701AB /* NVActivityIndicatorView */; };
 		221E95A52679CC29007B7180 /* MilestoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95A42679CC29007B7180 /* MilestoneViewController.swift */; };
 		221E95B12679CCBD007B7180 /* MilestoneDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95B02679CCBD007B7180 /* MilestoneDataCenter.swift */; };
 		221E95B72679CD5A007B7180 /* MilestoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95B62679CD5A007B7180 /* MilestoneTableViewCell.swift */; };
@@ -178,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225BA79B26710B9700BCA2B8 /* OctoKit in Frameworks */,
+				221064482683887A002701AB /* NVActivityIndicatorView in Frameworks */,
 				2278078C266E10D40064B12D /* Alamofire in Frameworks */,
 				2229BF74267F842400AEBE53 /* MarkdownView in Frameworks */,
 				22E6D6DB2671BD0C00943003 /* Lottie in Frameworks */,
@@ -533,6 +535,7 @@
 				225BA79A26710B9700BCA2B8 /* OctoKit */,
 				22E6D6DA2671BD0C00943003 /* Lottie */,
 				2229BF73267F842400AEBE53 /* MarkdownView */,
+				221064472683887A002701AB /* NVActivityIndicatorView */,
 			);
 			productName = IssueTracker;
 			productReference = 22780752266E0F4B0064B12D /* IssueTracker.app */;
@@ -610,6 +613,7 @@
 				225BA79926710B9700BCA2B8 /* XCRemoteSwiftPackageReference "octokit" */,
 				22E6D6D92671BD0C00943003 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				2229BF72267F842400AEBE53 /* XCRemoteSwiftPackageReference "MarkdownView" */,
+				2210644626838879002701AB /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 			);
 			productRefGroup = 22780753266E0F4B0064B12D /* Products */;
 			projectDirPath = "";
@@ -1045,6 +1049,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2210644626838879002701AB /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
 		2229BF72267F842400AEBE53 /* XCRemoteSwiftPackageReference "MarkdownView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/keitaoouchi/MarkdownView";
@@ -1080,6 +1092,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		221064472683887A002701AB /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2210644626838879002701AB /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
 		2229BF73267F842400AEBE53 /* MarkdownView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2229BF72267F842400AEBE53 /* XCRemoteSwiftPackageReference "MarkdownView" */;
