@@ -22,17 +22,18 @@ class WriteInfoDataCenter {
     var labelList: [Label]
     var milestoneList: [Milestone]
     var assignList: [Assign]
+    var reloadLabelsHandler: (() -> ())?
     
     var selectedCategory: Category
     
-    init() {
+    init(reloadLabelsHandler: (() -> ())?) {
         self.labelList = [Label]()
         self.milestoneList = [Milestone]()
         self.assignList = [Assign]()
         self.selectedCategory = .none
         self.alamofireNetworkManager = AlamofireNetworkManager()
         self.selectedLabelInfo = IssueFrame(title: "", bodyDescription: "", assignee: 1, labelIDs: [Int](), milestoneID: 1)
-        
+        self.reloadLabelsHandler = reloadLabelsHandler
         //MARK: - dummy
         self.labelList = [Label(id: 1, title: "jhop", labelDescription: "asdfasdf", colorCode: "asdf", isWhiteFontColor: true)]
     }

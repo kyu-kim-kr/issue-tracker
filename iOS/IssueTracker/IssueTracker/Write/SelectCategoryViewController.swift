@@ -10,7 +10,6 @@ import UIKit
 class SelectCategoryViewController: UIViewController {
     @IBOutlet weak var categoryTableView: UITableView!
     var writeInfoDataCenter: WriteInfoDataCenter!
-    var issueListCenter: IssueListCenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +23,7 @@ class SelectCategoryViewController: UIViewController {
     @IBAction func touchSaveButton(_ sender: UIBarButtonItem) {
         self.writeInfoDataCenter.makeIssue { [weak self] in
             self?.dismiss(animated: true, completion: {
-                
+                self?.writeInfoDataCenter.reloadLabelsHandler?()
             })
         }
     }

@@ -22,7 +22,6 @@ class WriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.writeInfoDataCenter = WriteInfoDataCenter()
         self.markdownView = makeMarkdownView()
         self.setNavigationController()
         self.setMarkdownTextView()
@@ -35,6 +34,10 @@ class WriteViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? SelectCategoryViewController
         vc?.setWriteInfoDataCenter(self.writeInfoDataCenter)
+    }
+    
+    func makeWriteInfoDataCenter(reloadHandler: (() -> ())?) {
+        self.writeInfoDataCenter = WriteInfoDataCenter(reloadLabelsHandler: reloadHandler)
     }
     
     //MARK: - 이미지 네트워크 시 사용해야함

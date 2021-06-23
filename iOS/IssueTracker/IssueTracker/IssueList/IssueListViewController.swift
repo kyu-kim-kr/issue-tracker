@@ -35,6 +35,14 @@ class IssueListViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navVC = segue.destination as? UINavigationController
+        let writeVC = navVC?.topViewController as? WriteViewController
+        writeVC?.makeWriteInfoDataCenter(reloadHandler: {
+            self.issueListCenter.getIssueList()
+        })
+    }
+    
     private func makeDataSource() -> DataSource {
         DataSource.init(tableView: issueListTableView) { (tableView, indexPath, issue) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: IssueListTableViewCell.className, for: indexPath) as? IssueListTableViewCell
