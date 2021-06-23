@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rtz-qF-42J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xLx-g3-m8F">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -992,10 +992,36 @@
                     <view key="view" contentMode="scaleToFill" id="i57-Pw-hKa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZVs-OZ-hKY">
+                                <rect key="frame" x="87" y="256.5" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="5jp-5n-D6p"/>
+                                    <constraint firstAttribute="width" constant="240" id="cud-gE-eNv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isR-ne-Uhf">
+                                <rect key="frame" x="20" y="559" width="374" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xpg-NC-i0I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZVs-OZ-hKY" firstAttribute="centerX" secondItem="xpg-NC-i0I" secondAttribute="centerX" id="0Kq-lY-gDN"/>
+                            <constraint firstItem="xpg-NC-i0I" firstAttribute="trailing" secondItem="isR-ne-Uhf" secondAttribute="trailing" constant="20" id="AJ3-Qg-snd"/>
+                            <constraint firstItem="isR-ne-Uhf" firstAttribute="top" secondItem="ZVs-OZ-hKY" secondAttribute="bottom" constant="62.5" id="LM1-z0-nQj"/>
+                            <constraint firstItem="ZVs-OZ-hKY" firstAttribute="centerY" secondItem="xpg-NC-i0I" secondAttribute="centerY" constant="-100" id="owT-NK-0gn"/>
+                            <constraint firstItem="isR-ne-Uhf" firstAttribute="leading" secondItem="xpg-NC-i0I" secondAttribute="leading" constant="20" id="uyb-Vg-nl5"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="dgy-NR-CVr"/>
+                    <connections>
+                        <outlet property="name" destination="isR-ne-Uhf" id="rAE-WA-fNL"/>
+                        <outlet property="profile" destination="ZVs-OZ-hKY" id="Sgk-WK-rSx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAE-lo-kyR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

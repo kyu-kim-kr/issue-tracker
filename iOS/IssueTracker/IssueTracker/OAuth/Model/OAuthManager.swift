@@ -20,7 +20,7 @@ class OAuthManager {
         self.alamofireNetworkManager = AlamofireNetworkManager()
     }
     
-    func initPostLoginCodeWebAuthSession(completion: @escaping (GithubUser) -> ()) -> ASWebAuthenticationSession? {
+    func initPostLoginCodeWebAuthSession(completion: @escaping (JWT) -> ()) -> ASWebAuthenticationSession? {
         let scheme = ServerAPI.scheme
         guard let url = config.authenticate()?.appending([ServerAPI.githubAuthenticateURLQueryItem]) else { return nil }
 
@@ -33,7 +33,7 @@ class OAuthManager {
             
             guard let successURL = callBack else { return }
             let callBackURLCode = successURL.extractCallbackURLCode()          
-            self.alamofireNetworkManager.request(decodingType: GithubUser.self,
+            self.alamofireNetworkManager.request(decodingType: JWT.self,
                                                  endPoint: .github,
                                                  method: .get,
                                                  parameters: ["client": "ios",

@@ -12,21 +12,32 @@ final class ImageLoader {
     static private let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
     static func load(from imageUrl: String, completionHandler: @escaping (UIImage?) -> ()) {
         guard let fileName = URL(string: imageUrl)?.lastPathComponent else { return }
-        
+
         if let cache = availableCache(of: fileName) {
             let image = UIImage(contentsOfFile: cache)
+
             DispatchQueue.main.async {
                 return completionHandler(image)
             }
         }
-        
+
         let request = downloadRequest(of: imageUrl, fileName: fileName)
         request.responseURL { response in
             if response.error == nil, let filePath = response.fileURL?.path {
                 let image = UIImage(contentsOfFile: filePath)
+
                 DispatchQueue.main.async {
                     return completionHandler(image)
                 }
+            }
+        }
+    }
+    
+    static func just(from imageUrl: String, completionHandler: @escaping (UIImage?) -> ()) {
+        AF.request(imageUrl).responseData { (response) in
+            if let data = response.data {
+                let image = UIImage(data: data)
+                completionHandler(image)
             }
         }
     }

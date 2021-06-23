@@ -17,11 +17,14 @@
 		2210643D26837730002701AB /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2210643C26837730002701AB /* String+Date.swift */; };
 		22106442268378DF002701AB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22106441268378DF002701AB /* DateFormatter.swift */; };
 		221064482683887A002701AB /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 221064472683887A002701AB /* NVActivityIndicatorView */; };
+		2210644E26838EE6002701AB /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 2210644D26838EE6002701AB /* JWTDecode */; };
+		221064532683914A002701AB /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221064522683914A002701AB /* GithubUser.swift */; };
+		2210645E2683961B002701AB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2210645D2683961B002701AB /* UIImage.swift */; };
 		221E95A52679CC29007B7180 /* MilestoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95A42679CC29007B7180 /* MilestoneViewController.swift */; };
 		221E95B12679CCBD007B7180 /* MilestoneDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95B02679CCBD007B7180 /* MilestoneDataCenter.swift */; };
 		221E95B72679CD5A007B7180 /* MilestoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95B62679CD5A007B7180 /* MilestoneTableViewCell.swift */; };
 		222299DF2682275E0099A0B0 /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222299DE2682275E0099A0B0 /* SessionModel.swift */; };
-		222299E7268229240099A0B0 /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222299E6268229240099A0B0 /* GithubUser.swift */; };
+		222299E7268229240099A0B0 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222299E6268229240099A0B0 /* JWT.swift */; };
 		222299EC26822A520099A0B0 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222299EB26822A520099A0B0 /* Author.swift */; };
 		222299F1268233870099A0B0 /* IssueDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222299F0268233870099A0B0 /* IssueDelete.swift */; };
 		222299F62682377F0099A0B0 /* IssueClosed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222299F52682377F0099A0B0 /* IssueClosed.swift */; };
@@ -107,11 +110,13 @@
 		220A76D4268240BA00B6403D /* StatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
 		2210643C26837730002701AB /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
 		22106441268378DF002701AB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		221064522683914A002701AB /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
+		2210645D2683961B002701AB /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		221E95A42679CC29007B7180 /* MilestoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneViewController.swift; sourceTree = "<group>"; };
 		221E95B02679CCBD007B7180 /* MilestoneDataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneDataCenter.swift; sourceTree = "<group>"; };
 		221E95B62679CD5A007B7180 /* MilestoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneTableViewCell.swift; sourceTree = "<group>"; };
 		222299DE2682275E0099A0B0 /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
-		222299E6268229240099A0B0 /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
+		222299E6268229240099A0B0 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
 		222299EB26822A520099A0B0 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		222299F0268233870099A0B0 /* IssueDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDelete.swift; sourceTree = "<group>"; };
 		222299F52682377F0099A0B0 /* IssueClosed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueClosed.swift; sourceTree = "<group>"; };
@@ -180,6 +185,7 @@
 			files = (
 				225BA79B26710B9700BCA2B8 /* OctoKit in Frameworks */,
 				221064482683887A002701AB /* NVActivityIndicatorView in Frameworks */,
+				2210644E26838EE6002701AB /* JWTDecode in Frameworks */,
 				2278078C266E10D40064B12D /* Alamofire in Frameworks */,
 				2229BF74267F842400AEBE53 /* MarkdownView in Frameworks */,
 				22E6D6DB2671BD0C00943003 /* Lottie in Frameworks */,
@@ -293,6 +299,7 @@
 				2210643C26837730002701AB /* String+Date.swift */,
 				22106441268378DF002701AB /* DateFormatter.swift */,
 				227EE2C42671102B008B02BB /* URL.swift */,
+				2210645D2683961B002701AB /* UIImage.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -323,7 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				222299DE2682275E0099A0B0 /* SessionModel.swift */,
-				222299E6268229240099A0B0 /* GithubUser.swift */,
+				221064522683914A002701AB /* GithubUser.swift */,
+				222299E6268229240099A0B0 /* JWT.swift */,
 				2205F70F2672468A00FA4F91 /* Issue.swift */,
 				22758927268176CA00DAB55A /* IssueDetail.swift */,
 				2205F714267247EC00FA4F91 /* IssueLabel.swift */,
@@ -536,6 +544,7 @@
 				22E6D6DA2671BD0C00943003 /* Lottie */,
 				2229BF73267F842400AEBE53 /* MarkdownView */,
 				221064472683887A002701AB /* NVActivityIndicatorView */,
+				2210644D26838EE6002701AB /* JWTDecode */,
 			);
 			productName = IssueTracker;
 			productReference = 22780752266E0F4B0064B12D /* IssueTracker.app */;
@@ -614,6 +623,7 @@
 				22E6D6D92671BD0C00943003 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				2229BF72267F842400AEBE53 /* XCRemoteSwiftPackageReference "MarkdownView" */,
 				2210644626838879002701AB /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				2210644C26838EE6002701AB /* XCRemoteSwiftPackageReference "JWTDecode" */,
 			);
 			productRefGroup = 22780753266E0F4B0064B12D /* Products */;
 			projectDirPath = "";
@@ -682,11 +692,12 @@
 				22CBF4C126825378007A9CA8 /* MakerdMilestone.swift in Sources */,
 				2275891B2681693B00DAB55A /* IssueDetailTableViewCell.swift in Sources */,
 				229E797F2671073D008B0E49 /* LabelFlowLayout.swift in Sources */,
+				2210645E2683961B002701AB /* UIImage.swift in Sources */,
 				227EE2C52671102B008B02BB /* URL.swift in Sources */,
 				22A6CB3926707E130030F2AE /* LabelCollectionViewCell.swift in Sources */,
 				22330AC5266F13FD0062B78B /* IssueListViewController.swift in Sources */,
 				222299EC26822A520099A0B0 /* Author.swift in Sources */,
-				222299E7268229240099A0B0 /* GithubUser.swift in Sources */,
+				222299E7268229240099A0B0 /* JWT.swift in Sources */,
 				22F6B5C62680733000BD938D /* DetailCategoryTableViewCell.swift in Sources */,
 				225D0AA42680607900711537 /* Milestone.swift in Sources */,
 				2229BF7C268014F500AEBE53 /* WriteInfoDataCenter.swift in Sources */,
@@ -713,6 +724,7 @@
 				220A76D5268240BA00B6403D /* StatusResponse.swift in Sources */,
 				229E79742670FC8E008B0E49 /* CellLabel.swift in Sources */,
 				22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */,
+				221064532683914A002701AB /* GithubUser.swift in Sources */,
 				22780795266E115E0064B12D /* ServerAPI.swift in Sources */,
 				2210643D26837730002701AB /* String+Date.swift in Sources */,
 				22A748C4267C16010028E28C /* AccountViewController.swift in Sources */,
@@ -1057,6 +1069,14 @@
 				minimumVersion = 5.1.1;
 			};
 		};
+		2210644C26838EE6002701AB /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.1;
+			};
+		};
 		2229BF72267F842400AEBE53 /* XCRemoteSwiftPackageReference "MarkdownView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/keitaoouchi/MarkdownView";
@@ -1096,6 +1116,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2210644626838879002701AB /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
 			productName = NVActivityIndicatorView;
+		};
+		2210644D26838EE6002701AB /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2210644C26838EE6002701AB /* XCRemoteSwiftPackageReference "JWTDecode" */;
+			productName = JWTDecode;
 		};
 		2229BF73267F842400AEBE53 /* MarkdownView */ = {
 			isa = XCSwiftPackageProductDependency;

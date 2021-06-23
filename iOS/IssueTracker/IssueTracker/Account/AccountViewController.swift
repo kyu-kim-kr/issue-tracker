@@ -8,11 +8,19 @@
 import UIKit
 
 class AccountViewController: UIViewController {
-
+    @IBOutlet weak var profile: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        configure()
+    }
+    
+    private func configure() {
+        self.name.text = "✨\(SessionModel.shared.user.name)✨"
+        ImageLoader.just(from: SessionModel.shared.user.avatarURL) { (image) in
+            self.profile.image = image?.roundedImage.withRenderingMode(.alwaysOriginal)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

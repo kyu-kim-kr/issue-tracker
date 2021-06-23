@@ -21,7 +21,11 @@ class IssueTrackerViewController: UITabBarController {
         self.tabBar.items?[1].title = "레이블"
         self.tabBar.items?[2].image = UIImage(systemName: "signpost.right")
         self.tabBar.items?[2].title = "마일스톤"
-        self.tabBar.items?[3].image = UIImage(systemName: "person")
-        self.tabBar.items?[3].title = "내 계정"
+        ImageLoader.just(from: SessionModel.shared.user.avatarURL) { (image) in
+            self.tabBar.items?[3].image = image?.resizedImage(newWidth: 27).roundedImage.withRenderingMode(.alwaysOriginal)
+            self.tabBar.items?[3].title = "내 계정"
+            self.tabBar.items?[3].imageInsets = UIEdgeInsets(top: 1, left: 1, bottom: 0, right: 1)
+        }
     }
 }
+
