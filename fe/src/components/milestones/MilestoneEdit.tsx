@@ -11,10 +11,10 @@ const MilestoneEdit = () => {
   return (
     <StyledMilestoneItemEdit>
       <MilestoneItemEditTitle>마일스톤 편집</MilestoneItemEditTitle>
-      <MilestonEditInputs>
+      <MilestoneEditInputs>
         <Input label="제목" onChange={handleChange} />
         <Input label="완료일(선택)" onChange={handleChange} />
-      </MilestonEditInputs>
+      </MilestoneEditInputs>
       <Input label="설명(선택)" onChange={handleChange} />
       <EditButtons>
           <CreateButton white onClick={clickHandler} icon={<CancelIcon />}>
@@ -42,7 +42,7 @@ const MilestoneItemEditTitle = styled.span`
   margin-bottom: 1rem;
 `;
 
-const MilestonEditInputs = styled.div`
+const MilestoneEditInputs = styled.div`
 ${({ theme }) => theme.style.flexSpaceBetween};
 
   div {
