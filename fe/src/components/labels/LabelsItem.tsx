@@ -12,7 +12,7 @@ const LabelsItem = ({
   title,
   textColor,
   labelColor,
-}: LabelsItemProps) => {
+}: LabelItemType) => {
   const [popup, setPopup] = useState(false);
 
   const clickHandler = (e: MouseEvent) => {
