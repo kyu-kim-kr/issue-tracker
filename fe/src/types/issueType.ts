@@ -5,6 +5,7 @@ export type NavType = 'All' | 'Milestone' | 'Label';
 export type UserType = {
   name: string;
   profileImg?: string | undefined;
+  id?: number;
 };
 
 export type SidebarListType = 'milestoneList' | 'labelList';
@@ -78,3 +79,12 @@ export type MilestonesItemProps = MilestonesItemLeftProps &
   MilestoneBarType & {
     id: number;
   };
+
+// =========================== CommentType ===========================
+
+export type CommentType = {
+  id: number;
+  description: string;
+  createdTime: string;
+  author: UserType;
+};

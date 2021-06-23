@@ -35,6 +35,13 @@ export type IssueDetailDataType = {
   num_of_comments: number;
 };
 
+export type CommentDataType = {
+  id: number;
+  description: string;
+  created_time: string;
+  author: UserDataType;
+};
+
 export type LabelDataType = {
   id?: number;
   title: string;
