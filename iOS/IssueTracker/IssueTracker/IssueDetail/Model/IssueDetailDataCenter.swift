@@ -15,9 +15,8 @@ class IssueDetailDataCenter {
     }
     
     var titleDescription: String {
-        
-//        let beforeDate = makeBeforeDate(createdDate: <#T##Date#>)
-        return ""
+        let beforeDate = makeBeforeDate(createdDate: issue.createdTime)
+        return "\(beforeDate), \(issue.author.name)님이 작성했습니다."
     }
     
     private func makeBeforeDate(createdDate: Date) -> String {

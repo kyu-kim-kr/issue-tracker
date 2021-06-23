@@ -19,13 +19,16 @@ class IssueDetailViewController: UIViewController {
     var issueDetailDataCenter: IssueDetailDataCenter!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationController()
         self.configure()
+        self.setNavigationController()
     }
     
     private func setNavigationController() {
-        self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
-        self.tabBarController?.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func makeIssueDetailDataCenter(issue: Issue) {
@@ -36,8 +39,8 @@ class IssueDetailViewController: UIViewController {
         let issue = self.issueDetailDataCenter.issue
         self.issueTitle.text = issue.title
         self.openLabel.isHidden = issue.closed
-        self.closeLabel.isHidden = issue.closed
-        self.writeDescriptionLabel.text = ""
+        self.closeLabel.isHidden = !issue.closed
+        self.writeDescriptionLabel.text = self.issueDetailDataCenter.titleDescription
         self.issueIDLabel.text = "#\(issue.id)"
         makeMarkdownView(body: issue.issueDescription)
     }

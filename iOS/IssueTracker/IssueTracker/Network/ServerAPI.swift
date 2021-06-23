@@ -47,7 +47,7 @@ struct ServerAPI {
             case .milestone: return "/api/milestones"
             case .assignees: return "/api/assignees"
             case .deleteIssue(let id): return "\(Endpoint.list.value)/\(id)"
-            case .closeIssue(let id): return "\(Endpoint.list.value)/\(id)" //MARK: - 이상함
+            case .closeIssue(let id): return "\(Endpoint.list.value)/\(id)"
             case .deleteLabel(let id): return "\(Endpoint.labels.value)/\(id)"
             case .deleteMilestone(let id): return "\(Endpoint.milestone.value)/\(id)"
             }

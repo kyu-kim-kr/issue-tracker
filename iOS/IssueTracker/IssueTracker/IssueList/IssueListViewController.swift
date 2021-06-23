@@ -154,6 +154,7 @@ extension IssueListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let issue = issueListCenter.issueList[indexPath.row]
         performSegue(withIdentifier: "issueDetail", sender: issue)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
