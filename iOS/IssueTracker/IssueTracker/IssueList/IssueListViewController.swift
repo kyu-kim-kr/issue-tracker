@@ -103,7 +103,7 @@ extension IssueListViewController: UITableViewDelegate {
 
         let close = UIContextualAction(style: .destructive, title: "닫기") { (action, view, completion) in
             print("close")
-            //MARK: - close부분 이상함
+            self.issueListCenter.requestCloseIssue(index: indexPath.row)
             completion(true)
         }
         let closeImage = UIImage(systemName: "archivebox")

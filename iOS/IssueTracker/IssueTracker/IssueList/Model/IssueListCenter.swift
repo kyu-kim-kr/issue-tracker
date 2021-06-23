@@ -11,6 +11,8 @@ class IssueListCenter {
     enum StatusDescription: CustomStringConvertible {
         case completeDelete
         case failDelete
+        case completeClose
+        case failClose
         
         var description: String {
             switch self {
@@ -18,6 +20,10 @@ class IssueListCenter {
                 return "이슈 삭제가 완료됐습니다"
             case .failDelete:
                 return "이슈 삭제가 완료되지 않았습니다"
+            case .completeClose:
+                return "이슈 close가 완료됐습니다"
+            case .failClose:
+                return "이슈 close가 완료되지 않았습니다"
             }
         }
     }
@@ -59,17 +65,36 @@ class IssueListCenter {
     
     func requestDeleteIssue(index: Int) {
         let issueID = self.issueList[index].id
+        let body: [String: Any] = ["deleted": true]
         self.alamofireNetworkManager
             .request(decodingType: Deleted.self,
                      endPoint: .deleteIssue(issueID),
                      method: .patch,
-                     parameters: nil,
+                     parameters: body,
                      headers: nil) { [weak self] (result) in
                 switch result {
                 case .success(_):
                     self?.networkCompleteHandler?(StatusDescription.completeDelete.description)
                 case .failure(let error):
                     self?.networkCompleteHandler?("\(StatusDescription.failDelete.description) \(error.description)")
+                }
+            }
+    }
+    
+    func requestCloseIssue(index: Int) {
+        let issueID = self.issueList[index].id
+        let body: [String: Any] = ["closed": true]
+        self.alamofireNetworkManager
+            .request(decodingType: Deleted.self,
+                     endPoint: .deleteIssue(issueID),
+                     method: .patch,
+                     parameters: body,
+                     headers: nil) { [weak self] (result) in
+                switch result {
+                case .success(_):
+                    self?.networkCompleteHandler?(StatusDescription.completeClose.description)
+                case .failure(let error):
+                    self?.networkCompleteHandler?("\(StatusDescription.failClose.description) \(error.description)")
                 }
             }
     }
