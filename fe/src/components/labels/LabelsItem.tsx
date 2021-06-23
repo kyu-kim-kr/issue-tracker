@@ -28,7 +28,7 @@ const LabelsItem = ({
       </StyledLabelsItem>
       {popup && (
         <LabelsItemEdit
-          {...{ id, description, title, labelColor, textColor }}
+          {...{ clickHandler, id, description, title, labelColor, textColor }}
         />
       )}
     </>
