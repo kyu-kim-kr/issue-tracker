@@ -14,8 +14,6 @@ interface CommentPropsType {
 const Comment = ({ commentData }: CommentPropsType) => {
   const { id, description, createdTime, author } = commentData;
   const issueAuthorId = useRecoilValue(detailIssueAuthorIdAtom);
-  console.log('이슈 작성자', issueAuthorId);
-  console.log('댓글 작성자', id);
 
   return (
     <Box display="flex">
