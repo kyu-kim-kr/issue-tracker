@@ -4,28 +4,30 @@ import Comment from 'components/issue-detail/Comment';
 import styled from 'styled-components';
 import CommentTextarea from 'components/common/CommentTextarea';
 
-const IssueDetailBody = () => (
-  <Box display="flex">
-    <CommentArea>
-      <IssueDescription>
-        {/* 이슈 작성할 때 본문 부분 - 없으면 생략 가능 */}
-        <Comment />
-      </IssueDescription>
-      <Comments>
-        {/* 배열 map 돌려서 Comment 생성하기 */}
-        <Comment />
-        <Comment />
-        <Comment />
-      </Comments>
-      <NewCommentWrapper display="flex">
-        <AuthorAvatar size="L" name="eamon" />
-        <Spacer />
-        <CommentTextarea />
-      </NewCommentWrapper>
-    </CommentArea>
-    <AssignArea></AssignArea>
-  </Box>
-);
+const IssueDetailBody = () => {
+  return (
+    <Box display="flex">
+      <CommentArea>
+        <IssueDescription>
+          {/* 이슈 작성할 때 본문 부분 - 없으면 생략 가능 */}
+          <Comment />
+        </IssueDescription>
+        <Comments>
+          {/* 배열 map 돌려서 Comment 생성하기 */}
+          <Comment />
+          <Comment />
+          <Comment />
+        </Comments>
+        <NewCommentWrapper display="flex">
+          <AuthorAvatar size="L" name="eamon" />
+          <Spacer />
+          <CommentTextarea />
+        </NewCommentWrapper>
+      </CommentArea>
+      <AssignArea></AssignArea>
+    </Box>
+  );
+};
 
 const CommentArea = styled.section`
   width: 70%;

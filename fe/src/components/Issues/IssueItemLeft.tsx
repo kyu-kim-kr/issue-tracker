@@ -6,6 +6,8 @@ import { ReactComponent as Milestone } from 'icons/openMilestone.svg';
 import { Checkbox } from '@material-ui/core';
 import Label from 'components/common/Label';
 import { useHistory } from 'react-router-dom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { clickedIssueIdAtom } from 'store';
 
 const IssueItemLeft = ({
   id,
@@ -16,8 +18,10 @@ const IssueItemLeft = ({
   labeList,
 }: IssueItemLeftPropsType) => {
   const history = useHistory();
+  const setClickedIssueId = useSetRecoilState(clickedIssueIdAtom);
 
   const routeToIssueDetailPage = () => {
+    setClickedIssueId(id);
     history.push(`/issues/${id}`);
   };
 

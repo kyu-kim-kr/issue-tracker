@@ -32,18 +32,42 @@ export const issueDetailQuery = selector({
   get: async ({ get }) => {
     const token = localStorage.getItem('jwt');
     const clickedIssueId = get(clickedIssueIdAtom);
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_API_URL}/api/issues/${clickedIssueId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    return {
-      title: data.title,
-      description: data.description,
-    };
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/issues/${clickedIssueId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return {
+        title: data.title,
+        description: data.description,
+        assignees: data.assignees,
+        isOpened: !data.closed,
+        milestone: data.milestone,
+        author: data.author,
+        createdTime: data.created_time,
+        issueNumber: data.issue_number,
+        labelList: data.label_list,
+        commentsCount: data.num_of_comments,
+      };
+    } catch (error) {
+      console.error('issueDetailQuery 에러', error);
+      return {
+        title: null,
+        description: null,
+        assignees: null,
+        isOpened: true, // null로 하니 IssueDetailHeader에서 타입에러 나서 true로 써둠
+        milestone: null,
+        author: null,
+        createdTime: null,
+        issueNumber: null,
+        labelList: null,
+        commentsCount: null,
+      };
+    }
   },
 });
 
