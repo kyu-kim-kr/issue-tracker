@@ -21,7 +21,8 @@ struct Milestone: Codable {
         return "닫힌 이슈 \(closedIssueCount)게"
     }
     var issueProgress: String {
-        let persent = Int(floor(Double(closedIssueCount) / Double(opendIssueCount + closedIssueCount) * 100))
+        let divide = floor(Double(closedIssueCount) / Double(opendIssueCount + closedIssueCount) * 100)
+        let persent = divide.isNaN ? 0 : Int(divide)
         return "\(persent)%"
     }
     

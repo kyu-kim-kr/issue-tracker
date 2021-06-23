@@ -17,8 +17,8 @@ protocol Networkable {
 }
 
 struct ServerAPI {
-//    static var baseURL = "http://3.35.48.70:8080"
-    static var baseURL = "http://15.164.68.136"
+    static var baseURL = "http://3.35.48.70:8080"
+//    static var baseURL = "http://15.164.68.136"
     static var redirectURLKey = "redirect_url"
     static var redirectURLValue = "\(scheme)://login"
     static var scheme = "issue-tracker"
@@ -100,17 +100,24 @@ final class AlamofireNetworkManager {
                                method: HTTPMethod,
                                parameters: [String: Any]?,
                                headers: HTTPHeaders?,
+                               isOAuth: Bool = false,
                                completionHandler: @escaping (Result<T, NetworkError>) -> Void) {
         let address = baseAddress + endPoint.value
+        let encoding: ParameterEncoding = isOAuth ? URLEncoding.default : JSONEncoding.default
         AF.request(address,
                    method: method,
                    parameters: parameters,
-                   encoding: JSONEncoding.default,
-                   headers: headers == nil ? self.baseHeaders : headers)
+                   encoding: encoding,
+                   headers: self.baseHeaders)
             .responseDecodable(of: decodingType) { dataResponse in
                 print(address, parameters, headers, self.baseHeaders)
-            guard let statusCode = dataResponse.response?.statusCode else {
-                return completionHandler(.failure(NetworkError.internet))
+                guard let statusCode = dataResponse.response?.statusCode else {
+                    print(dataResponse.result)
+                    print(dataResponse.response)
+                    print(dataResponse.error)
+                    print(dataResponse.description)
+//                    print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
+                    return completionHandler(.failure(NetworkError.internet))
             }
             switch statusCode {
             case 200..<300:
@@ -126,6 +133,11 @@ final class AlamofireNetworkManager {
             case 300..<400:
                 completionHandler(.failure(NetworkError.noResult))
             case 400..<500:
+                print(dataResponse.result)
+                print(dataResponse.response)
+                print(dataResponse.error)
+                print(dataResponse.description)
+                print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
                 completionHandler(.failure(NetworkError.notAllowed))
             case 500...:
                 print(dataResponse.result)
