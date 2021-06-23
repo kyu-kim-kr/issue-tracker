@@ -14,12 +14,13 @@ struct Issue: Codable, Hashable {
     var assignees: [Assign?]
     var author: Author
     var labelList: [IssueLabel]
+    var closed: Bool
     var issueNumber: Int
-    var createdTime: String
+    var createdTime: Date
     var milestoneTitle: String?
     
     enum CodingKeys: String, CodingKey {
-        case id, title, assignees, author
+        case id, title, assignees, author, closed
         case issueDescription = "description"
         case labelList = "label_list"
         case issueNumber = "issue_number"

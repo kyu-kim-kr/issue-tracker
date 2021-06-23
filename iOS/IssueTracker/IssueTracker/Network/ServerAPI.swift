@@ -106,12 +106,14 @@ final class AlamofireNetworkManager {
                                completionHandler: @escaping (Result<T, NetworkError>) -> Void) {
         let address = baseAddress + endPoint.value
         let encoding: ParameterEncoding = isOAuth ? URLEncoding.default : JSONEncoding.default
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
         AF.request(address,
                    method: method,
                    parameters: parameters,
                    encoding: encoding,
                    headers: self.baseHeaders)
-            .responseDecodable(of: decodingType) { dataResponse in
+            .responseDecodable(of: decodingType, decoder: decoder) { dataResponse in
                 print(address, parameters, headers, self.baseHeaders)
                 guard let statusCode = dataResponse.response?.statusCode else {
                     print(dataResponse.result)

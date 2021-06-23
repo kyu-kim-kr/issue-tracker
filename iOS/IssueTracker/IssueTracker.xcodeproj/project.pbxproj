@@ -14,6 +14,8 @@
 		2205F72F267255E300FA4F91 /* FilterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205F72E267255E300FA4F91 /* FilterStatus.swift */; };
 		220A76CF26823FD100B6403D /* MakedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220A76CE26823FD100B6403D /* MakedLabel.swift */; };
 		220A76D5268240BA00B6403D /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220A76D4268240BA00B6403D /* StatusResponse.swift */; };
+		2210643D26837730002701AB /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2210643C26837730002701AB /* String+Date.swift */; };
+		22106442268378DF002701AB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22106441268378DF002701AB /* DateFormatter.swift */; };
 		221E95A52679CC29007B7180 /* MilestoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95A42679CC29007B7180 /* MilestoneViewController.swift */; };
 		221E95B12679CCBD007B7180 /* MilestoneDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95B02679CCBD007B7180 /* MilestoneDataCenter.swift */; };
 		221E95B72679CD5A007B7180 /* MilestoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E95B62679CD5A007B7180 /* MilestoneTableViewCell.swift */; };
@@ -102,6 +104,8 @@
 		2205F72E267255E300FA4F91 /* FilterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterStatus.swift; sourceTree = "<group>"; };
 		220A76CE26823FD100B6403D /* MakedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakedLabel.swift; sourceTree = "<group>"; };
 		220A76D4268240BA00B6403D /* StatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
+		2210643C26837730002701AB /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
+		22106441268378DF002701AB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		221E95A42679CC29007B7180 /* MilestoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneViewController.swift; sourceTree = "<group>"; };
 		221E95B02679CCBD007B7180 /* MilestoneDataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneDataCenter.swift; sourceTree = "<group>"; };
 		221E95B62679CD5A007B7180 /* MilestoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneTableViewCell.swift; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 				22330AD2266F58FB0062B78B /* NSObject+ClassNameProtocol.swift */,
 				22330ADA266F66A90062B78B /* UIColor.swift */,
 				22A748D1267C1E8E0028E28C /* String+regex.swift */,
+				2210643C26837730002701AB /* String+Date.swift */,
+				22106441268378DF002701AB /* DateFormatter.swift */,
 				227EE2C42671102B008B02BB /* URL.swift */,
 			);
 			path = extension;
@@ -317,12 +323,12 @@
 				222299DE2682275E0099A0B0 /* SessionModel.swift */,
 				222299E6268229240099A0B0 /* GithubUser.swift */,
 				2205F70F2672468A00FA4F91 /* Issue.swift */,
+				22758927268176CA00DAB55A /* IssueDetail.swift */,
 				2205F714267247EC00FA4F91 /* IssueLabel.swift */,
 				222299EB26822A520099A0B0 /* Author.swift */,
 				22FC5B9B2679A4C600DC2794 /* Label.swift */,
 				225D0A9E2680600900711537 /* Assign.swift */,
 				225D0AA32680607900711537 /* Milestone.swift */,
-				22758927268176CA00DAB55A /* IssueDetail.swift */,
 				2275892C2681772200DAB55A /* IssueDetailMilestone.swift */,
 				227589312681784000DAB55A /* IssueDetailLabel.swift */,
 				22F6B5CA2680796D00BD938D /* IssueFrame.swift */,
@@ -380,9 +386,9 @@
 				22330ABC266F12EC0062B78B /* OAuth */,
 				22E6D6C72671B2DA00943003 /* TabBar */,
 				22330AC0266F12F70062B78B /* IssueList */,
+				2252FD87267C359900E8E70E /* IssueDetail */,
 				2246877E267EC7A400D7150A /* Write */,
 				2205F72726724F6300FA4F91 /* Filter */,
-				2252FD87267C359900E8E70E /* IssueDetail */,
 				22FC5B8626799E5600DC2794 /* Label */,
 				221E95A32679CBEB007B7180 /* Milestone */,
 				22A748C2267C15E50028E28C /* Account */,
@@ -687,6 +693,7 @@
 				22330ACA266F4BF40062B78B /* IssueListTableViewCell.swift in Sources */,
 				222299DF2682275E0099A0B0 /* SessionModel.swift in Sources */,
 				221E95B72679CD5A007B7180 /* MilestoneTableViewCell.swift in Sources */,
+				22106442268378DF002701AB /* DateFormatter.swift in Sources */,
 				22F6B5BE2680670A00BD938D /* DetailCategoryViewController.swift in Sources */,
 				2205F7292672504C00FA4F91 /* FilterViewController.swift in Sources */,
 				22330ADB266F66A90062B78B /* UIColor.swift in Sources */,
@@ -703,6 +710,7 @@
 				229E79742670FC8E008B0E49 /* CellLabel.swift in Sources */,
 				22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */,
 				22780795266E115E0064B12D /* ServerAPI.swift in Sources */,
+				2210643D26837730002701AB /* String+Date.swift in Sources */,
 				22A748C4267C16010028E28C /* AccountViewController.swift in Sources */,
 				22FC5B972679A42300DC2794 /* LabelDataCenter.swift in Sources */,
 				22D13996267ADC6E000B1D97 /* NewLabelViewController.swift in Sources */,

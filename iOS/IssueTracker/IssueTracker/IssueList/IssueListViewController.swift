@@ -51,11 +51,17 @@ class IssueListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let navVC = segue.destination as? UINavigationController
-        let writeVC = navVC?.topViewController as? WriteViewController
-        writeVC?.makeWriteInfoDataCenter(reloadHandler: {
-            self.issueListCenter.getIssueList()
-        })
+        if segue.identifier == "issueWrite" {
+            let navVC = segue.destination as? UINavigationController
+            let writeVC = navVC?.topViewController as? WriteViewController
+            writeVC?.makeWriteInfoDataCenter(reloadHandler: {
+                self.issueListCenter.getIssueList()
+            })
+        } else if segue.identifier == "issueDetail" {
+            guard let issue = sender as? Issue else { return }
+            let vc = segue.destination as? IssueDetailViewController
+            vc?.makeIssueDetailDataCenter(issue: issue)
+        }
     }
     
     private func makeDataSource() -> DataSource {
@@ -146,7 +152,8 @@ extension IssueListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let issue = issueListCenter.issueList[indexPath.row]
+        performSegue(withIdentifier: "issueDetail", sender: issue)
     }
 }
 
