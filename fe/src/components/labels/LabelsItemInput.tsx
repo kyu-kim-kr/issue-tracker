@@ -75,7 +75,10 @@ const LabelsItemInput = ({
     const payload = e.currentTarget.id === 'dark' ? 'dark' : 'light';
     setLabelState({ type, payload });
   };
-  const cancelClickHandler = (e: React.MouseEvent) => {};
+  const editClickHandler = (e: React.MouseEvent) => {
+    
+    clickHandler(e);
+  };
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const type = labelParser(e.target.getAttribute('aria-label'));
     const payload = e.target.value;
@@ -119,7 +122,7 @@ const LabelsItemInput = ({
           <CreateButton white onClick={clickHandler} icon={<CancelIcon />}>
             취소
           </CreateButton>
-          <CreateButton onClick={cancelClickHandler} icon={<EditIcon />}>
+          <CreateButton onClick={editClickHandler} icon={<EditIcon />}>
             완료
           </CreateButton>
         </EditButtons>
