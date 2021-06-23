@@ -7,7 +7,7 @@ import { Checkbox } from '@material-ui/core';
 import Label from 'components/common/Label';
 import { useHistory } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { clickedIssueIdAtom } from 'store';
+import { clickedIssueIdAtom, detailIssueAuthorIdAtom } from 'store';
 
 const IssueItemLeft = ({
   id,

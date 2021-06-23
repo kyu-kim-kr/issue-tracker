@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { ReactComponent as EditSvg } from 'icons/edit.svg';
 import { ReactComponent as EmojiSvg } from 'icons/emoji.svg';
 import { CommentType } from 'types/issueType';
+import { useRecoilValue } from 'recoil';
+import { detailIssueAuthorIdAtom } from 'store';
 
 interface CommentPropsType {
   commentData: CommentType;
@@ -11,6 +13,9 @@ interface CommentPropsType {
 
 const Comment = ({ commentData }: CommentPropsType) => {
   const { id, description, createdTime, author } = commentData;
+  const issueAuthorId = useRecoilValue(detailIssueAuthorIdAtom);
+  console.log('이슈 작성자', issueAuthorId);
+  console.log('댓글 작성자', id);
 
   return (
     <Box display="flex">
@@ -19,17 +24,19 @@ const Comment = ({ commentData }: CommentPropsType) => {
         <CommentHeader display="flex">
           <Box display="flex">
             <div className="comment-author">{author.name}</div>
-            <div className="comment-created-time">20분 전</div>
+            <div className="comment-created-time">{createdTime}분 전</div>
           </Box>
           <Box display="flex" alignItems="center">
             {/* 작성자 라벨 - comment author === issue author이면 노출 */}
-            <IssueAuthorLabel
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <span>작성자</span>
-            </IssueAuthorLabel>
+            {issueAuthorId === id && (
+              <IssueAuthorLabel
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <span>작성자</span>
+              </IssueAuthorLabel>
+            )}
             {/* 편집 버튼 - 로그인 유저 === comment author이면 노출 */}
             <Button startIcon={<EditIcon />}>편집</Button>
             <EmojiButton>

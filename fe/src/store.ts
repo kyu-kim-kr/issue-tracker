@@ -32,6 +32,11 @@ export const decodedUserDataAtom = atom<DecodedUserDataType | null>({
   default: null,
 });
 
+export const detailIssueAuthorIdAtom = atom<number>({
+  key: 'detailIssueAuthorIdAtom',
+  default: 0,
+});
+
 export const issueDetailQuery = selector<IssueDetailType>({
   key: 'issueDetailQuery',
   get: async ({ get }) => {

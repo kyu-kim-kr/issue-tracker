@@ -4,16 +4,21 @@ import Comment from 'components/issue-detail/Comment';
 import styled from 'styled-components';
 import CommentTextarea from 'components/common/CommentTextarea';
 import { useRecoilValue } from 'recoil';
-import { commentsQuery, issueDetailQuery } from 'store';
+import {
+  commentsQuery,
+  detailIssueAuthorIdAtom,
+  issueDetailQuery,
+} from 'store';
 import { CommentType } from 'types/issueType';
 
 const IssueDetailBody = () => {
   const issueDetailData = useRecoilValue(issueDetailQuery);
   const commentsList = useRecoilValue(commentsQuery); // 코멘트 데이터
+  const issueAuthorId = useRecoilValue(detailIssueAuthorIdAtom);
 
   const issueDescription = {
     // 코멘트처럼 생겼지만 사실 이슈의 본문
-    id: 777777,
+    id: issueAuthorId,
     author: {
       name: issueDetailData.author.name,
       profileImg: issueDetailData.author.avatar_url,
