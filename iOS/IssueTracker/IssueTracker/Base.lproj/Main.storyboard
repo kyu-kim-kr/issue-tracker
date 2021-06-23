@@ -627,11 +627,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qc5-pi-kUl">
-                                <rect key="frame" x="0.0" y="150" width="414" height="712"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" systemColor="systemGray5Color"/>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTd-yj-GUA">
                                 <rect key="frame" x="187" y="64" width="40" height="5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -651,26 +646,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구현을 못했습니다 😫" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uva-Ad-En1">
+                                <rect key="frame" x="50" y="430.5" width="314" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gnk-r7-iUU"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
-                            <constraint firstItem="Qc5-pi-kUl" firstAttribute="top" secondItem="ZtU-az-ekZ" secondAttribute="bottom" constant="40" id="8AO-yG-ukF"/>
                             <constraint firstItem="gnk-r7-iUU" firstAttribute="trailing" secondItem="ZtU-az-ekZ" secondAttribute="trailing" constant="50" id="8Mc-9b-qos"/>
-                            <constraint firstItem="Qc5-pi-kUl" firstAttribute="leading" secondItem="gnk-r7-iUU" secondAttribute="leading" id="BIM-NT-fE0"/>
                             <constraint firstItem="ZtU-az-ekZ" firstAttribute="centerX" secondItem="gnk-r7-iUU" secondAttribute="centerX" id="E7t-xa-E2t"/>
                             <constraint firstItem="ZtU-az-ekZ" firstAttribute="top" secondItem="DTd-yj-GUA" secondAttribute="bottom" constant="20" id="MTV-jL-Yum"/>
                             <constraint firstItem="DTd-yj-GUA" firstAttribute="top" secondItem="gnk-r7-iUU" secondAttribute="top" constant="20" id="RGZ-iq-V2a"/>
-                            <constraint firstItem="gnk-r7-iUU" firstAttribute="trailing" secondItem="Qc5-pi-kUl" secondAttribute="trailing" id="hJj-aw-GKa"/>
+                            <constraint firstItem="uva-Ad-En1" firstAttribute="centerY" secondItem="gnk-r7-iUU" secondAttribute="centerY" id="Rea-R9-cXE"/>
                             <constraint firstItem="ZtU-az-ekZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gnk-r7-iUU" secondAttribute="leading" id="jzX-8X-C0H"/>
-                            <constraint firstItem="gnk-r7-iUU" firstAttribute="bottom" secondItem="Qc5-pi-kUl" secondAttribute="bottom" id="qV7-59-b4x"/>
                             <constraint firstItem="DTd-yj-GUA" firstAttribute="centerX" secondItem="gnk-r7-iUU" secondAttribute="centerX" id="wVJ-Fs-Q3L"/>
+                            <constraint firstItem="uva-Ad-En1" firstAttribute="centerX" secondItem="gnk-r7-iUU" secondAttribute="centerX" id="zeA-p8-49f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ySQ-j9-qmy"/>
-                    <connections>
-                        <outlet property="filterTableView" destination="Qc5-pi-kUl" id="46R-Sa-IhY"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FRS-o1-xVF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
