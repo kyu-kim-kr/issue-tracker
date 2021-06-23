@@ -18,6 +18,7 @@ class IssueListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.issueListCenter = IssueListCenter()
+        self.initRefresh()
         self.bind()
         self.configureWriteButton()
         self.issueListCenter.getIssueList()
@@ -28,6 +29,20 @@ class IssueListViewController: UIViewController {
         self.makeBarButton()
         self.setNavigationController()
     }
+    
+    @objc private func updateUI(_ refresh: UIRefreshControl) {
+        refresh.endRefreshing()
+        self.issueListCenter.getIssueList()
+    }
+    
+    private func initRefresh() {
+        let refresh = UIRefreshControl()
+        refresh.endRefreshing()
+        refresh.addTarget(self, action: #selector(updateUI(_:)), for: .valueChanged)
+        refresh.attributedTitle = NSAttributedString(string: "이슈 새로고침")
+        self.issueListTableView.refreshControl = refresh
+    }
+    
     
     private func bind() {
         self.issueListCenter.listLoadHandler = { issueList in
@@ -128,6 +143,10 @@ extension IssueListViewController: UITableViewDelegate {
         alert.addAction(cancel)
         alert.addAction(admit)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }
 
