@@ -9,17 +9,28 @@ import UIKit
 
 class SelectCategoryViewController: UIViewController {
     @IBOutlet weak var categoryTableView: UITableView!
-    var categoryDataCenter: CategoryDataCenter!
+    var writeInfoDataCenter: WriteInfoDataCenter!
+    var issueListCenter: IssueListCenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.categoryDataCenter = CategoryDataCenter()
-        //MARK: - 카테고리들 각자 다아아아아 요청
+        self.writeInfoDataCenter.getAllCategory()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.categoryTableView.reloadData()
+    }
+    
+    @IBAction func touchSaveButton(_ sender: UIBarButtonItem) {
+        self.writeInfoDataCenter.makeIssue { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                
+            })
+        }
+    }
+    
+    func setWriteInfoDataCenter(_ center: WriteInfoDataCenter) {
+        self.writeInfoDataCenter = center
     }
 }
 
@@ -32,11 +43,11 @@ extension SelectCategoryViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.className) as? CategoryTableViewCell else { return UITableViewCell() }
         switch indexPath.row {
         case 0:
-            cell.configure(categoryName: "레이블", selectedCategory: self.categoryDataCenter.selectLabel?.title)
+            cell.configure(categoryName: "레이블", selectedCategory: self.writeInfoDataCenter.selectLabel?.title)
         case 1:
-            cell.configure(categoryName: "마일스톤", selectedCategory: self.categoryDataCenter.selectMilestone?.title)
+            cell.configure(categoryName: "마일스톤", selectedCategory: self.writeInfoDataCenter.selectMilestone?.title)
         case 2:
-            cell.configure(categoryName: "담당자", selectedCategory: self.categoryDataCenter.selectAssign?.name)
+            cell.configure(categoryName: "담당자", selectedCategory: self.writeInfoDataCenter.selectAssign?.name)
         default:
             break
         }
@@ -47,11 +58,11 @@ extension SelectCategoryViewController: UITableViewDataSource {
 extension SelectCategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: DetailCategoryViewController.className) as? DetailCategoryViewController else { return }
-        vc.setCategoryDataCenter(self.categoryDataCenter)
+        vc.setCategoryDataCenter(self.writeInfoDataCenter)
         switch indexPath.row {
-        case 0: self.categoryDataCenter.selectedCategory = .label(self.categoryDataCenter.labelList)
-        case 1: self.categoryDataCenter.selectedCategory = .milestone(self.categoryDataCenter.milestoneList)
-        case 2: self.categoryDataCenter.selectedCategory = .assign(self.categoryDataCenter.assignList)
+        case 0: self.writeInfoDataCenter.selectedCategory = .label(self.writeInfoDataCenter.labelList)
+        case 1: self.writeInfoDataCenter.selectedCategory = .milestone(self.writeInfoDataCenter.milestoneList)
+        case 2: self.writeInfoDataCenter.selectedCategory = .assign(self.writeInfoDataCenter.assignList)
         default: return
         }
         tableView.deselectRow(at: indexPath, animated: true)

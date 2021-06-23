@@ -8,14 +8,14 @@
 import UIKit
 
 class DetailCategoryViewController: UIViewController {
-    var categoryDataCenter: CategoryDataCenter!
+    var categoryDataCenter: WriteInfoDataCenter!
     @IBOutlet weak var DetailCategoryTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func setCategoryDataCenter(_ center: CategoryDataCenter) {
+    func setCategoryDataCenter(_ center: WriteInfoDataCenter) {
         self.categoryDataCenter = center
     }
 
@@ -45,7 +45,6 @@ extension DetailCategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.categoryDataCenter.selectedItem(of: indexPath.row)
         self.navigationController?.popViewController(animated: true)
-        
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

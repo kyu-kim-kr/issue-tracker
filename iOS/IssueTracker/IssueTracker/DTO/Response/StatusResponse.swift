@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct MakeLabel: Codable {
+struct StatusResponse: Codable {
     var status: String
 }

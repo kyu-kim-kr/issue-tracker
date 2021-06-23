@@ -41,7 +41,7 @@ class MilestoneDataCenter {
     }
     
     func makeMilestone(completion: @escaping (() -> ())) {
-        self.alamofireNetworkManager.request(decodingType: MakeLabel.self,
+        self.alamofireNetworkManager.request(decodingType: StatusResponse.self,
                                              endPoint: .milestone,
                                              method: .post,
                                              parameters: makedMilestone.dictionaryRepresentation,

@@ -77,10 +77,6 @@ class IssueListViewController: UIViewController {
         guard let vc = self.storyboard?.instantiateViewController(identifier: FilterViewController.className) as? FilterViewController else { return }
         self.present(vc, animated: true, completion: nil)
     }
-    
-    @objc func selectIssue(_ sender: UIBarButtonItem) {
-        print("select")
-    }
 }
 
 extension IssueListViewController: UITableViewDelegate {
@@ -118,8 +114,7 @@ extension IssueListViewController: UITableViewDelegate {
         let alert = UIAlertController(title: "정말로 이슈를 삭제하시겠습니까?", message: nil, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
         let admit = UIAlertAction(title: "확인", style: .destructive) { [weak self] (_) in
-            //MARK: - 삭제 네트워크 아직 비활성화(데이터 만들귀 귀춘)
-//            self?.issueListCenter.requestDeleteIssue(index: index)
+            self?.issueListCenter.requestDeleteIssue(index: index)
             self?.issueListCenter.deleteIssue(index: index)
         }
         alert.addAction(cancel)
@@ -127,3 +122,4 @@ extension IssueListViewController: UITableViewDelegate {
         present(alert, animated: true, completion: nil)
     }
 }
+

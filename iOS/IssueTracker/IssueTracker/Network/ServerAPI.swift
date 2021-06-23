@@ -32,6 +32,7 @@ struct ServerAPI {
         case list
         case labels
         case milestone
+        case assignees
         case deleteIssue(Int)
         case closeIssue(Int)
         case deleteLabel(Int)
@@ -44,6 +45,7 @@ struct ServerAPI {
             case .list: return "/api/issues"
             case .labels: return "/api/labels"
             case .milestone: return "/api/milestones"
+            case .assignees: return "/api/assignees"
             case .deleteIssue(let id): return "\(Endpoint.list.value)/\(id)"
             case .closeIssue(let id): return "\(Endpoint.list.value)/\(id)" //MARK: - 이상함
             case .deleteLabel(let id): return "\(Endpoint.labels.value)/\(id)"
@@ -126,9 +128,10 @@ final class AlamofireNetworkManager {
                     print(dataResponse.response)
                     print(dataResponse.error)
                     print(dataResponse.description)
-//                    print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
+                    print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
                     return completionHandler(.failure(NetworkError.noResult))
                 }
+                print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
                 completionHandler(.success(data))
             case 300..<400:
                 completionHandler(.failure(NetworkError.noResult))
@@ -137,7 +140,7 @@ final class AlamofireNetworkManager {
                 print(dataResponse.response)
                 print(dataResponse.error)
                 print(dataResponse.description)
-                print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
+//                print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
                 completionHandler(.failure(NetworkError.notAllowed))
             case 500...:
                 print(dataResponse.result)

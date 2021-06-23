@@ -40,7 +40,7 @@ class LabelDataCenter {
     }
     
     func makeLabels(completion: @escaping (() -> ())) {
-        self.alamofireNetworkManager.request(decodingType: MakeLabel.self,
+        self.alamofireNetworkManager.request(decodingType: StatusResponse.self,
                                              endPoint: .labels,
                                              method: .post,
                                              parameters: makedLabel.dictionaryRepresentation,

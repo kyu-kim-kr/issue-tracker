@@ -67,7 +67,7 @@ class IssueListCenter {
         let issueID = self.issueList[index].id
         let body: [String: Any] = ["deleted": true]
         self.alamofireNetworkManager
-            .request(decodingType: Deleted.self,
+            .request(decodingType: StatusResponse.self,
                      endPoint: .deleteIssue(issueID),
                      method: .patch,
                      parameters: body,
@@ -85,7 +85,7 @@ class IssueListCenter {
         let issueID = self.issueList[index].id
         let body: [String: Any] = ["closed": true]
         self.alamofireNetworkManager
-            .request(decodingType: Deleted.self,
+            .request(decodingType: StatusResponse.self,
                      endPoint: .deleteIssue(issueID),
                      method: .patch,
                      parameters: body,

@@ -30,8 +30,11 @@ class WriteViewController: UIViewController {
         self.checkfilledText()
         self.configureImageMenuItem()
         self.markdownTextView.becomeFirstResponder()
-        
-
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as? SelectCategoryViewController
+        vc?.setWriteInfoDataCenter(self.writeInfoDataCenter)
     }
     
     //MARK: - 이미지 네트워크 시 사용해야함
@@ -114,7 +117,7 @@ class WriteViewController: UIViewController {
             self.markdownTextView.isHidden = false
         case 1:
             self.markdownTextView.isHidden = true
-            self.markdownView.load(markdown: self.writeInfoDataCenter.body, enableImage: true)
+            self.markdownView.load(markdown: self.writeInfoDataCenter.selectedLabelInfo.bodyDescription, enableImage: true)
             self.markdownView.isHidden = false
         default:
             break

@@ -20,4 +20,14 @@ struct IssueFrame: Codable {
         case labelIDs = "label_ids"
         case milestoneID = "milestone_id"
     }
+    
+    var dictionaryRepresentation: [String: Any] {
+            return [
+                "title": title,
+                "assignee": assignee,
+                "description": bodyDescription,
+                "label_ids": labelIDs,
+                "milestone_id": milestoneID,
+            ]
+        }
 }

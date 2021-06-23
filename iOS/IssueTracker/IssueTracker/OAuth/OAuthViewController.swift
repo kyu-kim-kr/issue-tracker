@@ -57,6 +57,7 @@ class OAuthViewController: UIViewController {
     func configOAuth() {
         webAuthSession = self.oauthManager.initPostLoginCodeWebAuthSession() { (githubUser) in
             DispatchQueue.main.async {
+                SessionModel.shared.setJWT(githubUser.jwt)
                 guard let vc = self.storyboard?.instantiateViewController(identifier: IssueTrackerViewController.className) as? IssueTrackerViewController else { return }
                 self.navigationController?.pushViewController(vc, animated: true)
             }

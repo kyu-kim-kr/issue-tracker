@@ -347,7 +347,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" weight="thin"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Rtz-qF-42J" kind="presentation" id="q5g-4f-7wR"/>
+                                    <segue destination="Rtz-qF-42J" kind="presentation" identifier="" id="q5g-4f-7wR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -547,7 +547,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Category" id="Ngm-NH-4Bk">
-                        <barButtonItem key="rightBarButtonItem" title="저장" id="Vl5-ay-5ku"/>
+                        <barButtonItem key="rightBarButtonItem" title="저장" id="Vl5-ay-5ku">
+                            <connections>
+                                <action selector="touchSaveButton:" destination="W8k-ZL-E4h" id="kbr-wF-fNf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="categoryTableView" destination="zDX-8w-Rsv" id="aCB-Gx-ZiG"/>
