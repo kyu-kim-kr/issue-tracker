@@ -5,7 +5,7 @@ import { ReactComponent as EditSvg } from 'icons/edit.svg';
 import { ReactComponent as EmojiSvg } from 'icons/emoji.svg';
 import { CommentType } from 'types/issueType';
 import { useRecoilValue } from 'recoil';
-import { detailIssueAuthorIdAtom } from 'store';
+import { decodedUserDataAtom, detailIssueAuthorIdAtom } from 'store';
 
 interface CommentPropsType {
   commentData: CommentType;
@@ -14,6 +14,7 @@ interface CommentPropsType {
 const Comment = ({ commentData }: CommentPropsType) => {
   const { id, description, createdTime, author } = commentData;
   const issueAuthorId = useRecoilValue(detailIssueAuthorIdAtom);
+  const loginUser = useRecoilValue(decodedUserDataAtom);
 
   return (
     <Box display="flex">
@@ -25,7 +26,6 @@ const Comment = ({ commentData }: CommentPropsType) => {
             <div className="comment-created-time">{createdTime}분 전</div>
           </Box>
           <Box display="flex" alignItems="center">
-            {/* 작성자 라벨 - comment author === issue author이면 노출 */}
             {issueAuthorId === id && (
               <IssueAuthorLabel
                 display="flex"
@@ -35,8 +35,9 @@ const Comment = ({ commentData }: CommentPropsType) => {
                 <span>작성자</span>
               </IssueAuthorLabel>
             )}
-            {/* 편집 버튼 - 로그인 유저 === comment author이면 노출 */}
-            <Button startIcon={<EditIcon />}>편집</Button>
+            {loginUser && loginUser.id === id && (
+              <Button startIcon={<EditIcon />}>편집</Button>
+            )}
             <EmojiButton>
               <EmojiSvg />
             </EmojiButton>
