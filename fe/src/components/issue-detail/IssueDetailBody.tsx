@@ -4,7 +4,7 @@ import Comment from 'components/issue-detail/Comment';
 import styled from 'styled-components';
 import CommentTextarea from 'components/common/CommentTextarea';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { decodedUserDataAtom } from 'store';
+import { clickedIssueIdAtom, decodedUserDataAtom } from 'store';
 import { CommentType } from 'types/issueType';
 import CreateButton from 'components/buttons/CreateButton';
 import { ReactComponent as PlusSvg } from 'icons/plus.svg';
@@ -14,9 +14,10 @@ import {
   detailIssueAuthorIdAtom,
   issueDetailQuery,
 } from 'stores/detailIssueStore';
-import { ChangeEventHandler } from 'react';
+import axios from 'axios';
 
 const IssueDetailBody = () => {
+  const clickedIssueId = useRecoilValue(clickedIssueIdAtom);
   const issueDetailData = useRecoilValue(issueDetailQuery);
   const commentsList = useRecoilValue(commentsQuery); // 코멘트 데이터
   const issueAuthorId = useRecoilValue(detailIssueAuthorIdAtom);
@@ -38,7 +39,20 @@ const IssueDetailBody = () => {
   };
 
   const newCommentHandler = () => {
-    console.log('새로운 코멘트 등록');
+    const token = localStorage.getItem('jwt');
+    (async function () {
+      axios.post(
+        `${process.env.REACT_APP_API_URL}/api/issues/${clickedIssueId}/comments`,
+        {
+          description: commentDesctiption,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    })();
   };
 
   return (
