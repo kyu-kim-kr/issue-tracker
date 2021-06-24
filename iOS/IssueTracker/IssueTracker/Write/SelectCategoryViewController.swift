@@ -18,6 +18,7 @@ class SelectCategoryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.categoryTableView.reloadData()
     }
     
     @IBAction func touchSaveButton(_ sender: UIBarButtonItem) {

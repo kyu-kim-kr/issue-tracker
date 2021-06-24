@@ -22,6 +22,8 @@ class IssueListViewController: UIViewController {
         self.bind()
         self.configureWriteButton()
         self.issueListCenter.getIssueList()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +49,8 @@ class IssueListViewController: UIViewController {
     private func bind() {
         self.issueListCenter.listLoadHandler = { issueList in
             self.applySnapshot(issueList: issueList, animatingDifferences: false)
+            self.issueListTableView.rowHeight = UITableView.automaticDimension
+//            self.issueListTableView.estimatedRowHeight = 300
         }
     }
     
@@ -68,7 +72,7 @@ class IssueListViewController: UIViewController {
         DataSource.init(tableView: issueListTableView) { (tableView, indexPath, issue) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: IssueListTableViewCell.className, for: indexPath) as? IssueListTableViewCell
             cell?.setIssueListCenter(self.issueListCenter)
-            cell?.configure(index: indexPath.row)
+            cell?.configure(indexPath: indexPath, tableView: tableView)
             return cell
         }
     }
@@ -109,13 +113,13 @@ class IssueListViewController: UIViewController {
 }
 
 extension IssueListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 200
+//    }
+//
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 300
+//    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "삭제") { (action, view, completion) in

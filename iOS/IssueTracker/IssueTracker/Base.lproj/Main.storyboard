@@ -218,31 +218,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HMP-oC-8wF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="155" estimatedRowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HMP-oC-8wF">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueListTableViewCell" id="gDW-yP-hTD" customClass="IssueListTableViewCell" customModule="IssueTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueListTableViewCell" rowHeight="155" id="gDW-yP-hTD" customClass="IssueListTableViewCell" customModule="IssueTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="155"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gDW-yP-hTD" id="Bok-HD-Rwm">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bDZ-6b-2Hp">
-                                                    <rect key="frame" x="20" y="20" width="374" height="160"/>
+                                                    <rect key="frame" x="20" y="20" width="374" height="115"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WR5-rW-bdi">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="110"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="115"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ5-9k-j76">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="22"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="27"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ivp-I4-POg">
-                                                                    <rect key="frame" x="0.0" y="42" width="374" height="68"/>
+                                                                    <rect key="frame" x="0.0" y="47" width="374" height="68"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이슈 설명" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKE-Fo-C50">
                                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
@@ -290,8 +290,8 @@
                                                                 <constraint firstAttribute="trailing" secondItem="FQ5-9k-j76" secondAttribute="trailing" id="pwc-kx-o6Z"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P7l-q9-6zI">
-                                                            <rect key="frame" x="0.0" y="130" width="374" height="30"/>
+                                                        <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P7l-q9-6zI">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="WfC-oc-mnG"/>
@@ -310,12 +310,14 @@
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bDZ-6b-2Hp" firstAttribute="centerY" secondItem="Bok-HD-Rwm" secondAttribute="centerY" id="6Su-m3-2Vq"/>
+                                                <constraint firstItem="bDZ-6b-2Hp" firstAttribute="top" secondItem="Bok-HD-Rwm" secondAttribute="topMargin" constant="9" id="PhV-QR-gLf"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="bDZ-6b-2Hp" secondAttribute="trailing" constant="20" id="9BJ-mp-KC5"/>
                                             <constraint firstItem="bDZ-6b-2Hp" firstAttribute="leading" secondItem="gDW-yP-hTD" secondAttribute="leading" constant="20" id="Gv0-SE-gf2"/>
-                                            <constraint firstItem="bDZ-6b-2Hp" firstAttribute="top" secondItem="gDW-yP-hTD" secondAttribute="top" constant="20" id="HSq-b0-AJT"/>
-                                            <constraint firstAttribute="bottom" secondItem="bDZ-6b-2Hp" secondAttribute="bottom" constant="20" id="hYn-Kq-Prg"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="issueDescroption" destination="MKE-Fo-C50" id="Vuf-6T-Wr6"/>
@@ -366,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9n-Ii-8Ba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3004" y="119"/>
+            <point key="canvasLocation" x="3002.898550724638" y="118.52678571428571"/>
         </scene>
         <!--Write View Controller-->
         <scene sceneID="iRv-d1-QlI">

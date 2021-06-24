@@ -22,6 +22,10 @@ class IssueListTableViewCell: UITableViewCell {
         self.registerNib()
         self.setLabelCollectionViewFlowLayout()
     }
+    
+    override func prepareForReuse() {
+        self.labelCollectionView.isHidden = true
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -31,9 +35,13 @@ class IssueListTableViewCell: UITableViewCell {
         self.issueListCenter = issueListCenter
     }
     
-    func configure(index: Int) {
-        self.currentCellIndex = index
-        let issue = self.issueListCenter.issueList[index]
+    func configure(indexPath: IndexPath, tableView: UITableView) {
+        let labelCount = issueListCenter.issueList[indexPath.row].labelList.count
+        if labelCount != 0 {
+            labelCollectionView.isHidden = false
+        }
+        self.currentCellIndex = indexPath.row
+        let issue = self.issueListCenter.issueList[indexPath.row]
         self.title.text = issue.title
         self.issueDescroption.text = issue.issueDescription
         self.milestone.text = issue.milestoneTitle
@@ -56,7 +64,9 @@ class IssueListTableViewCell: UITableViewCell {
 extension IssueListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let issueListCenter = issueListCenter else { return 0 }
-        return issueListCenter.issueList[currentCellIndex].labelList.count
+        let labelCount = issueListCenter.issueList[currentCellIndex].labelList.count
+        
+        return labelCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
