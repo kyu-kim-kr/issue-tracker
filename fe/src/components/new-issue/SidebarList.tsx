@@ -23,6 +23,7 @@ const SidebarList = ({ type }: { type: SidebarListType }) => {
         isPlus={true}
         value={newIssuesId[type]}
         clickHandler={clickHandler}
+        setState={setNewIssuesId}
       />
     </StyledSidebarList>
   );

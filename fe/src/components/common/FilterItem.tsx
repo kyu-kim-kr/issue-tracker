@@ -10,11 +10,13 @@ const FilterItem = ({
   isEnd,
   value,
   onClose,
+  setState,
   clickHandler,
 }: FilterItemPropsType) => {
   const handleClick = (e: MouseEvent<HTMLLIElement>) => {
     console.log(e.currentTarget.id);
     if (clickHandler) clickHandler(e);
+
     onClose();
   };
 

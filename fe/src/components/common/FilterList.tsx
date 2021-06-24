@@ -8,6 +8,7 @@ const FilterList = ({
   onClose,
   value,
   clickHandler,
+  setState,
 }: FilterListType) => {
   return (
     <>
@@ -17,6 +18,7 @@ const FilterList = ({
           <FilterItem
             key={idx}
             filterItem={filterItem}
+            setState={setState}
             isEnd={filterList.length - 1 === idx}
             {...{ value, onClose, clickHandler }}
           />

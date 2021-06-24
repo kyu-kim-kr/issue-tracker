@@ -10,7 +10,7 @@ import { useRecoilValue } from 'recoil';
 import { filterSelector } from 'store';
 import { getTitle } from 'utils/util';
 
-export default function Filter({ isPlus, filterType,value,clickHandler }: FilterPropsType) {
+export default function Filter({ isPlus, filterType,value,clickHandler,setState }: FilterPropsType) {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -54,6 +54,7 @@ export default function Filter({ isPlus, filterType,value,clickHandler }: Filter
           value={value}
           onClose={handleClose}
           clickHandler={clickHandler}
+          setState={setState}
         />
       </CustomMenu>
     </>
