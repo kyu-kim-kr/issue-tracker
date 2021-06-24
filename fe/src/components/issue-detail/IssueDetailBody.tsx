@@ -82,6 +82,6 @@ const AssignArea = styled.section`
   width: 30%;
   height: 400px;
   margin-left: 2rem;
-  background-color: red;
+  background-color: #b1b1b1;
 `;
 export default IssueDetailBody;
