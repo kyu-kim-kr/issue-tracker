@@ -4,15 +4,15 @@ import Comment from 'components/issue-detail/Comment';
 import styled from 'styled-components';
 import CommentTextarea from 'components/common/CommentTextarea';
 import { useRecoilValue } from 'recoil';
-import {
-  commentsQuery,
-  decodedUserDataAtom,
-  detailIssueAuthorIdAtom,
-  issueDetailQuery,
-} from 'store';
+import { decodedUserDataAtom } from 'store';
 import { CommentType } from 'types/issueType';
 import CreateButton from 'components/buttons/CreateButton';
 import { ReactComponent as PlusSvg } from 'icons/plus.svg';
+import {
+  commentsQuery,
+  detailIssueAuthorIdAtom,
+  issueDetailQuery,
+} from 'stores/detailIssueStore';
 
 const IssueDetailBody = () => {
   const issueDetailData = useRecoilValue(issueDetailQuery);

@@ -4,6 +4,7 @@ import { Box } from '@material-ui/core';
 import { ReactComponent as FileUploadIconSvg } from 'icons/file-upload.svg';
 
 const CommentTextarea = () => {
+  // 핸들러를 props로 받기 (각각의 아톰을 set)
   const [text, setText] = useState('');
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) =>
     setText(e.target.value);
