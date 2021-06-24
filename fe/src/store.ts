@@ -110,7 +110,7 @@ export const labelQuery = selector<LabelItemType[]>({
   get: async ({ get }) => {
     get(labelUpdateAtom);
     const token = localStorage.getItem('jwt');
-   
+
     try {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/labels`,
@@ -197,8 +197,15 @@ export const filterSelector = selector<TestType>({
     };
   },
 });
+export type NewIssuesContentType = {
+  title: string;
+  description: string;
+};
 
-export const newIssueDescriptionAtom = atom<string>({
-  key: 'newIssueDescriptionAton',
-  default: '',
+export const newIssuesContentAtom = atom<NewIssuesContentType>({
+  key: 'newIssuesContentAtom',
+  default: {
+    title: '',
+    description: '',
+  },
 });
