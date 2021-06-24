@@ -50,29 +50,34 @@ class WriteViewController: UIViewController {
         self.writeInfoDataCenter = WriteInfoDataCenter(reloadLabelsHandler: reloadHandler)
     }
     
-    //MARK: - 이미지 네트워크 시 사용해야함
-    private func recognizeText() {
-        //MARK: - 이미지 수정해야 함
-        guard let cgImage = UIImage(named: "text")?.cgImage else { return }
-        let requestHandler = VNImageRequestHandler(cgImage: cgImage)
-        let request = VNRecognizeTextRequest { [weak self] (request, error) in
-            guard let observation = request.results as? [VNRecognizedTextObservation],
-                  error == nil else { return }
-            let text = observation.compactMap({
-                $0.topCandidates(1).first?.string
-            }).joined(separator: "\n")
+    private func recognizeText(url: String) {
+        ImageLoader.just(from: url) { (image) in
             
-            if let isContainCode = self?.isContainCode(of: text), isContainCode {
+            guard let cgImage = image?.cgImage else { return }
+            
+            let requestHandler = VNImageRequestHandler(cgImage: cgImage)
+            let request = VNRecognizeTextRequest { [weak self] (request, error) in
+                guard let observation = request.results as? [VNRecognizedTextObservation],
+                      error == nil else { return }
+                let text = observation.compactMap({
+                    $0.topCandidates(1).first?.string
+                }).joined(separator: "\n")
+                
                 DispatchQueue.main.async {
-                    self?.askPasteOCRCode(text: "```\n\(text)\n```")
+                    if let isContainCode = self?.isContainCode(of: text), isContainCode {
+                        self?.askPasteOCRCode(text: "```\n\(text)\n```")
+                    } else {
+                        self?.indicator.stopAnimating()
+                    }
                 }
             }
+            do {
+                try requestHandler.perform([request])
+            } catch {
+                print("Unable to perform the requests: \(error).")
+            }
         }
-        do {
-            try requestHandler.perform([request])
-        } catch {
-            print("Unable to perform the requests: \(error).")
-        }
+        
     }
     
     private func isContainCode(of text: String) -> Bool {
@@ -85,7 +90,7 @@ class WriteViewController: UIViewController {
             self?.stopAnimatingIndicator()
         }
         let admit = UIAlertAction(title: "확인", style: .destructive) { [weak self] (_) in
-            self?.markdownTextView.text = text
+            self?.markdownTextView.text += "\n\(text)\n"
             self?.writeInfoDataCenter.appendBody(text)
             self?.stopAnimatingIndicator()
         }
@@ -206,13 +211,15 @@ extension WriteViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         self.startAnimatingIndicator()
         picker.dismiss(animated: true) {
-            self.recognizeText()
             let itemProvider = results.first?.itemProvider
             if let itemProvider = itemProvider,
                itemProvider.canLoadObject(ofClass: UIImage.self) {
                 itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                    DispatchQueue.main.async {
-                        //MARK: - 이미지를 네트워크로 보내고 주소를 받아야 함
+                    guard let imageData = (image as? UIImage)?.jpegData(compressionQuality: 1) else { return }
+                    self.writeInfoDataCenter.getImageAddress(imageData: imageData) { (imageURL) in
+                        self.markdownTextView.text += self.writeInfoDataCenter.convertImageMarkdown(url: imageURL)
+                        self.writeInfoDataCenter.appendImageMarkdown(url: imageURL)
+                        self.recognizeText(url: imageURL)
                     }
                 }
             }

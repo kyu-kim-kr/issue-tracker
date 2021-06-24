@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class IssueListViewController: UIViewController {
     @IBOutlet weak var issueListTableView: UITableView!
@@ -22,14 +23,14 @@ class IssueListViewController: UIViewController {
         self.bind()
         self.configureWriteButton()
         self.issueListCenter.getIssueList()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.makeBarButton()
         self.setNavigationController()
+        self.issueListTableView.estimatedRowHeight = 300
+        self.issueListTableView.rowHeight = 200
     }
     
     @objc private func updateUI(_ refresh: UIRefreshControl) {
@@ -50,7 +51,9 @@ class IssueListViewController: UIViewController {
         self.issueListCenter.listLoadHandler = { issueList in
             self.applySnapshot(issueList: issueList, animatingDifferences: false)
             self.issueListTableView.rowHeight = UITableView.automaticDimension
-//            self.issueListTableView.estimatedRowHeight = 300
+            self.issueListTableView.estimatedRowHeight = 300
+            self.issueListTableView.reloadData()
+            
         }
     }
     
@@ -113,14 +116,6 @@ class IssueListViewController: UIViewController {
 }
 
 extension IssueListViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 200
-//    }
-//
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 300
-//    }
-    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "삭제") { (action, view, completion) in
             print("delete")

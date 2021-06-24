@@ -33,6 +33,7 @@ struct ServerAPI {
         case labels
         case milestone
         case assignees
+        case image
         case deleteIssue(Int)
         case closeIssue(Int)
         case deleteLabel(Int)
@@ -46,6 +47,7 @@ struct ServerAPI {
             case .labels: return "/api/labels"
             case .milestone: return "/api/milestones"
             case .assignees: return "/api/assignees"
+            case .image: return "/api/images"
             case .deleteIssue(let id): return "\(Endpoint.list.value)/\(id)"
             case .closeIssue(let id): return "\(Endpoint.list.value)/\(id)"
             case .deleteLabel(let id): return "\(Endpoint.labels.value)/\(id)"
@@ -94,6 +96,25 @@ final class AlamofireNetworkManager {
         self.baseHeaders = [
             "Authorization": "Barear \(SessionModel.shared.jwt)"
         ]
+    }
+    
+    func upload(imageData: Data,
+                completionHandler: @escaping (Result<ImageURL, NetworkError>) -> ()) {
+        let header: HTTPHeaders = [
+            "Authorization": "Client-ID 72dd369a025e6ed",
+            "Content-Type": "multipart/form-data"
+        ]
+        let url = "https://api.imgur.com/3/image"
+        AF.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append(imageData, withName: "image")
+        }, to: url, method: .post, headers: header).responseDecodable(of: ImageURL.self) { (response) in
+            switch response.result {
+            case .success(let imageURL):
+                completionHandler(.success(imageURL))
+            case .failure(_):
+                completionHandler(.failure(.noResult))
+            }
+        }
     }
     
     

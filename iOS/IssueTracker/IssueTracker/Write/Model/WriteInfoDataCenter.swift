@@ -34,8 +34,6 @@ class WriteInfoDataCenter {
         self.alamofireNetworkManager = AlamofireNetworkManager()
         self.selectedLabelInfo = IssueFrame(title: "", bodyDescription: "", assignee: 1, labelIDs: [Int](), milestoneID: 1)
         self.reloadLabelsHandler = reloadLabelsHandler
-        //MARK: - dummy
-        self.labelList = [Label(id: 1, title: "jhop", labelDescription: "asdfasdf", colorCode: "asdf", isWhiteFontColor: true)]
     }
     
     func saveTitle(_ title: String?) {
@@ -48,6 +46,15 @@ class WriteInfoDataCenter {
     
     func appendBody(_ body: String) {
         self.selectedLabelInfo.bodyDescription += body
+    }
+    
+    func convertImageMarkdown(url: String) -> String {
+        return "\n![image](\(url))\n"
+    }
+    
+    func appendImageMarkdown(url: String) {
+        let imageMarkdown = convertImageMarkdown(url: url)
+        self.selectedLabelInfo.bodyDescription += imageMarkdown
     }
     
     func selectedItemsCount() -> Int {
@@ -87,6 +94,19 @@ class WriteInfoDataCenter {
             case .success(_):
                 print("이슈 생성 성공")
                 completion()
+            case .failure(let error):
+                print(error.description)
+            }
+        }
+    }
+    
+    func getImageAddress(imageData: Data, completion: @escaping ((String) -> ())) {
+        self.alamofireNetworkManager.upload(imageData: imageData) { (result) in
+            switch result {
+            case .success(let imageURL):
+                DispatchQueue.main.async {
+                    completion(imageURL.link)
+                }
             case .failure(let error):
                 print(error.description)
             }
