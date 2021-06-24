@@ -9,6 +9,11 @@ export const detailIssueAuthorIdAtom = atom<number>({
   default: 0,
 });
 
+export const commentDesctiptionAtom = atom<string>({
+  key: 'commentDesctiption',
+  default: '',
+});
+
 export const issueDetailQuery = selector<IssueDetailType>({
   key: 'issueDetailQuery',
   get: async ({ get }) => {

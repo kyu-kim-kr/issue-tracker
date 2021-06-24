@@ -3,22 +3,27 @@ import AuthorAvatar from 'components/common/AuthorAvatar';
 import Comment from 'components/issue-detail/Comment';
 import styled from 'styled-components';
 import CommentTextarea from 'components/common/CommentTextarea';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { decodedUserDataAtom } from 'store';
 import { CommentType } from 'types/issueType';
 import CreateButton from 'components/buttons/CreateButton';
 import { ReactComponent as PlusSvg } from 'icons/plus.svg';
 import {
+  commentDesctiptionAtom,
   commentsQuery,
   detailIssueAuthorIdAtom,
   issueDetailQuery,
 } from 'stores/detailIssueStore';
+import { ChangeEventHandler } from 'react';
 
 const IssueDetailBody = () => {
   const issueDetailData = useRecoilValue(issueDetailQuery);
   const commentsList = useRecoilValue(commentsQuery); // 코멘트 데이터
   const issueAuthorId = useRecoilValue(detailIssueAuthorIdAtom);
   const loginUser = useRecoilValue(decodedUserDataAtom);
+  const [commentDesctiption, setCommentDesctiption] = useRecoilState(
+    commentDesctiptionAtom
+  );
 
   const issueDescription = {
     // 코멘트처럼 생겼지만 사실 이슈의 본문
@@ -56,7 +61,10 @@ const IssueDetailBody = () => {
           <NewCommentInputArea>
             <AuthorAvatar size="L" profileImg={loginUser?.avatar_url} />
             <Spacer />
-            <CommentTextarea />
+            <CommentTextarea
+              description={commentDesctiption}
+              setDescription={setCommentDesctiption}
+            />
           </NewCommentInputArea>
 
           <NewCommentButtonArea>

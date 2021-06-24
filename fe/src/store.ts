@@ -196,3 +196,8 @@ export const filterSelector = selector<TestType>({
     };
   },
 });
+
+export const newIssueDescriptionAtom = atom<string>({
+  key: 'newIssueDescriptionAton',
+  default: '',
+});

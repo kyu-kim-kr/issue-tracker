@@ -1,19 +1,26 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, ChangeEventHandler, useState } from 'react';
 import styled from 'styled-components';
 import { Box } from '@material-ui/core';
 import { ReactComponent as FileUploadIconSvg } from 'icons/file-upload.svg';
+import { SetterOrUpdater } from 'recoil';
 
-const CommentTextarea = () => {
-  // 핸들러를 props로 받기 (각각의 아톰을 set)
-  const [text, setText] = useState('');
+interface CommentTextareaProps {
+  description: string;
+  setDescription: SetterOrUpdater<string>;
+}
+
+const CommentTextarea = ({
+  description,
+  setDescription,
+}: CommentTextareaProps) => {
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) =>
-    setText(e.target.value);
+    setDescription(e.target.value);
 
   return (
     <Wrapper>
       <StyledCommentTextarea>
         <CustomTextField onChange={handleChange} />
-        <Label aria-checked={Boolean(text)}>코멘트를 입력하세요</Label>
+        <Label aria-checked={Boolean(description)}>코멘트를 입력하세요</Label>
       </StyledCommentTextarea>
       <FileUploadArea>
         <Box display="flex" alignItems="center">
