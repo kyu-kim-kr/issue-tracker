@@ -137,7 +137,6 @@ export const labelQuery = selector<LabelItemType[]>({
           },
         }
       );
-      console.log(data.map(parsedLabelData));
       return data.map(parsedLabelData);
     } catch (error) {
       console.error('labelQuery 에러', error);

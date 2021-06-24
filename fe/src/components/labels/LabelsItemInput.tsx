@@ -3,12 +3,17 @@ import Label from 'components/common/Label';
 import CreateButton from 'components/buttons/CreateButton';
 import { ReactComponent as EditSvg } from 'icons/edit.svg';
 import { ReactComponent as XSvg } from 'icons/Xicon.svg';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 import LabelTextColorInput from './LabelTextColorInput';
 import LabelColorInput from './LabelColorInput';
 import { LabelItemType } from 'types/issueType';
 import { useReducer } from 'react';
+import useAxios from 'hook/useAxios';
+import { labelUpdateAtom } from 'store';
+import { useSetRecoilState } from 'recoil';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 type Action =
   | { type: 'Title'; payload: string }
@@ -75,14 +80,25 @@ const LabelsItemInput = ({
     const payload = e.currentTarget.id === 'dark' ? 'dark' : 'light';
     setLabelState({ type, payload });
   };
+  const setLabelUpdate = useSetRecoilState(labelUpdateAtom);
+
   const editClickHandler = (e: React.MouseEvent) => {
-    
-    clickHandler(e);
+    (async function () {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/labels/${id}`, {
+        title: labelState.title,
+        description: labelState.description,
+        color_code: labelState.labelColor,
+        font_light: labelState.textColor === 'light',
+      });
+      setLabelUpdate((cur) => ++cur);
+      clickHandler(e);
+    })();
   };
+
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const type = labelParser(e.target.getAttribute('aria-label'));
     const payload = e.target.value;
-    console.log(type, labelState);
+
     if (type !== 'TextColor') {
       setLabelState({ type, payload });
     }

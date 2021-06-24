@@ -7,7 +7,7 @@ type Action =
   | { type: 'FETCH_FAILURE'; payload: null };
 
 interface OptionData {
-  [key: string]: string;
+  [key: string]: any;
 }
 const token = localStorage.getItem('jwt');
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
@@ -19,6 +19,7 @@ const createFetchOptions = (Method: Method, bodyData?: OptionData) => {
     headers: { 'Content-Type': 'application/json' },
   };
   if (bodyData) config.data = bodyData;
+  console.log(config);
   return config;
 };
 function useAxios(
