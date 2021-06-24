@@ -11,6 +11,8 @@ import {
   issueDetailQuery,
 } from 'store';
 import { CommentType } from 'types/issueType';
+import CreateButton from 'components/buttons/CreateButton';
+import { ReactComponent as PlusSvg } from 'icons/plus.svg';
 
 const IssueDetailBody = () => {
   const issueDetailData = useRecoilValue(issueDetailQuery);
@@ -30,6 +32,10 @@ const IssueDetailBody = () => {
     createdTime: issueDetailData.createdTime,
   };
 
+  const newCommentHandler = () => {
+    console.log('새로운 코멘트 등록');
+  };
+
   return (
     <Box display="flex">
       <CommentArea>
@@ -45,12 +51,22 @@ const IssueDetailBody = () => {
               <Comment key={commentData.id} commentData={commentData} />
             ))}
         </Comments>
+
         <NewCommentWrapper display="flex">
-          <AuthorAvatar size="L" profileImg={loginUser?.avatar_url} />
-          <Spacer />
-          <CommentTextarea />
+          <NewCommentInputArea>
+            <AuthorAvatar size="L" profileImg={loginUser?.avatar_url} />
+            <Spacer />
+            <CommentTextarea />
+          </NewCommentInputArea>
+
+          <NewCommentButtonArea>
+            <CreateButton onClick={newCommentHandler} icon={<PlusIcon />}>
+              코멘트 작성
+            </CreateButton>
+          </NewCommentButtonArea>
         </NewCommentWrapper>
       </CommentArea>
+
       <AssignArea></AssignArea>
     </Box>
   );
@@ -72,10 +88,22 @@ const Comments = styled.ul`
 
 const NewCommentWrapper = styled(Box)`
   margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Spacer = styled.div`
   width: 1rem;
+`;
+
+const NewCommentInputArea = styled.div`
+  display: flex;
+  margin-bottom: 1rem;
+`;
+
+const NewCommentButtonArea = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const AssignArea = styled.section`
@@ -84,4 +112,11 @@ const AssignArea = styled.section`
   margin-left: 2rem;
   background-color: #b1b1b1;
 `;
+
+const PlusIcon = styled(PlusSvg)`
+  path {
+    stroke: ${({ theme }) => theme.color.grayscale.offWhite};
+  }
+`;
+
 export default IssueDetailBody;
