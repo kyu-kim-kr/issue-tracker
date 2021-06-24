@@ -21,7 +21,7 @@ export default function Filter({ isPlus, filterType }: FilterPropsType) {
   };
 
   const dataList = useRecoilValue(filterSelector);
-
+  console.log(dataList['assigneeList']);
   return (
     <>
       <FilterButton onClick={handleClick}>

@@ -7,7 +7,7 @@ const NewIssueRight = () => {
     <StyledNewIssueRight>
       <SidebarList type="labelList" />
       <Divider />
-      <SidebarList type="labelList" />
+      <SidebarList type="assigneeList" />
       <Divider />
       <SidebarList type="milestoneList" />
     </StyledNewIssueRight>

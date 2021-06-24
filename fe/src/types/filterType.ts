@@ -2,6 +2,7 @@ export type FilterItemType = {
   id: number;
   title: string;
   imgurl?: string | null;
+  description?: string;
   labelColor?: string;
 };
 
@@ -20,5 +21,5 @@ export type FilterPropsType = {
   isPlus?: boolean;
 };
 
-export type FilterSelectorType = 'milestoneList' | 'labelList';
+export type FilterSelectorType = 'milestoneList' | 'labelList'| 'assigneeList';
 //| 'authorList'| 'assigneeList';
