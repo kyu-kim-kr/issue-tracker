@@ -22,7 +22,7 @@ const IssueItemLeft = ({
 
   const routeToIssueDetailPage = () => {
     setClickedIssueId(id);
-    history.push(`/issues/${id}`);
+    history.push(`/issues/${issueNumber}`);
   };
 
   return (

@@ -18,7 +18,7 @@ const Comment = ({ commentData }: CommentPropsType) => {
 
   return (
     <Box display="flex">
-      <AuthorAvatar size="L" name="eamon" profileImg={author.profileImg} />
+      <AuthorAvatar size="L" profileImg={author.profileImg} />
       <CommentWrapper>
         <CommentHeader display="flex">
           <Box display="flex">

@@ -6,6 +6,7 @@ import CommentTextarea from 'components/common/CommentTextarea';
 import { useRecoilValue } from 'recoil';
 import {
   commentsQuery,
+  decodedUserDataAtom,
   detailIssueAuthorIdAtom,
   issueDetailQuery,
 } from 'store';
@@ -15,6 +16,7 @@ const IssueDetailBody = () => {
   const issueDetailData = useRecoilValue(issueDetailQuery);
   const commentsList = useRecoilValue(commentsQuery); // 코멘트 데이터
   const issueAuthorId = useRecoilValue(detailIssueAuthorIdAtom);
+  const loginUser = useRecoilValue(decodedUserDataAtom);
 
   const issueDescription = {
     // 코멘트처럼 생겼지만 사실 이슈의 본문
@@ -44,7 +46,7 @@ const IssueDetailBody = () => {
             ))}
         </Comments>
         <NewCommentWrapper display="flex">
-          <AuthorAvatar size="L" name="eamon" />
+          <AuthorAvatar size="L" profileImg={loginUser?.avatar_url} />
           <Spacer />
           <CommentTextarea />
         </NewCommentWrapper>
