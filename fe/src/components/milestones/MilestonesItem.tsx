@@ -28,7 +28,7 @@ const MilestonesItem = ({
           {...{ editClickHandler, openedIssueCount, closedIssueCount }}
         />
       </StyledMilestonesItem>
-      {popup && <MilestoneEdit />}
+      {popup && <MilestoneEdit {...{id, editClickHandler,title, description, dueDate }}/>}
     </>
   );
 };
