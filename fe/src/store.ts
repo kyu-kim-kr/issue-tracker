@@ -43,6 +43,20 @@ export const issueDetailQuery = selector<IssueDetailType>({
     const token = localStorage.getItem('jwt');
     const clickedIssueId = get(clickedIssueIdAtom);
     try {
+      if (!clickedIssueId)
+        return {
+          title: null,
+          description: null,
+          assignees: null,
+          isOpened: true, // null로 하니 IssueDetailHeader에서 타입에러 나서 true로 써둠
+          milestone: null,
+          author: null,
+          createdTime: null,
+          issueNumber: null,
+          labelList: null,
+          commentsCount: null,
+        };
+
       const { data } = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/issues/${clickedIssueId}`,
         {
