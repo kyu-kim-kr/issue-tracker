@@ -15,36 +15,38 @@ import axios from 'axios';
 import { labelReducer } from 'utils/reducer';
 import { labelParser } from 'utils/util';
 
-
-
-const NewLabelsItemInput = () => {
+const NewLabelsItemInput = ({
+  setPopup,
+}: {
+  setPopup: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [labelState, setLabelState] = useReducer(labelReducer, {
-    id : 0 ,
-    title : "새로운레이블",
-    description : "",
-    labelColor : "#185ADB",
-    textColor : "light",
+    id: 0,
+    title: '새로운레이블',
+    description: '',
+    labelColor: '#185ADB',
+    textColor: 'light',
   });
 
-  const editClickHandler = (e: React.MouseEvent) => {}
   const textColorClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     const type = 'TextColor';
     const payload = e.currentTarget.id === 'dark' ? 'dark' : 'light';
     setLabelState({ type, payload });
   };
-//   const setLabelUpdate = useSetRecoilState(labelUpdateAtom);
+  const setLabelUpdate = useSetRecoilState(labelUpdateAtom);
 
-//   const editClickHandler = (e: React.MouseEvent) => {
-//     (async function () {
-//       await axios.put(`${process.env.REACT_APP_API_URL}/api/labels/${id}`, {
-//         title: labelState.title,
-//         description: labelState.description,
-//         color_code: labelState.labelColor,
-//         font_light: labelState.textColor === 'light',
-//       });
-//       setLabelUpdate((cur) => ++cur);
-//     })();
-//   };
+  const createClickHandler = (e: React.MouseEvent) => {
+    (async function () {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/labels`, {
+        title: labelState.title,
+        description: labelState.description,
+        color_code: labelState.labelColor,
+        font_light: labelState.textColor === 'light',
+      });
+      setLabelUpdate((cur) => ++cur);
+      setPopup((popup) => !popup);
+    })();
+  };
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const type = labelParser(e.target.getAttribute('aria-label'));
@@ -56,7 +58,7 @@ const NewLabelsItemInput = () => {
   };
 
   return (
-    <StyledLabelsItemInput> 
+    <StyledLabelsItemInput>
       <LabelsInputDisplay>
         <Label
           title={labelState.title}
@@ -86,7 +88,7 @@ const NewLabelsItemInput = () => {
           />
         </LabelColorSection>
         <EditButtons>
-          <CreateButton onClick={editClickHandler} icon={<PlusIcon />}>
+          <CreateButton onClick={createClickHandler} icon={<PlusIcon />}>
             완료
           </CreateButton>
         </EditButtons>

@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 import NewLabelsItemInput from './NewLabelsItemInput';
 
-const NewLabel = () => {
+const NewLabel = ({
+  setPopup,
+}: {
+  setPopup: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
     <StyledNewLabel>
       <LabelsItemEditTitle>새로운 레이블 추가</LabelsItemEditTitle>
-      <NewLabelsItemInput />
+      <NewLabelsItemInput {...{setPopup}}/>
     </StyledNewLabel>
   );
 };

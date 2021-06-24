@@ -10,7 +10,7 @@ const LabelPage = () => {
   return (
     <>
       <NavbarButtons {...{type,setPopup}}/>
-      {popup && <NewLabel />}
+      {popup && <NewLabel {...{setPopup}}/>}
       <StyledSpace />
       <Labels />
     </>
