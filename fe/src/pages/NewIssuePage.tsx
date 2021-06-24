@@ -2,9 +2,13 @@ import { Divider } from '@material-ui/core';
 import CustomButton from 'components/buttons/CustomButton';
 import NewIssueLeft from 'components/new-issue/NewIssueLeft';
 import NewIssueRight from 'components/new-issue/NewIssueRight';
+import { useResetRecoilState } from 'recoil';
+import { NewIssuesIdQuery } from 'stores/NewIssuesSideStore';
 import styled from 'styled-components';
 
 const NewIssuePage = () => {
+  useResetRecoilState(NewIssuesIdQuery)();
+
   return (
     <>
       <NewIssueTitle>새로운 이슈 작성</NewIssueTitle>

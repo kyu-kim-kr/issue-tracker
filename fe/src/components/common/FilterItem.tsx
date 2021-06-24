@@ -5,14 +5,22 @@ import { FilterItemPropsType } from '../../types/filterType';
 import { ReactComponent as CheckOff } from 'icons/check-off-circle.svg';
 import { ReactComponent as CheckOn } from 'icons/check-on-circle.svg';
 import AuthorAvatar from './AuthorAvatar';
-const FilterItem = ({ filterItem, isEnd }: FilterItemPropsType) => {
+const FilterItem = ({
+  filterItem,
+  isEnd,
+  value,
+  onClose,
+  clickHandler,
+}: FilterItemPropsType) => {
   const handleClick = (e: MouseEvent<HTMLLIElement>) => {
-    console.log(filterItem.id);
+    console.log(e.currentTarget.id);
+    if (clickHandler) clickHandler(e);
+    onClose();
   };
 
   return (
     <>
-      <StyledFilterItem onClick={handleClick}>
+      <StyledFilterItem id={`${filterItem.id}`} onClick={handleClick}>
         <StyledSpan>
           {filterItem.labelColor ? (
             <StyledColor colorCode={filterItem.labelColor} />
@@ -22,7 +30,11 @@ const FilterItem = ({ filterItem, isEnd }: FilterItemPropsType) => {
           ) : null}
           <span>{filterItem.title || filterItem.description}</span>
         </StyledSpan>
-        <Checkbox icon={<CheckOff />} checkedIcon={<CheckOn />} />
+        <Checkbox
+          icon={<CheckOff />}
+          checkedIcon={<CheckOn />}
+          checked={value && value.indexOf(filterItem.id) !== -1}
+        />
       </StyledFilterItem>
       {isEnd ? null : <Divider />}
     </>
@@ -31,7 +43,7 @@ const FilterItem = ({ filterItem, isEnd }: FilterItemPropsType) => {
 const StyledSpan = styled.span`
   ${({ theme }) => theme.style.flexAlignItemsCenter}
   font-size: ${({ theme }) => theme.fontSize.S};
-  span{
+  span {
     margin-left: 0.5rem;
   }
 `;
