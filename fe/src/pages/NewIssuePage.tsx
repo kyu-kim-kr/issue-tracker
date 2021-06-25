@@ -4,13 +4,14 @@ import CustomButton from 'components/buttons/CustomButton';
 import NewIssueLeft from 'components/new-issue/NewIssueLeft';
 import NewIssueRight from 'components/new-issue/NewIssueRight';
 import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { newIssuesContentAtom } from 'store';
 import { NewIssuesIdQuery } from 'stores/NewIssuesSideStore';
 import styled from 'styled-components';
-
 const NewIssuePage = () => {
+  const history = useHistory()
   const IdReset = useResetRecoilState(NewIssuesIdQuery);
   const contentReset = useResetRecoilState(newIssuesContentAtom);
   const IssuesId = useRecoilValue(NewIssuesIdQuery);
@@ -29,8 +30,7 @@ const NewIssuePage = () => {
         } 
       );
     })();
-
-    console.log(IssuesId, IssuesContent);
+    history.push('/issues');
   };
   useEffect(() => {
     return () => {

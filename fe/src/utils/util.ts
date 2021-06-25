@@ -7,7 +7,7 @@ export const deepCopied = <T extends {}>(data: T) =>
 
 export const getUrl = {
   LOGIN: (code: string | ParsedQs | string[] | ParsedQs[] | undefined) =>
-    `http://15.164.68.136/api/login/auth?client=web&code=${code}`,
+    `${process.env.REACT_APP_API_URL}/api/login/auth?client=web&code=${code}`,
 };
 
 export const getTitle = (type: TitleType) =>

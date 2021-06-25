@@ -3,7 +3,9 @@ import { AxiosInstance } from 'axios';
 export function setInterceptors(instance: AxiosInstance): AxiosInstance {
   instance.interceptors.request.use(
     function (config) {
-      config.headers.Authorization = localStorage.getItem('jwt');
+      const token = localStorage.getItem('jwt');
+      config.headers.Authorization = `Bearer ${token}`;
+
       return config;
     },
     function (error) {
