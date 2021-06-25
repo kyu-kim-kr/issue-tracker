@@ -108,7 +108,7 @@
                                 <rect key="frame" x="29" y="150" width="365" height="83.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bxE-2r-cgT">
-                                        <rect key="frame" x="0.0" y="0.0" width="133" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="117" height="33.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목쓰" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee0-nX-W9O">
                                                 <rect key="frame" x="0.0" y="0.0" width="73" height="33.5"/>
@@ -117,9 +117,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coC-AV-hsk">
-                                                <rect key="frame" x="83" y="0.0" width="50" height="33.5"/>
+                                                <rect key="frame" x="83" y="0.0" width="34" height="33.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="TwM-2F-hvV"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="TwM-2F-hvV"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -179,7 +179,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bxE-2r-cgT" secondAttribute="trailing" id="E8g-Uo-q3w"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bxE-2r-cgT" secondAttribute="trailing" priority="750" id="E8g-Uo-q3w"/>
                                     <constraint firstItem="bxE-2r-cgT" firstAttribute="leading" secondItem="uZp-7J-ahd" secondAttribute="leading" id="XcJ-DE-uVD"/>
                                 </constraints>
                             </stackView>
@@ -291,10 +291,10 @@
                                                             </constraints>
                                                         </stackView>
                                                         <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P7l-q9-6zI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="WfC-oc-mnG"/>
+                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="WfC-oc-mnG"/>
                                                             </constraints>
                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pLf-ek-rmp">
                                                                 <size key="itemSize" width="136" height="25"/>

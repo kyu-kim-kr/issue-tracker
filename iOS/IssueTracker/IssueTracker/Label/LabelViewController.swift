@@ -85,9 +85,3 @@ extension LabelViewController: UITableViewDelegate {
         return swipeConfig
     }
 }
-
-extension LabelViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        viewHeaderConstraint.constant = -scrollView.contentOffset.y
-    }
-}

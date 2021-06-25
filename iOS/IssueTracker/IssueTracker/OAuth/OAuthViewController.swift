@@ -20,8 +20,8 @@ class OAuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //MARK: - 네트워크가 안될 때
-        guard let vc = self.storyboard?.instantiateViewController(identifier: IssueTrackerViewController.className) as? IssueTrackerViewController else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
+//        guard let vc = self.storyboard?.instantiateViewController(identifier: IssueTrackerViewController.className) as? IssueTrackerViewController else { return }
+//        self.navigationController?.pushViewController(vc, animated: true)
         
         self.oauthManager = OAuthManager()
         self.setAppleSignInButton()

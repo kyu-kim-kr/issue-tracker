@@ -17,8 +17,7 @@ protocol Networkable {
 }
 
 struct ServerAPI {
-    static var baseURL = "http://3.35.48.70:8080"
-//    static var baseURL = "http://15.164.68.136"
+    static var baseURL = "http://3.35.48.70"
     static var redirectURLKey = "redirect_url"
     static var redirectURLValue = "\(scheme)://login"
     static var scheme = "issue-tracker"
@@ -98,6 +97,7 @@ final class AlamofireNetworkManager {
         ]
     }
     
+    //MARK: - 임시로 imgur 호스팅 사용
     func upload(imageData: Data,
                 completionHandler: @escaping (Result<ImageURL, NetworkError>) -> ()) {
         let header: HTTPHeaders = [
@@ -151,7 +151,7 @@ final class AlamofireNetworkManager {
                     print(dataResponse.response)
                     print(dataResponse.error)
                     print(dataResponse.description)
-                    print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
+//                    print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
                     return completionHandler(.failure(NetworkError.noResult))
                 }
                 print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
