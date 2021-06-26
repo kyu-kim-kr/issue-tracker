@@ -98,4 +98,20 @@ class IssueListCenter {
                 }
             }
     }
+    
+    func getFilteredIssue(parameter: [String: Any]) {
+        self.alamofireNetworkManager
+            .request(decodingType: [Issue].self,
+                     endPoint: ServerAPI.Endpoint.list,
+                     method: .get,
+                     parameters: parameter,
+                     headers: nil) { (result) in
+                switch result {
+                case .success(let issues):
+                    self.issueList = issues
+                case .failure(let error):
+                    NSLog(error.description)
+                }
+        }
+    }
 }

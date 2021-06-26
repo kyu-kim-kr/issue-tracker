@@ -7,10 +7,14 @@
 
 import Foundation
 
-struct Author: Codable {
-    var id: Int
-    var name: String
-    var avatarURL: String
+class Author: Codable, Filterable {
+    private(set) var id: Int
+    private(set) var name: String
+    private(set) var avatarURL: String
+    var isSelected: Bool?
+    var title: String {
+        return name
+    }
     
     enum CodingKeys: String, CodingKey {
         case name

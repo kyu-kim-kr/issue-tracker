@@ -7,13 +7,14 @@
 
 import Foundation
 
-struct Milestone: Codable {
-    var id: Int
-    var title: String
-    var milestoneDescription: String
-    var due: String
-    var opendIssueCount: Int
-    var closedIssueCount: Int
+struct Milestone: Codable, Filterable {
+    private(set) var id: Int
+    private(set) var title: String
+    private(set) var milestoneDescription: String
+    private(set) var due: String
+    private(set) var opendIssueCount: Int
+    private(set) var closedIssueCount: Int
+    private(set) var isSelected: Bool?
     var displayOpenCount: String {
         return "열린 이슈 \(opendIssueCount)게"
     }

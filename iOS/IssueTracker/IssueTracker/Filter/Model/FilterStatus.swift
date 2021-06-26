@@ -7,10 +7,11 @@
 
 import Foundation
 
-class FilterStatus {
-    enum Status {
-        static let open = "열린 이슈"
-        static let close = "닫힌 이슈"
-        static let mine = "내가 작성한 이슈"
+class FilterStatusDataCenter: NSObject {
+    enum Section: String, CaseIterable {
+        case status = "상태"
+        case author = "작성자"
+        case label = "레이블"
+        case milestone = "마일스톤"
     }
 }

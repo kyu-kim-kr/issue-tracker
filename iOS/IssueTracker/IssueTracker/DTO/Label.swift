@@ -7,12 +7,13 @@
 
 import Foundation
 
-struct Label: Codable {
-    var id: Int
-    var title: String
-    var labelDescription: String
-    var colorCode: String
-    var isWhiteFontColor: Bool
+struct Label: Codable, Filterable {
+    private(set) var id: Int
+    private(set) var title: String
+    private(set) var labelDescription: String
+    private(set) var colorCode: String
+    private(set) var isWhiteFontColor: Bool
+    var isSelected: Bool?
     
     enum CodingKeys: String, CodingKey {
         case id, title

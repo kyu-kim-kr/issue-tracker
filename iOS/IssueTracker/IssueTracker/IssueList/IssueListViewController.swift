@@ -111,6 +111,14 @@ class IssueListViewController: UIViewController {
     
     @objc func filterIssue(_ sender: UIBarButtonItem) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: FilterViewController.className) as? FilterViewController else { return }
+        vc.gettingFilterdListHandler = { [weak self] selectedStatus in
+            if let selectedStatus = selectedStatus {
+                self?.issueListCenter.getFilteredIssue(parameter: selectedStatus.parameter)
+            } else {
+                self?.issueListCenter.getIssueList()
+            }
+            
+        }
         self.present(vc, animated: true, completion: nil)
     }
 }
