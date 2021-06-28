@@ -39,7 +39,7 @@ class OAuthManager {
                                                  parameters: ["client": "ios",
                                                               "code": callBackURLCode],
                                                  headers: nil,
-                                                 isOAuth: true) { (result) in
+                                                 isJSONEncoding: false) { (result) in
                 switch result {
                 case .success(let githubUser):
                     completion(githubUser)

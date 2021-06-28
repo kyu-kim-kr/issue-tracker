@@ -13,9 +13,9 @@ class IssueDetailViewController: UIViewController {
     @IBOutlet weak var openLabel: UIButton!
     @IBOutlet weak var closeLabel: UIButton!
     @IBOutlet weak var writeDescriptionLabel: UILabel!
-    @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var issueIDLabel: UILabel!
     
+    @IBOutlet weak var detailTableView: UITableView!
     var issueDetailDataCenter: IssueDetailDataCenter!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,18 +42,24 @@ class IssueDetailViewController: UIViewController {
         self.closeLabel.isHidden = !issue.closed
         self.writeDescriptionLabel.text = self.issueDetailDataCenter.titleDescription
         self.issueIDLabel.text = "#\(issue.id)"
-        makeMarkdownView(body: issue.issueDescription)
+    }
+}
+
+extension IssueDetailViewController: UITableViewDelegate {
+    
+}
+
+extension IssueDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.issueDetailDataCenter.comments.count + 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: IssueDetailTableViewCell.className) as? IssueDetailTableViewCell else { return UITableViewCell() }
+        cell.configure(issue: self.issueDetailDataCenter.issue)
+        return cell
+        //MARK: - 확인해봐야함
     }
     
     
-    private func makeMarkdownView(body: String) {
-        let md = MarkdownView()
-        md.load(markdown: body, enableImage: true)
-        self.detailView.addSubview(md)
-        md.translatesAutoresizingMaskIntoConstraints = false
-        md.topAnchor.constraint(equalTo: self.detailView.topAnchor).isActive = true
-        md.bottomAnchor.constraint(equalTo: self.detailView.bottomAnchor).isActive = true
-        md.rightAnchor.constraint(equalTo: self.detailView.rightAnchor).isActive = true
-        md.leftAnchor.constraint(equalTo: self.detailView.leftAnchor).isActive = true
-    }
 }

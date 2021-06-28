@@ -99,13 +99,14 @@ class IssueListCenter {
             }
     }
     
-    func getFilteredIssue(parameter: [String: Any]) {
+    func getFilteredIssue(parameter: [String: Int]) {
         self.alamofireNetworkManager
             .request(decodingType: [Issue].self,
                      endPoint: ServerAPI.Endpoint.list,
                      method: .get,
                      parameters: parameter,
-                     headers: nil) { (result) in
+                     headers: nil,
+                     isJSONEncoding: false) { (result) in
                 switch result {
                 case .success(let issues):
                     self.issueList = issues

@@ -17,7 +17,7 @@ protocol Networkable {
 }
 
 struct ServerAPI {
-    static var baseURL = "http://3.35.48.70"
+    static var baseURL = "http://kyupig.com"
     static var redirectURLKey = "redirect_url"
     static var redirectURLValue = "\(scheme)://login"
     static var scheme = "issue-tracker"
@@ -123,11 +123,11 @@ final class AlamofireNetworkManager {
                                method: HTTPMethod,
                                parameters: [String: Any]?,
                                headers: HTTPHeaders?,
-                               isOAuth: Bool = false,
+                               isJSONEncoding: Bool = true,
                                completionHandler: @escaping (Result<T, NetworkError>) -> Void) {
         let address = baseAddress + endPoint.value
-        let encoding: ParameterEncoding = isOAuth ? URLEncoding.default : JSONEncoding.default
         let decoder = JSONDecoder()
+        let encoding: ParameterEncoding = isJSONEncoding ? JSONEncoding.default : URLEncoding.default
         decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
         AF.request(address,
                    method: method,

@@ -10,21 +10,28 @@ import UIKit
 class FilterViewController: UIViewController {
     @IBOutlet weak var filterTableView: UITableView!
     @IBOutlet var filterStatusDataCenter: FilterStatusDataCenter!
-    var gettingFilterdListHandler: ((Filterable?) -> ())?
+    var gettingFilterdListHandler: (([String: Int]?) -> ())?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.getCategory()
+    }
+    
+    private func getCategory() {
+        self.filterStatusDataCenter.getCategory {
+            self.filterTableView.reloadData()
+        }
     }
 }
 
 extension FilterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.filterStatusDataCenter.deselectAllCagegory()
         var selectedItem = self.filterStatusDataCenter.categoryItems[indexPath.section][indexPath.row]
         selectedItem.isSelected = true
-        self.filterStatusDataCenter.deselectAllCagegory()
-        self.filterStatusDataCenter.selected = selectedItem
+        guard let selectedCategory = FilterStatusDataCenter.Section.init(index: indexPath.section) else { return }
         tableView.reloadData()
         dismiss(animated: true) { [weak self] in
-            self?.gettingFilterdListHandler?(self?.filterStatusDataCenter.selected)
+            self?.gettingFilterdListHandler?([selectedCategory.rawValue: selectedItem.id])
         }
     }
 }

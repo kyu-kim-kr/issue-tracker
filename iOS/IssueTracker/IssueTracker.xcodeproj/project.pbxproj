@@ -41,6 +41,9 @@
 		2246D20D2686C4EF00B55E83 /* FilterTableViewHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246D20C2686C4EF00B55E83 /* FilterTableViewHeaderLabel.swift */; };
 		2246D2182686CA5600B55E83 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246D2172686CA5600B55E83 /* FilterTableViewCell.swift */; };
 		22497A1E26848E2A0043E2E6 /* ImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22497A1D26848E2A0043E2E6 /* ImageURL.swift */; };
+		224A18AD268975390001829B /* DetailBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A18AC268975390001829B /* DetailBody.swift */; };
+		224A18B22689757B0001829B /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A18B12689757B0001829B /* Date+String.swift */; };
+		224A18B726897AD60001829B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A18B626897AD60001829B /* Comment.swift */; };
 		2252FD89267C35B100E8E70E /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252FD88267C35B100E8E70E /* IssueDetailViewController.swift */; };
 		225BA79B26710B9700BCA2B8 /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 225BA79A26710B9700BCA2B8 /* OctoKit */; };
 		225D0A9F2680600900711537 /* Assign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D0A9E2680600900711537 /* Assign.swift */; };
@@ -137,6 +140,9 @@
 		2246D20C2686C4EF00B55E83 /* FilterTableViewHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewHeaderLabel.swift; sourceTree = "<group>"; };
 		2246D2172686CA5600B55E83 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
 		22497A1D26848E2A0043E2E6 /* ImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURL.swift; sourceTree = "<group>"; };
+		224A18AC268975390001829B /* DetailBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBody.swift; sourceTree = "<group>"; };
+		224A18B12689757B0001829B /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		224A18B626897AD60001829B /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		2252FD88267C35B100E8E70E /* IssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 		225D0A9E2680600900711537 /* Assign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assign.swift; sourceTree = "<group>"; };
 		225D0AA32680607900711537 /* Milestone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
@@ -314,6 +320,7 @@
 				22106441268378DF002701AB /* DateFormatter.swift */,
 				227EE2C42671102B008B02BB /* URL.swift */,
 				2210645D2683961B002701AB /* UIImage.swift */,
+				224A18B12689757B0001829B /* Date+String.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -367,6 +374,8 @@
 				22F6B5CA2680796D00BD938D /* IssueFrame.swift */,
 				220A76CE26823FD100B6403D /* MakedLabel.swift */,
 				22CBF4C026825378007A9CA8 /* MakerdMilestone.swift */,
+				224A18AC268975390001829B /* DetailBody.swift */,
+				224A18B626897AD60001829B /* Comment.swift */,
 				220A76D3268240A100B6403D /* Response */,
 			);
 			path = DTO;
@@ -724,6 +733,7 @@
 				22497A1E26848E2A0043E2E6 /* ImageURL.swift in Sources */,
 				222299E7268229240099A0B0 /* JWT.swift in Sources */,
 				22D20F2126874FC8007AFF20 /* SelectedStatus.swift in Sources */,
+				224A18B22689757B0001829B /* Date+String.swift in Sources */,
 				22F6B5C62680733000BD938D /* DetailCategoryTableViewCell.swift in Sources */,
 				225D0AA42680607900711537 /* Milestone.swift in Sources */,
 				2229BF7C268014F500AEBE53 /* WriteInfoDataCenter.swift in Sources */,
@@ -732,6 +742,7 @@
 				22FC5B8B26799EA400DC2794 /* LabelViewController.swift in Sources */,
 				22468780267EC7C900D7150A /* WriteViewController.swift in Sources */,
 				22330ACA266F4BF40062B78B /* IssueListTableViewCell.swift in Sources */,
+				224A18B726897AD60001829B /* Comment.swift in Sources */,
 				222299DF2682275E0099A0B0 /* SessionModel.swift in Sources */,
 				221E95B72679CD5A007B7180 /* MilestoneTableViewCell.swift in Sources */,
 				22106442268378DF002701AB /* DateFormatter.swift in Sources */,
@@ -740,6 +751,7 @@
 				22330ADB266F66A90062B78B /* UIColor.swift in Sources */,
 				222299F1268233870099A0B0 /* IssueDelete.swift in Sources */,
 				22FC5B9C2679A4C600DC2794 /* Label.swift in Sources */,
+				224A18AD268975390001829B /* DetailBody.swift in Sources */,
 				22780758266E0F4B0064B12D /* SceneDelegate.swift in Sources */,
 				2205F72F267255E300FA4F91 /* FilterStatusDataCenter.swift in Sources */,
 				2246D20D2686C4EF00B55E83 /* FilterTableViewHeaderLabel.swift in Sources */,
