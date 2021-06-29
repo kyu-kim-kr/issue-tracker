@@ -2,6 +2,7 @@ import { Box, Button } from '@material-ui/core';
 import AuthorAvatar from 'components/common/AuthorAvatar';
 import styled from 'styled-components';
 import { ReactComponent as EditSvg } from 'icons/edit.svg';
+import { ReactComponent as DeleteSvg } from 'icons/delete.svg';
 import { ReactComponent as EmojiSvg } from 'icons/emoji.svg';
 import { CommentType } from 'types/issueType';
 import { useRecoilValue } from 'recoil';
@@ -23,7 +24,7 @@ const Comment = ({ commentData }: { commentData: CommentType }) => {
             <div className="comment-created-time">{createdTime}분 전</div>
           </Box>
           <Box display="flex" alignItems="center">
-            {issueAuthorId === id && (
+            {issueAuthorId === author.id && (
               <IssueAuthorLabel
                 display="flex"
                 alignItems="center"
@@ -34,6 +35,11 @@ const Comment = ({ commentData }: { commentData: CommentType }) => {
             )}
             {loginUser && loginUser.id === author.id && (
               <Button startIcon={<EditIcon />}>편집</Button>
+            )}
+            {loginUser && loginUser.id === author.id && (
+              <Button startIcon={<DeleteIcon />} color="secondary">
+                삭제
+              </Button>
             )}
             <EmojiButton>
               <EmojiSvg />
@@ -91,6 +97,8 @@ const IssueAuthorLabel = styled(Box)`
 `;
 
 const EditIcon = styled(EditSvg)``;
+
+const DeleteIcon = styled(DeleteSvg)``;
 
 const EmojiButton = styled.button`
   all: unset;
