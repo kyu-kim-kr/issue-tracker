@@ -13,7 +13,6 @@ struct Label: Codable, Filterable {
     private(set) var labelDescription: String
     private(set) var colorCode: String
     private(set) var isWhiteFontColor: Bool
-    var isSelected: Bool?
     
     enum CodingKeys: String, CodingKey {
         case id, title

@@ -52,18 +52,6 @@ class FilterStatusDataCenter: NSObject {
         self.getMilestone(completion: completion)
     }
     
-    func deselectAllCagegory() {
-        for var item in authorList {
-            item.deselect()
-        }
-        for var item in milestoneList {
-            item.deselect()
-        }
-        for var item in labelList {
-            item.deselect()
-        }
-    }
-    
     func getLabels(completion: @escaping (() -> ())) {
         self.alamofireNetworkManager.request(decodingType: [Label].self,
                                              endPoint: ServerAPI.Endpoint.labels,

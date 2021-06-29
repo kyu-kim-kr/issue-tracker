@@ -11,7 +11,6 @@ class Author: Codable, Filterable {
     private(set) var id: Int
     private(set) var name: String
     private(set) var avatarURL: String
-    var isSelected: Bool?
     var title: String {
         return name
     }

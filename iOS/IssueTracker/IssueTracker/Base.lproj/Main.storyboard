@@ -709,7 +709,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="필터" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtU-az-ekZ">
-                                <rect key="frame" x="50" y="89" width="314" height="21"/>
+                                <rect key="frame" x="100" y="89" width="214" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -726,30 +726,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9v1-d3-td5">
-                                                    <rect key="frame" x="20" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Kwx-xc-qAw">
-                                                    <rect key="frame" x="373" y="13.5" width="21" height="17.5"/>
-                                                    <color key="tintColor" systemColor="systemGreenColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Kwx-xc-qAw" secondAttribute="height" multiplier="1:1" id="sQq-r6-lUY"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Kwx-xc-qAw" secondAttribute="trailing" constant="20" id="2En-Pu-REE"/>
                                                 <constraint firstItem="9v1-d3-td5" firstAttribute="centerY" secondItem="6yh-jo-Cvc" secondAttribute="centerY" id="CYN-r6-Dai"/>
-                                                <constraint firstItem="Kwx-xc-qAw" firstAttribute="bottom" secondItem="9v1-d3-td5" secondAttribute="bottom" id="RkW-F3-ly5"/>
-                                                <constraint firstItem="Kwx-xc-qAw" firstAttribute="centerY" secondItem="6yh-jo-Cvc" secondAttribute="centerY" id="ThG-fA-FDW"/>
-                                                <constraint firstItem="Kwx-xc-qAw" firstAttribute="top" secondItem="9v1-d3-td5" secondAttribute="top" id="me2-p1-Dyx"/>
                                                 <constraint firstItem="9v1-d3-td5" firstAttribute="leading" secondItem="6yh-jo-Cvc" secondAttribute="leading" constant="20" id="o36-Xk-TP7"/>
+                                                <constraint firstAttribute="trailing" secondItem="9v1-d3-td5" secondAttribute="trailing" constant="20" id="ueL-sA-whR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="checkImage" destination="Kwx-xc-qAw" id="q2g-qJ-SYF"/>
                                             <outlet property="filtertitle" destination="9v1-d3-td5" id="GGo-cC-X8C"/>
                                         </connections>
                                     </tableViewCell>
@@ -759,17 +748,30 @@
                                     <outlet property="delegate" destination="Akn-Mw-HlJ" id="LrC-Ut-nzA"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLM-gn-wwS">
+                                <rect key="frame" x="353" y="89" width="21" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="EhZ-xS-awb"/>
+                                    <constraint firstAttribute="width" constant="21" id="Xn4-gT-pzY"/>
+                                </constraints>
+                                <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="resetSelectedCategory:" destination="Akn-Mw-HlJ" eventType="touchUpInside" id="A3F-Gn-cKR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gnk-r7-iUU"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
-                            <constraint firstItem="gnk-r7-iUU" firstAttribute="trailing" secondItem="ZtU-az-ekZ" secondAttribute="trailing" constant="50" id="8Mc-9b-qos"/>
+                            <constraint firstItem="gnk-r7-iUU" firstAttribute="trailing" secondItem="ZtU-az-ekZ" secondAttribute="trailing" constant="100" id="8Mc-9b-qos"/>
                             <constraint firstItem="9xF-tr-nqR" firstAttribute="top" secondItem="ZtU-az-ekZ" secondAttribute="bottom" constant="20" id="8yY-TV-c9P"/>
                             <constraint firstAttribute="bottom" secondItem="9xF-tr-nqR" secondAttribute="bottom" id="Avb-m5-Ady"/>
                             <constraint firstItem="ZtU-az-ekZ" firstAttribute="centerX" secondItem="gnk-r7-iUU" secondAttribute="centerX" id="E7t-xa-E2t"/>
                             <constraint firstItem="9xF-tr-nqR" firstAttribute="leading" secondItem="gnk-r7-iUU" secondAttribute="leading" id="JLJ-Xa-jsm"/>
                             <constraint firstItem="ZtU-az-ekZ" firstAttribute="top" secondItem="DTd-yj-GUA" secondAttribute="bottom" constant="20" id="MTV-jL-Yum"/>
+                            <constraint firstItem="gnk-r7-iUU" firstAttribute="trailing" secondItem="uLM-gn-wwS" secondAttribute="trailing" constant="40" id="O4p-Jw-XpV"/>
                             <constraint firstItem="DTd-yj-GUA" firstAttribute="top" secondItem="gnk-r7-iUU" secondAttribute="top" constant="20" id="RGZ-iq-V2a"/>
+                            <constraint firstItem="uLM-gn-wwS" firstAttribute="centerY" secondItem="ZtU-az-ekZ" secondAttribute="centerY" id="Rew-3w-PD3"/>
                             <constraint firstItem="gnk-r7-iUU" firstAttribute="trailing" secondItem="9xF-tr-nqR" secondAttribute="trailing" id="SAE-BH-emE"/>
                             <constraint firstItem="ZtU-az-ekZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gnk-r7-iUU" secondAttribute="leading" id="jzX-8X-C0H"/>
                             <constraint firstItem="DTd-yj-GUA" firstAttribute="centerX" secondItem="gnk-r7-iUU" secondAttribute="centerX" id="wVJ-Fs-Q3L"/>
@@ -1536,7 +1538,6 @@
         <image name="archivebox" catalog="system" width="128" height="106"/>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="exclamationmark.circle" catalog="system" width="128" height="121"/>
         <image name="githubLogoWhite" width="770" height="512"/>

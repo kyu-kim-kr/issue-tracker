@@ -14,7 +14,6 @@ struct Milestone: Codable, Filterable {
     private(set) var due: String
     private(set) var opendIssueCount: Int
     private(set) var closedIssueCount: Int
-    var isSelected: Bool?
     var displayOpenCount: String {
         return "열린 이슈 \(opendIssueCount)게"
     }

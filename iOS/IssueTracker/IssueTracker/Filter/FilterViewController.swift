@@ -15,19 +15,21 @@ class FilterViewController: UIViewController {
         super.viewDidLoad()
         self.getCategory()
     }
-    
     private func getCategory() {
         self.filterStatusDataCenter.getCategory {
             self.filterTableView.reloadData()
+        }
+    }
+    @IBAction func resetSelectedCategory(_ sender: UIButton) {
+        dismiss(animated: true) { [weak self] in
+            self?.gettingFilterdListHandler?(nil)
         }
     }
 }
 
 extension FilterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.filterStatusDataCenter.deselectAllCagegory()
-        var selectedItem = self.filterStatusDataCenter.categoryItems[indexPath.section][indexPath.row]
-        selectedItem.isSelected = true
+        let selectedItem = self.filterStatusDataCenter.categoryItems[indexPath.section][indexPath.row]
         guard let selectedCategory = FilterStatusDataCenter.Section.init(index: indexPath.section) else { return }
         tableView.reloadData()
         dismiss(animated: true) { [weak self] in
