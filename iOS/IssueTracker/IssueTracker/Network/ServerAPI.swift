@@ -33,6 +33,7 @@ struct ServerAPI {
         case milestone
         case assignees
         case image
+        case comments(Int)
         case deleteIssue(Int)
         case closeIssue(Int)
         case deleteLabel(Int)
@@ -47,6 +48,7 @@ struct ServerAPI {
             case .milestone: return "/api/milestones"
             case .assignees: return "/api/assignees"
             case .image: return "/api/images"
+            case .comments(let id): return "\(Endpoint.list.value)/\(id)/comments"
             case .deleteIssue(let id): return "\(Endpoint.list.value)/\(id)"
             case .closeIssue(let id): return "\(Endpoint.list.value)/\(id)"
             case .deleteLabel(let id): return "\(Endpoint.labels.value)/\(id)"
@@ -121,8 +123,8 @@ final class AlamofireNetworkManager {
     func request<T: Decodable>(decodingType: T.Type,
                                endPoint: ServerAPI.Endpoint,
                                method: HTTPMethod,
-                               parameters: [String: Any]?,
-                               headers: HTTPHeaders?,
+                               parameters: [String: Any]? = nil,
+                               headers: HTTPHeaders? = nil,
                                isJSONEncoding: Bool = true,
                                completionHandler: @escaping (Result<T, NetworkError>) -> Void) {
         let address = baseAddress + endPoint.value
@@ -151,7 +153,7 @@ final class AlamofireNetworkManager {
                     print(dataResponse.response)
                     print(dataResponse.error)
                     print(dataResponse.description)
-//                    print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
+                    print("data:  ", String(data: dataResponse.data!, encoding: .utf8))
                     return completionHandler(.failure(NetworkError.noResult))
                 }
                 print("data:  ", String(data: dataResponse.data!, encoding: .utf8))

@@ -28,6 +28,7 @@ class IssueDetailTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.backgroundColor = .white
         self.profileImage.image = nil
         self.userLabel.text = ""
         self.beforeDateLabel.text = ""
@@ -38,16 +39,28 @@ class IssueDetailTableViewCell: UITableViewCell {
     
     func configure(issue: Issue) {
         self.delegate?.cellBeginUpdates()
+        self.backgroundColor = .systemGray6
         ImageLoader.load(from: issue.author.avatarURL) { (image) in
             self.profileImage.image = image?.roundedImage
         }
         self.userLabel.text = issue.author.name
         self.beforeDateLabel.text = issue.createdTime.passingDate
-        self.makeMarkdownView(body: issue.issueDescription)
+        self.makeMarkdownView(body: issue.issueDescription, isComment: false)
     }
     
-    private func makeMarkdownView(body: String) {
+    func configure(comment: Comment) {
+        self.delegate?.cellBeginUpdates()
+        ImageLoader.load(from: comment.author.avatarURL) { (image) in
+            self.profileImage.image = image?.roundedImage
+        }
+        userLabel.text = comment.author.name
+        beforeDateLabel.text = comment.createdTime.passingDate
+        makeMarkdownView(body: comment.commentDescription)
+    }
+    
+    private func makeMarkdownView(body: String, isComment: Bool = true) {
         let md = MarkdownView()
+        if !isComment { md.backgroundColor = .systemGray6 }
         md.load(markdown: body, enableImage: true)
         setContentsViewWhenLoad(markDownView: md)
         self.contentsView.addSubview(md)

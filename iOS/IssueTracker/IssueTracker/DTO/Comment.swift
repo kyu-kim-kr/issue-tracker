@@ -8,5 +8,13 @@
 import Foundation
 
 struct Comment: Codable {
-    var contents: String
+    var id: Int
+    var commentDescription: String
+    var createdTime: Date
+    var author: Author
+    
+    enum CodingKeys: String, CodingKey {
+        case id, author, createdTime
+        case commentDescription = "description"
+    }
 }

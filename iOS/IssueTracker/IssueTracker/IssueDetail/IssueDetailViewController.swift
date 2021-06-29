@@ -19,10 +19,14 @@ class IssueDetailViewController: UIViewController {
     var issueDetailDataCenter: IssueDetailDataCenter!
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailTableView.rowHeight = UITableView.automaticDimension
-        detailTableView.estimatedRowHeight = 300
         self.configure()
         self.setNavigationController()
+    }
+    
+    private func bind() {
+        self.issueDetailDataCenter.reloadHandler = { [weak self] in
+            self?.detailTableView.reloadData()
+        }
     }
     
     private func setNavigationController() {
@@ -35,6 +39,7 @@ class IssueDetailViewController: UIViewController {
     
     func makeIssueDetailDataCenter(issue: Issue) {
         self.issueDetailDataCenter = IssueDetailDataCenter(issue: issue)
+        self.bind()
     }
     
     func configure() {
@@ -49,7 +54,11 @@ class IssueDetailViewController: UIViewController {
 
 extension IssueDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 1000
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
 }
 
@@ -61,9 +70,12 @@ extension IssueDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: IssueDetailTableViewCell.className) as? IssueDetailTableViewCell else { return UITableViewCell() }
         cell.delegate = self
-        cell.configure(issue: self.issueDetailDataCenter.issue)
+        if indexPath.row == 0 {
+            cell.configure(issue: self.issueDetailDataCenter.issue)
+        } else {
+            cell.configure(comment: self.issueDetailDataCenter.comments[indexPath.row - 1])
+        }
         return cell
-        //MARK: - 확인해봐야함
     }
 }
 
