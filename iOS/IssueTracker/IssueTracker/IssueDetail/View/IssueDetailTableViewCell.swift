@@ -19,11 +19,14 @@ class IssueDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var beforeDateLabel: UILabel!
     @IBOutlet weak var contentsView: UIView!
     @IBOutlet weak var contentsViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var emojiCollectionView: UICollectionView!
     
     weak var delegate: CellReloadable?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        emojiCollectionView.delegate = self
+        emojiCollectionView.dataSource = self
     }
     
     override func prepareForReuse() {
@@ -72,9 +75,33 @@ class IssueDetailTableViewCell: UITableViewCell {
     }
     
     private func setContentsViewWhenLoad(markDownView: MarkdownView) {
+        markDownView.isScrollEnabled = false
         markDownView.onRendered = { [weak self] height in
             self?.contentsViewHeight.constant = height
             self?.delegate?.cellEndUpdates()
         }
+    }
+}
+
+extension IssueDetailTableViewCell: UICollectionViewDelegate {
+    
+}
+
+extension IssueDetailTableViewCell: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 40, height: 25)
+    }
+}
+
+extension IssueDetailTableViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //MARK: - emoji 불러와야함
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmojiCollectionViewCell.className, for: indexPath) as? EmojiCollectionViewCell else { return UICollectionViewCell() }
+        //MARK: - emoji 불러와야함
+        return cell
     }
 }

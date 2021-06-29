@@ -79,6 +79,7 @@
 		22D13996267ADC6E000B1D97 /* NewLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D13995267ADC6E000B1D97 /* NewLabelViewController.swift */; };
 		22D20F2126874FC8007AFF20 /* SelectedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D20F2026874FC8007AFF20 /* SelectedStatus.swift */; };
 		22D20F26268750EB007AFF20 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D20F25268750EB007AFF20 /* Filterable.swift */; };
+		22DB8251268B6BC700F48A4E /* EmojiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB8250268B6BC700F48A4E /* EmojiCollectionViewCell.swift */; };
 		22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */; };
 		22E6D6DB2671BD0C00943003 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 22E6D6DA2671BD0C00943003 /* Lottie */; };
 		22F6B5BE2680670A00BD938D /* DetailCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F6B5BD2680670A00BD938D /* DetailCategoryViewController.swift */; };
@@ -182,6 +183,7 @@
 		22D13995267ADC6E000B1D97 /* NewLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLabelViewController.swift; sourceTree = "<group>"; };
 		22D20F2026874FC8007AFF20 /* SelectedStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStatus.swift; sourceTree = "<group>"; };
 		22D20F25268750EB007AFF20 /* Filterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filterable.swift; sourceTree = "<group>"; };
+		22DB8250268B6BC700F48A4E /* EmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewCell.swift; sourceTree = "<group>"; };
 		22E6D6B82671931D00943003 /* IssueTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueTracker.entitlements; sourceTree = "<group>"; };
 		22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerViewController.swift; sourceTree = "<group>"; };
 		22F6B5BD2680670A00BD938D /* DetailCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCategoryViewController.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				2275891A2681693B00DAB55A /* IssueDetailTableViewCell.swift */,
+				22DB8250268B6BC700F48A4E /* EmojiCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				22330AC5266F13FD0062B78B /* IssueListViewController.swift in Sources */,
 				222299EC26822A520099A0B0 /* Author.swift in Sources */,
 				22497A1E26848E2A0043E2E6 /* ImageURL.swift in Sources */,
+				22DB8251268B6BC700F48A4E /* EmojiCollectionViewCell.swift in Sources */,
 				222299E7268229240099A0B0 /* JWT.swift in Sources */,
 				22D20F2126874FC8007AFF20 /* SelectedStatus.swift in Sources */,
 				224A18B22689757B0001829B /* Date+String.swift in Sources */,

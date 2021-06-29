@@ -11,7 +11,7 @@ struct Milestone: Codable, Filterable {
     private(set) var id: Int
     private(set) var title: String
     private(set) var milestoneDescription: String
-    private(set) var due: String
+    private(set) var due: String?
     private(set) var opendIssueCount: Int
     private(set) var closedIssueCount: Int
     var displayOpenCount: String {

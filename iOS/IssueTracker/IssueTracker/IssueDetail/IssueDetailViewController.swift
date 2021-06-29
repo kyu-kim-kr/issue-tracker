@@ -14,8 +14,8 @@ class IssueDetailViewController: UIViewController {
     @IBOutlet weak var closeLabel: UIButton!
     @IBOutlet weak var writeDescriptionLabel: UILabel!
     @IBOutlet weak var issueIDLabel: UILabel!
-    
     @IBOutlet weak var detailTableView: UITableView!
+    
     var issueDetailDataCenter: IssueDetailDataCenter!
     override func viewDidLoad() {
         super.viewDidLoad()
