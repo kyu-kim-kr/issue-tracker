@@ -183,11 +183,11 @@
                                 <rect key="frame" x="0.0" y="233.5" width="414" height="662.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueDetailTableViewCell" rowHeight="167" id="yHG-6t-sQu" customClass="IssueDetailTableViewCell" customModule="IssueTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="167"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueDetailTableViewCell" id="yHG-6t-sQu" customClass="IssueDetailTableViewCell" customModule="IssueTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="103.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yHG-6t-sQu" id="RgJ-ed-CKz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="167"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="103.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Nm-G6-Nqq">
@@ -197,8 +197,8 @@
                                                         <constraint firstAttribute="width" constant="44" id="NWM-Qd-Cbd"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jPc-US-HkP">
-                                                    <rect key="frame" x="76" y="16" width="322" height="135"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jPc-US-HkP">
+                                                    <rect key="frame" x="76" y="16" width="322" height="71.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LU5-Ji-zVW">
                                                             <rect key="frame" x="0.0" y="0.0" width="322" height="20.5"/>
@@ -207,14 +207,17 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8분 전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uA9-YN-kEX">
-                                                            <rect key="frame" x="0.0" y="25.5" width="322" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="26" width="322" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqC-e0-e81">
-                                                            <rect key="frame" x="0.0" y="51" width="322" height="84"/>
+                                                            <rect key="frame" x="0.0" y="51.5" width="322" height="20"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="AKs-Fs-C9v"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                     <constraints>
@@ -238,7 +241,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="beforeDateLabel" destination="uA9-YN-kEX" id="V9T-b2-a1R"/>
-                                            <outlet property="contentsView" destination="CqC-e0-e81" id="OBw-GU-bdE"/>
+                                            <outlet property="contentsView" destination="CqC-e0-e81" id="ViJ-Se-Ff0"/>
+                                            <outlet property="contentsViewHeight" destination="AKs-Fs-C9v" id="tzA-zd-rVE"/>
                                             <outlet property="profileImage" destination="2Nm-G6-Nqq" id="ple-iM-xCp"/>
                                             <outlet property="userLabel" destination="LU5-Ji-zVW" id="mA8-Ug-Tc7"/>
                                         </connections>

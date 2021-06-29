@@ -19,6 +19,8 @@ class IssueDetailViewController: UIViewController {
     var issueDetailDataCenter: IssueDetailDataCenter!
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailTableView.rowHeight = UITableView.automaticDimension
+        detailTableView.estimatedRowHeight = 300
         self.configure()
         self.setNavigationController()
     }
@@ -46,7 +48,9 @@ class IssueDetailViewController: UIViewController {
 }
 
 extension IssueDetailViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 1000
+    }
 }
 
 extension IssueDetailViewController: UITableViewDataSource {
@@ -56,10 +60,19 @@ extension IssueDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: IssueDetailTableViewCell.className) as? IssueDetailTableViewCell else { return UITableViewCell() }
+        cell.delegate = self
         cell.configure(issue: self.issueDetailDataCenter.issue)
         return cell
         //MARK: - 확인해봐야함
     }
+}
+
+extension IssueDetailViewController: CellReloadable {
+    func cellBeginUpdates() {
+        self.detailTableView.beginUpdates()
+    }
     
-    
+    func cellEndUpdates() {
+        self.detailTableView.endUpdates()
+    }
 }
