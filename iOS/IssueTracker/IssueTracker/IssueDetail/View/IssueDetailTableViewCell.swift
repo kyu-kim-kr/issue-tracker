@@ -13,6 +13,10 @@ protocol CellReloadable: class {
     func cellEndUpdates()
 }
 
+protocol EmojiCallable: class {
+    func getEmoji(index: Int) -> Emoji
+}
+
 class IssueDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
@@ -22,6 +26,7 @@ class IssueDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var emojiCollectionView: UICollectionView!
     
     weak var delegate: CellReloadable?
+    weak var emojiDelegate: EmojiCallable?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -95,13 +100,15 @@ extension IssueDetailTableViewCell: UICollectionViewDelegateFlowLayout{
 
 extension IssueDetailTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //MARK: - emoji 불러와야함
-        return 3
+        return 8
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmojiCollectionViewCell.className, for: indexPath) as? EmojiCollectionViewCell else { return UICollectionViewCell() }
-        //MARK: - emoji 불러와야함
+        guard let emojiData = self.emojiDelegate?.getEmoji(index: indexPath.row) else { return cell }
+        cell.isHidden = !emojiData.selected
+        //MARK: - code를 이모지로 바꿔야함!!!
+        cell.emojiButton.setTitle(emojiData.code, for: .normal)
         return cell
     }
 }

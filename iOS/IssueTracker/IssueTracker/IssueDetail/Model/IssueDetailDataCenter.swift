@@ -9,6 +9,11 @@ import Foundation
 
 class IssueDetailDataCenter {
     private(set) var issue: Issue
+    private(set) var emojiData: [Emoji] {
+        didSet {
+            emojiReloadHandler?()
+        }
+    }
     private(set) var comments: [Comment] {
         didSet {
             reloadHandler?()
@@ -18,12 +23,15 @@ class IssueDetailDataCenter {
     }
     private(set) var alamofireNetworkManager: AlamofireNetworkManager
     var reloadHandler: (() -> ())?
+    var emojiReloadHandler: (() -> ())?
     
     init(issue: Issue) {
         self.issue = issue
         self.comments = [Comment]()
         self.alamofireNetworkManager = AlamofireNetworkManager()
+        self.emojiData = [Emoji]()
         self.getComments()
+        //MARK: - 이모지를 가져오는 network 추가 필요!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     
     var titleDescription: String {

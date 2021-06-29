@@ -80,6 +80,7 @@
 		22D20F2126874FC8007AFF20 /* SelectedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D20F2026874FC8007AFF20 /* SelectedStatus.swift */; };
 		22D20F26268750EB007AFF20 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D20F25268750EB007AFF20 /* Filterable.swift */; };
 		22DB8251268B6BC700F48A4E /* EmojiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB8250268B6BC700F48A4E /* EmojiCollectionViewCell.swift */; };
+		22DB8256268B78B600F48A4E /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB8255268B78B600F48A4E /* Emoji.swift */; };
 		22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */; };
 		22E6D6DB2671BD0C00943003 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 22E6D6DA2671BD0C00943003 /* Lottie */; };
 		22F6B5BE2680670A00BD938D /* DetailCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F6B5BD2680670A00BD938D /* DetailCategoryViewController.swift */; };
@@ -184,6 +185,7 @@
 		22D20F2026874FC8007AFF20 /* SelectedStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStatus.swift; sourceTree = "<group>"; };
 		22D20F25268750EB007AFF20 /* Filterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filterable.swift; sourceTree = "<group>"; };
 		22DB8250268B6BC700F48A4E /* EmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewCell.swift; sourceTree = "<group>"; };
+		22DB8255268B78B600F48A4E /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		22E6D6B82671931D00943003 /* IssueTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueTracker.entitlements; sourceTree = "<group>"; };
 		22E6D6C82671B31000943003 /* IssueTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerViewController.swift; sourceTree = "<group>"; };
 		22F6B5BD2680670A00BD938D /* DetailCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCategoryViewController.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				220A76CE26823FD100B6403D /* MakedLabel.swift */,
 				22CBF4C026825378007A9CA8 /* MakerdMilestone.swift */,
 				224A18AC268975390001829B /* DetailBody.swift */,
+				22DB8255268B78B600F48A4E /* Emoji.swift */,
 				224A18B626897AD60001829B /* Comment.swift */,
 				220A76D3268240A100B6403D /* Response */,
 			);
@@ -766,6 +769,7 @@
 				2275892D2681772200DAB55A /* IssueDetailMilestone.swift in Sources */,
 				220A76D5268240BA00B6403D /* StatusResponse.swift in Sources */,
 				229E79742670FC8E008B0E49 /* CellLabel.swift in Sources */,
+				22DB8256268B78B600F48A4E /* Emoji.swift in Sources */,
 				2246D2182686CA5600B55E83 /* FilterTableViewCell.swift in Sources */,
 				22E6D6C92671B31000943003 /* IssueTrackerViewController.swift in Sources */,
 				221064532683914A002701AB /* GithubUser.swift in Sources */,

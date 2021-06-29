@@ -27,6 +27,11 @@ class IssueDetailViewController: UIViewController {
         self.issueDetailDataCenter.reloadHandler = { [weak self] in
             self?.detailTableView.reloadData()
         }
+        
+        self.issueDetailDataCenter.emojiReloadHandler = { [weak self] in
+            //MARK: - 불러오는지 의심스러움
+            self?.detailTableView.reloadData()
+        }
     }
     
     private func setNavigationController() {
@@ -70,6 +75,7 @@ extension IssueDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: IssueDetailTableViewCell.className) as? IssueDetailTableViewCell else { return UITableViewCell() }
         cell.delegate = self
+        cell.emojiDelegate = self
         if indexPath.row == 0 {
             cell.configure(issue: self.issueDetailDataCenter.issue)
         } else {
@@ -86,5 +92,12 @@ extension IssueDetailViewController: CellReloadable {
     
     func cellEndUpdates() {
         self.detailTableView.endUpdates()
+    }
+}
+
+
+extension IssueDetailViewController: EmojiCallable {
+    func getEmoji(index: Int) -> Emoji {
+        return self.issueDetailDataCenter.emojiData[index]
     }
 }
