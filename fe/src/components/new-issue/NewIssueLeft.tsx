@@ -39,7 +39,6 @@ const NewIssueLeft = () => {
           handleChange={handleChange}
         />
       </StyledCommentInput>
-      <Markdown string={newIssuesContent.description}/>
     </StyledNewIssueLeft>
   );
 };
