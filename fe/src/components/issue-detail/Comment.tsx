@@ -25,12 +25,11 @@ const Comment = ({ commentData }: { commentData: CommentType }) => {
   const clickedIssueId = useRecoilValue(clickedIssueIdAtom);
   const setCommentUpdate = useSetRecoilState(commentUpdateAtom);
   const [isEditing, setIsEditing] = useState(false);
+  const commentRequestUrl = `${process.env.REACT_APP_API_URL}/api/issues/${clickedIssueId}/comments/${id}`;
 
   const clickDeleteHandler = () => {
     (async () => {
-      await instanceWithAuth.delete(
-        `${process.env.REACT_APP_API_URL}/api/issues/${clickedIssueId}/comments/${id}`
-      );
+      await instanceWithAuth.delete(commentRequestUrl);
       setCommentUpdate((cur) => ++cur);
     })();
   };
@@ -43,7 +42,11 @@ const Comment = ({ commentData }: { commentData: CommentType }) => {
     <Box display="flex">
       <AuthorAvatar size="L" profileImg={author.profileImg} />
       {isEditing ? (
-        <CommentEdit defaultValue={description} />
+        <CommentEdit
+          defaultValue={description}
+          setIsEditing={setIsEditing}
+          commentRequestUrl={commentRequestUrl}
+        />
       ) : (
         <CommentWrapper>
           <CommentHeader display="flex">

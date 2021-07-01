@@ -3,18 +3,34 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import CreateButton from 'components/buttons/CreateButton';
 import CommentTextarea from 'components/common/CommentTextarea';
-import { ReactComponent as PlusSvg } from 'icons/plus.svg';
+import { ReactComponent as EditSvg } from 'icons/edit.svg';
+import { ReactComponent as XSvg } from 'icons/Xicon.svg';
+import { instanceWithAuth } from 'api';
 
-const CommentEdit = ({ defaultValue }: { defaultValue: string }) => {
+const CommentEdit = ({
+  defaultValue,
+  setIsEditing,
+  commentRequestUrl,
+}: {
+  defaultValue: string;
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  commentRequestUrl: string;
+}) => {
   const [commentValue, setCommentValue] = useState<string>(defaultValue);
+
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
     setCommentValue(e.target.value);
 
-  const editCommentHandler = () => {
-    const token = localStorage.getItem('jwt');
-    // (async function () {
+  const handleClickCancelComment = () => {
+    setIsEditing(false);
+  };
 
-    // })();
+  const handleClickEditComment = () => {
+    (async function () {
+      await instanceWithAuth.patch(commentRequestUrl, {
+        description: commentValue,
+      });
+    })();
   };
 
   return (
@@ -24,8 +40,15 @@ const CommentEdit = ({ defaultValue }: { defaultValue: string }) => {
       </NewCommentInputArea>
 
       <NewCommentButtonArea>
-        <CreateButton onClick={editCommentHandler} icon={<PlusIcon />}>
-          코멘트 편집
+        <CreateButton
+          onClick={handleClickCancelComment}
+          icon={<CancelIcon />}
+          white
+        >
+          편집 취소
+        </CreateButton>
+        <CreateButton onClick={handleClickEditComment} icon={<EditIcon />}>
+          편집 완료
         </CreateButton>
       </NewCommentButtonArea>
     </NewCommentWrapper>
@@ -51,8 +74,14 @@ const NewCommentButtonArea = styled.div`
   justify-content: flex-end;
 `;
 
-const PlusIcon = styled(PlusSvg)`
+const CancelIcon = styled(XSvg)`
   path {
-    stroke: ${({ theme }) => theme.color.grayscale.offWhite};
+    stroke: inherit;
+  }
+`;
+
+const EditIcon = styled(EditSvg)`
+  path {
+    stroke: inherit;
   }
 `;
