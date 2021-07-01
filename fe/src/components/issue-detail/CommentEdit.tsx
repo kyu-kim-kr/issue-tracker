@@ -1,11 +1,15 @@
-import { Box } from '@material-ui/core';
 import { useState } from 'react';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
+import { Box } from '@material-ui/core';
+
 import CreateButton from 'components/buttons/CreateButton';
 import CommentTextarea from 'components/common/CommentTextarea';
 import { ReactComponent as EditSvg } from 'icons/edit.svg';
 import { ReactComponent as XSvg } from 'icons/Xicon.svg';
 import { instanceWithAuth } from 'api';
+
+import { commentUpdateAtom } from 'stores/detailIssueStore';
 
 const CommentEdit = ({
   defaultValue,
@@ -16,6 +20,7 @@ const CommentEdit = ({
   setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
   commentRequestUrl: string;
 }) => {
+  const setCommentUpdate = useSetRecoilState(commentUpdateAtom);
   const [commentValue, setCommentValue] = useState<string>(defaultValue);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
@@ -30,6 +35,8 @@ const CommentEdit = ({
       await instanceWithAuth.patch(commentRequestUrl, {
         description: commentValue,
       });
+      setCommentUpdate((cur) => ++cur);
+      setIsEditing(false);
     })();
   };
 
