@@ -7,6 +7,7 @@ import CommentTextarea from 'components/common/CommentTextarea';
 import IssueTitleInput from 'components/common/IssueTitleInput';
 
 import { newIssuesContentAtom } from 'stores/issueStore';
+import Markdown from 'components/common/Markdown';
 
 const NewIssueLeft = () => {
   const [newIssuesContent, setNewIssuesContent] =
@@ -38,6 +39,7 @@ const NewIssueLeft = () => {
           handleChange={handleChange}
         />
       </StyledCommentInput>
+      <Markdown string={newIssuesContent.description}/>
     </StyledNewIssueLeft>
   );
 };
