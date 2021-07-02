@@ -1,14 +1,41 @@
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { Button } from '@material-ui/core';
 import styled from 'styled-components';
+
 import IssueStateSign from './IssueStateSign';
 import { ReactComponent as EditSvg } from 'icons/edit.svg';
 import { ReactComponent as CloseSvg } from 'icons/closeIssue.svg';
 import { ReactComponent as OpenSvg } from 'icons/openIssue.svg';
-import { Button } from '@material-ui/core';
-import { issueDetailQuery } from 'stores/detailIssueStore';
-import { useRecoilValue } from 'recoil';
+import { instanceWithAuth } from 'api';
+
+import { clickedIssueIdAtom, issuesUpdateAtom } from 'stores/issueStore';
+import {
+  detailIssueUpdateAtom,
+  issueDetailQuery,
+} from 'stores/detailIssueStore';
 
 const IssueDetailHeader = () => {
   const issueDetailData = useRecoilValue(issueDetailQuery);
+  const clickedIssueId = useRecoilValue(clickedIssueIdAtom);
+  const setDetailIssueUpdate = useSetRecoilState(detailIssueUpdateAtom);
+  const setIssuesUpdate = useSetRecoilState(issuesUpdateAtom);
+
+  const handleClickCloseIssue = () => {
+    (async () => {
+      try {
+        await instanceWithAuth.patch(
+          `${process.env.REACT_APP_API_URL}/api/issues/${clickedIssueId}`,
+          {
+            closed: true,
+          }
+        );
+        setDetailIssueUpdate((cur) => ++cur);
+        setIssuesUpdate((cur) => ++cur);
+      } catch (error) {
+        console.error('이슈 닫기 요청 실패');
+      }
+    })();
+  };
 
   return (
     issueDetailData && (
@@ -40,7 +67,7 @@ const IssueDetailHeader = () => {
           </EditButton>
 
           {issueDetailData.isOpened ? (
-            <IssueOpenCloseButton>
+            <IssueOpenCloseButton onClick={handleClickCloseIssue}>
               <CloseIcon />
               <span>이슈 닫기</span>
             </IssueOpenCloseButton>
