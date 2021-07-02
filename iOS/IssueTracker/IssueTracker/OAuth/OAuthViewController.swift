@@ -104,14 +104,6 @@ extension OAuthViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
-            
-            print("User ID : \(userIdentifier)")
-            print("User Email : \(email ?? "")")
-            print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
-            
             guard let vc = self.storyboard?.instantiateViewController(identifier: IssueTrackerViewController.className) as? IssueTrackerViewController else { return }
             self.navigationController?.pushViewController(vc, animated: true)
             
@@ -121,6 +113,6 @@ extension OAuthViewController: ASAuthorizationControllerDelegate {
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print("에러~!?")
+        NSLog(error.localizedDescription)
     }
 }

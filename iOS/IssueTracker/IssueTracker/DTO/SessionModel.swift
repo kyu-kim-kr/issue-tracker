@@ -16,7 +16,7 @@ struct SessionModel: Codable {
             do {
                 try self.decodeJWT()
             } catch {
-                print("decode JWT error")
+                NSLog("decode JWT error")
             }
         }
     }

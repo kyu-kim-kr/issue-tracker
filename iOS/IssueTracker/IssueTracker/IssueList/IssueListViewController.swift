@@ -124,7 +124,6 @@ class IssueListViewController: UIViewController {
 extension IssueListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "삭제") { (action, view, completion) in
-            print("delete")
             self.askDeleteIssue(index: indexPath.row)
             completion(true)
         }
@@ -132,7 +131,6 @@ extension IssueListViewController: UITableViewDelegate {
         delete.image = deleteImage
 
         let close = UIContextualAction(style: .destructive, title: "닫기") { (action, view, completion) in
-            print("close")
             self.issueListCenter.requestCloseIssue(index: indexPath.row)
             completion(true)
         }

@@ -74,7 +74,7 @@ class WriteViewController: UIViewController {
             do {
                 try requestHandler.perform([request])
             } catch {
-                print("Unable to perform the requests: \(error).")
+                NSLog("Unable to perform the requests: \(error).")
             }
         }
         
