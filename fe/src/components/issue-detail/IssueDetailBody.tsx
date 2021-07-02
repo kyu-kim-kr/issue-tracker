@@ -54,12 +54,21 @@ const IssueDetailBody = () => {
     createdTime: issueDetailData.createdTime,
   };
 
-  console.log(issueDescription.id);
+  const undefinedCheck = (v: { id?: number }) => {
+    if (v.id) return v.id;
+    else return 0;
+  };
 
   setId({
-    labelList: [2],
-    assigneeList: [2],
-    milestoneList: [],
+    labelList: issueDetailData.labelList
+      ? issueDetailData.labelList.map((v) => undefinedCheck(v))
+      : [],
+    assigneeList: issueDetailData.assignees
+      ? issueDetailData.assignees.map((v) => undefinedCheck(v))
+      : [],
+    milestoneList: issueDetailData.milestone
+      ? [undefinedCheck(issueDetailData.milestone)]
+      : [],
   });
 
   const newCommentHandler = () => {
