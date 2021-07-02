@@ -23,14 +23,15 @@ class IssueListViewController: UIViewController {
         self.bind()
         self.configureWriteButton()
         self.issueListCenter.getIssueList()
+        
+        self.issueListTableView.rowHeight = UITableView.automaticDimension
+        self.issueListTableView.estimatedRowHeight = 300
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.makeBarButton()
         self.setNavigationController()
-        self.issueListTableView.estimatedRowHeight = 300
-        self.issueListTableView.rowHeight = 200
     }
     
     @objc private func updateUI(_ refresh: UIRefreshControl) {
@@ -50,10 +51,7 @@ class IssueListViewController: UIViewController {
     private func bind() {
         self.issueListCenter.listLoadHandler = { issueList in
             self.applySnapshot(issueList: issueList, animatingDifferences: false)
-            self.issueListTableView.rowHeight = UITableView.automaticDimension
-            self.issueListTableView.estimatedRowHeight = 300
             self.issueListTableView.reloadData()
-            
         }
     }
     

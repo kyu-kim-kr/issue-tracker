@@ -36,6 +36,7 @@ class IssueListTableViewCell: UITableViewCell {
     }
     
     func configure(indexPath: IndexPath, tableView: UITableView) {
+        tableView.beginUpdates()
         let labelCount = issueListCenter.issueList[indexPath.row].labelList.count
         if labelCount != 0 {
             labelCollectionView.isHidden = false
@@ -46,6 +47,7 @@ class IssueListTableViewCell: UITableViewCell {
         self.issueDescroption.text = issue.issueDescription
         self.milestone.text = issue.milestoneTitle
         self.labelCollectionView.reloadData()
+        tableView.endUpdates()
     }
     
     private func setLabelCollectionViewFlowLayout() {
