@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { NewIssuesIdQuery } from 'stores/NewIssuesSideStore';
 import axios from 'axios';
 import { Box, Button } from '@material-ui/core';
@@ -14,11 +13,9 @@ import CommentTextarea from 'components/common/CommentTextarea';
 
 import { clickedIssueIdAtom, issuesUpdateAtom } from 'stores/issueStore';
 import { decodedUserDataAtom } from 'stores/userStore';
-import { openedMilestoneQuery } from 'stores/milestoneStore';
-import { labelQuery } from 'stores/labelStore';
-import { assigneeQuery } from 'stores/userStore';
+
 import {
-  commentDesctiptionAtom,
+  commentDesctiptionAtom, 
   commentsQuery,
   commentUpdateAtom,
   detailIssueAuthorIdAtom,
@@ -92,15 +89,6 @@ const IssueDetailBody = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
     setCommentDesctiption(e.target.value);
-  // useEffect(() => {
-  //   return () => {
-  //     setId({
-  //       labelList: [2],
-  //       assigneeList: [2],
-  //       milestoneList: [],
-  //     });
-  //   };
-  // }, []);
 
   const handleClickDeleteIssue = () => {
     (async () => {
