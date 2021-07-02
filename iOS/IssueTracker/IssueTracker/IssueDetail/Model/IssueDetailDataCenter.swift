@@ -17,8 +17,6 @@ class IssueDetailDataCenter {
     private(set) var comments: [Comment] {
         didSet {
             reloadHandler?()
-            print(issue)
-            print(comments)
         }
     }
     private(set) var alamofireNetworkManager: AlamofireNetworkManager
@@ -31,12 +29,31 @@ class IssueDetailDataCenter {
         self.alamofireNetworkManager = AlamofireNetworkManager()
         self.emojiData = [Emoji]()
         self.getComments()
-        //MARK: - 이모지를 가져오는 network 추가 필요!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     
     var titleDescription: String {
         let beforeDate = issue.createdTime.passingDate
         return "\(beforeDate), \(issue.author.name)님이 작성했습니다."
+    }
+    
+    func getEmoji() {
+        let params = [
+            "issue_id": issue.id,
+            "user_id": issue.author.id
+        ]
+        alamofireNetworkManager.request(decodingType: [Emoji].self,
+                                        endPoint: .emoji,
+                                        method: .get,
+                                        parameters: params,
+                                        headers: nil,
+                                        isJSONEncoding: false) { (result) in
+            switch result {
+            case .success(let emojis):
+                self.emojiData = emojis
+            case .failure(let error):
+                NSLog(error.description)
+            }
+        }
     }
     
     func getComments() {
@@ -48,6 +65,7 @@ class IssueDetailDataCenter {
             switch result {
             case .success(let comments):
                 self.comments = comments
+                self.getEmoji()
             case .failure(let error):
                 NSLog(error.description)
             }

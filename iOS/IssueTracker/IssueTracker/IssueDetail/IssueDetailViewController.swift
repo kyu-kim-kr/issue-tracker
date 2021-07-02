@@ -15,8 +15,8 @@ class IssueDetailViewController: UIViewController {
     @IBOutlet weak var writeDescriptionLabel: UILabel!
     @IBOutlet weak var issueIDLabel: UILabel!
     @IBOutlet weak var detailTableView: UITableView!
-    
     var issueDetailDataCenter: IssueDetailDataCenter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configure()
@@ -97,6 +97,10 @@ extension IssueDetailViewController: CellReloadable {
 
 
 extension IssueDetailViewController: EmojiCallable {
+    func countEmojiData() -> Int {
+        return self.issueDetailDataCenter.emojiData.count
+    }
+    
     func getEmoji(index: Int) -> Emoji {
         return self.issueDetailDataCenter.emojiData[index]
     }

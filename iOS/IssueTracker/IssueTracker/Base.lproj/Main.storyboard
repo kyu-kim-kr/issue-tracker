@@ -289,6 +289,7 @@
                                             <outlet property="contentsView" destination="CqC-e0-e81" id="ViJ-Se-Ff0"/>
                                             <outlet property="contentsViewHeight" destination="AKs-Fs-C9v" id="tzA-zd-rVE"/>
                                             <outlet property="emojiCollectionView" destination="14I-IL-Bpv" id="Anl-wY-D5D"/>
+                                            <outlet property="emojicollectionViewHeight" destination="HOL-eu-eZr" id="6Fw-8W-YDK"/>
                                             <outlet property="profileImage" destination="2Nm-G6-Nqq" id="ple-iM-xCp"/>
                                             <outlet property="userLabel" destination="LU5-Ji-zVW" id="mA8-Ug-Tc7"/>
                                         </connections>

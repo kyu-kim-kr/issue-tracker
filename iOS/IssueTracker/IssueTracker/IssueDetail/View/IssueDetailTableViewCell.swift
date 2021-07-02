@@ -15,6 +15,7 @@ protocol CellReloadable: class {
 
 protocol EmojiCallable: class {
     func getEmoji(index: Int) -> Emoji
+    func countEmojiData() -> Int
 }
 
 class IssueDetailTableViewCell: UITableViewCell {
@@ -24,6 +25,7 @@ class IssueDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var contentsView: UIView!
     @IBOutlet weak var contentsViewHeight: NSLayoutConstraint!
     @IBOutlet weak var emojiCollectionView: UICollectionView!
+    @IBOutlet weak var emojicollectionViewHeight: NSLayoutConstraint!
     
     weak var delegate: CellReloadable?
     weak var emojiDelegate: EmojiCallable?
@@ -37,6 +39,7 @@ class IssueDetailTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.backgroundColor = .white
+        self.emojicollectionViewHeight.constant = 30
         self.profileImage.image = nil
         self.userLabel.text = ""
         self.beforeDateLabel.text = ""
@@ -100,14 +103,14 @@ extension IssueDetailTableViewCell: UICollectionViewDelegateFlowLayout{
 
 extension IssueDetailTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        guard let emojiCount = self.emojiDelegate?.countEmojiData() else { return 0 }
+        return emojiCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmojiCollectionViewCell.className, for: indexPath) as? EmojiCollectionViewCell else { return UICollectionViewCell() }
         guard let emojiData = self.emojiDelegate?.getEmoji(index: indexPath.row) else { return cell }
-        cell.isHidden = !emojiData.selected
-        //MARK: - code를 이모지로 바꿔야함!!!
+        cell.isHidden = emojiData.selected
         cell.emojiButton.setTitle(emojiData.code, for: .normal)
         return cell
     }

@@ -105,7 +105,7 @@ class WriteInfoDataCenter {
             switch result {
             case .success(let imageURL):
                 DispatchQueue.main.async {
-                    completion(imageURL.link)
+                    completion(imageURL.imageURL)
                 }
             case .failure(let error):
                 print(error.description)

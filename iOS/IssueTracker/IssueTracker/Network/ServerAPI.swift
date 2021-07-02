@@ -33,6 +33,7 @@ struct ServerAPI {
         case milestone
         case assignees
         case image
+        case emoji
         case comments(Int)
         case deleteIssue(Int)
         case closeIssue(Int)
@@ -49,6 +50,7 @@ struct ServerAPI {
             case .assignees: return "/api/assignees"
             case .image: return "/api/images"
             case .comments(let id): return "\(Endpoint.list.value)/\(id)/comments"
+            case .emoji: return "/api/emojis"
             case .deleteIssue(let id): return "\(Endpoint.list.value)/\(id)"
             case .closeIssue(let id): return "\(Endpoint.list.value)/\(id)"
             case .deleteLabel(let id): return "\(Endpoint.labels.value)/\(id)"
@@ -99,16 +101,15 @@ final class AlamofireNetworkManager {
         ]
     }
     
-    //MARK: - 임시로 imgur 호스팅 사용
     func upload(imageData: Data,
                 completionHandler: @escaping (Result<ImageURL, NetworkError>) -> ()) {
         let header: HTTPHeaders = [
-            "Authorization": "Client-ID 72dd369a025e6ed",
+            "Authorization": "Bearer \(SessionModel.shared.jwt)",
             "Content-Type": "multipart/form-data"
         ]
-        let url = "https://api.imgur.com/3/image"
+        let url = baseAddress + ServerAPI.Endpoint.image.value
         AF.upload(multipartFormData: { (multipartFormData) in
-            multipartFormData.append(imageData, withName: "image")
+            multipartFormData.append(imageData, withName: "image", fileName: "image.png", mimeType: "image/png")
         }, to: url, method: .post, headers: header).responseDecodable(of: ImageURL.self) { (response) in
             switch response.result {
             case .success(let imageURL):
