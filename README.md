@@ -74,6 +74,12 @@ iOS: [iOS Project kanban](https://github.com/kyu-kim-kr/issue-tracker/projects/2
 
 [Octokit](https://github.com/nerdishbynature/octokit.swift)
 <br>
+[JWTDecode](https://github.com/auth0/JWTDecode.swift)
+<br>
+[MarkdownView](https://github.com/keitaoouchi/MarkdownView)
+<br>
+[NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView)
+<br>
 [<img src="https://raw.githubusercontent.com/Alamofire/Alamofire/master/Resources/AlamofireLogo.png" width="300">](https://github.com/Alamofire/Alamofire)
 [<img src="https://user-images.githubusercontent.com/62657991/122516186-6a53d100-d049-11eb-84f7-c36ee5757f9b.png" width="300">](https://github.com/airbnb/lottie-ios)
 
@@ -85,7 +91,7 @@ iOS: [iOS Project kanban](https://github.com/kyu-kim-kr/issue-tracker/projects/2
 
 ## 🎊 구현 화면
 
-추후 추가 예정
+### iOS
 
-현재 서버에 문제가 있어서 화면이 나오고 있지 않습니다. 😓
-에러 처리 또한 아직 못 해서.. 화면이 아예 안 나옵니다. ㅠㅠ
+![issueTracker1](https://user-images.githubusercontent.com/62657991/124244476-f0980900-db59-11eb-9860-182b75ae84cf.gif)
+![issueTracker2](https://user-images.githubusercontent.com/62657991/124244450-e970fb00-db59-11eb-9258-22753f813ad0.gif)
