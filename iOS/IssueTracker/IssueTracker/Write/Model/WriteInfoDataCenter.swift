@@ -83,7 +83,6 @@ class WriteInfoDataCenter {
     }
     
     func makeIssue(completion: @escaping (() -> ())) {
-        print(selectedLabelInfo)
         let body = self.selectedLabelInfo.dictionaryRepresentation
         self.alamofireNetworkManager.request(decodingType: StatusResponse.self,
                                              endPoint: .list,
@@ -92,7 +91,6 @@ class WriteInfoDataCenter {
                                              headers: nil) { (result) in
             switch result {
             case .success(_):
-                print("이슈 생성 성공")
                 completion()
             case .failure(let error):
                 print(error.description)

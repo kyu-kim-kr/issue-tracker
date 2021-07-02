@@ -79,7 +79,6 @@ class NewLabelViewController: UIViewController {
     }
     
     @IBAction func touchSaveButton(_ sender: UIButton) {
-        print("저장")
         self.labelDataCenter.makeLabels { [weak self] in
             self?.dismiss(animated: true, completion: {
                 self?.labelDataCenter.getLabels()

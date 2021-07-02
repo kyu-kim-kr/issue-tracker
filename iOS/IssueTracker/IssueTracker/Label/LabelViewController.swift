@@ -72,7 +72,6 @@ extension LabelViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "삭제") { (action, view, completion) in
-            print("delete")
             self.labelDataCenter.deleteLabel(index: indexPath.row) {
                 self.labelDataCenter.deleteLocalLabel(index: indexPath.row)
             }

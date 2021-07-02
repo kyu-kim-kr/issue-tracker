@@ -41,7 +41,6 @@ class NewMilestoneViewController: UIViewController {
     }
     
     @IBAction func touchSaveButton(_ sender: UIButton) {
-        print("저장")
         self.milestoneDataCenter.makeMilestone { [weak self] in
             self?.dismiss(animated: true, completion: {
                 self?.milestoneDataCenter.getMilestones()

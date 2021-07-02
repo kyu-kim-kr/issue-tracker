@@ -75,7 +75,6 @@ extension MilestoneViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "삭제") { (action, view, completion) in
-            print("delete")
             self.milestoneDataCenter.deleteMilestone(index: indexPath.row) {
                 self.milestoneDataCenter.deleteLocalMilestone(index: indexPath.row)
             }

@@ -47,7 +47,6 @@ class LabelDataCenter {
                                              headers: nil) { (result) in
             switch result {
             case .success(_):
-                print("성공")
                 completion()
             case .failure(let error):
                 NSLog(error.description)
@@ -64,7 +63,6 @@ class LabelDataCenter {
                                              headers: nil) { (result) in
             switch result {
             case .success(_):
-                print("삭제 성공")
                 completion()
             case .failure(let error):
                 NSLog(error.description)
