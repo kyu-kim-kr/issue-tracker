@@ -37,6 +37,23 @@ const IssueDetailHeader = () => {
     })();
   };
 
+  const handleClickOpenIssue = () => {
+    (async () => {
+      try {
+        await instanceWithAuth.patch(
+          `${process.env.REACT_APP_API_URL}/api/issues/${clickedIssueId}`,
+          {
+            closed: false,
+          }
+        );
+        setDetailIssueUpdate((cur) => ++cur);
+        setIssuesUpdate((cur) => ++cur);
+      } catch (error) {
+        console.error('이슈 열기 요청 실패');
+      }
+    })();
+  };
+
   return (
     issueDetailData && (
       <Header>
@@ -72,7 +89,7 @@ const IssueDetailHeader = () => {
               <span>이슈 닫기</span>
             </IssueOpenCloseButton>
           ) : (
-            <IssueOpenCloseButton>
+            <IssueOpenCloseButton onClick={handleClickOpenIssue}>
               <OpenIcon />
               <span>다시 열기</span>
             </IssueOpenCloseButton>
