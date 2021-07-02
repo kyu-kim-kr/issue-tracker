@@ -79,7 +79,7 @@ class IssueDetailTableViewCell: UITableViewCell {
         md.topAnchor.constraint(equalTo: self.contentsView.topAnchor).isActive = true
         md.bottomAnchor.constraint(equalTo: self.contentsView.bottomAnchor).isActive = true
         md.rightAnchor.constraint(equalTo: self.contentsView.rightAnchor).isActive = true
-        md.leftAnchor.constraint(equalTo: self.contentsView.leftAnchor).isActive = true
+        md.leftAnchor.constraint(equalTo: self.contentsView.leftAnchor, constant: -15).isActive = true
     }
     
     private func setContentsViewWhenLoad(markDownView: MarkdownView) {
