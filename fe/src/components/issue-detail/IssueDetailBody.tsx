@@ -14,6 +14,9 @@ import CommentTextarea from 'components/common/CommentTextarea';
 
 import { clickedIssueIdAtom, issuesUpdateAtom } from 'stores/issueStore';
 import { decodedUserDataAtom } from 'stores/userStore';
+import { openedMilestoneQuery } from 'stores/milestoneStore';
+import { labelQuery } from 'stores/labelStore';
+import { assigneeQuery } from 'stores/userStore';
 import {
   commentDesctiptionAtom,
   commentsQuery,

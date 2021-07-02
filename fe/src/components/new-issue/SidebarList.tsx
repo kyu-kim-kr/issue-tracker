@@ -11,9 +11,19 @@ const SidebarList = ({ type }: { type: SidebarListType }) => {
   const clickHandler = (e: React.MouseEvent<HTMLLIElement>) => {
     setNewIssuesId((state) => {
       const copiedData = deepCopied<NewIssuesIdType>(state);
-      copiedData[type].push(+e.currentTarget.id);
+      if(type === "labelList"){
+        copiedData[type].push(+e.currentTarget.id);
+      }else{
+        copiedData[type] = [+e.currentTarget.id];
+      }
       return copiedData;
     });
+    let data = {
+      milestoneList: { milestone: newIssuesId.milestoneList[0] },
+      labelList: { label: newIssuesId.labelList },
+      assigneeList: { assignee: newIssuesId.assigneeList[0] },
+    };
+    console.log(data[type]);
   };
   return (
     <StyledSidebarList>
