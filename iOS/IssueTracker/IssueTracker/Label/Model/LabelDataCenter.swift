@@ -8,7 +8,7 @@
 import Foundation
 
 class LabelDataCenter {
-    var alamofireNetworkManager: AlamofireNetworkManager
+    var alamofireNetworkManager: AlamofireNetworkable
     var makedLabel: MakedLabel
     var labelLoadHandler: (() -> ())?
     var labelList: [Label] {

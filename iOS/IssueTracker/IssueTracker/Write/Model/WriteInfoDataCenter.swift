@@ -14,7 +14,7 @@ class WriteInfoDataCenter {
         case assign([Assign])
         case none
     }
-    var alamofireNetworkManager: AlamofireNetworkManager
+    var alamofireNetworkManager: AlamofireNetworkable
     var selectedLabelInfo: IssueFrame
     var selectLabel: Label?
     var selectMilestone: Milestone?

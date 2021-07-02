@@ -91,10 +91,6 @@ class IssueDetailTableViewCell: UITableViewCell {
     }
 }
 
-extension IssueDetailTableViewCell: UICollectionViewDelegate {
-    
-}
-
 extension IssueDetailTableViewCell: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 35, height: 35)

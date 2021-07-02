@@ -10,7 +10,7 @@ import OctoKit
 import AuthenticationServices
 
 class OAuthManager {
-    let alamofireNetworkManager: AlamofireNetworkManager
+    let alamofireNetworkManager: AlamofireNetworkable
     var errorHandler: ((String) -> ())?
     lazy var config = OAuthConfiguration.init(token: ServerAPI.clientID,
                                               secret: "",

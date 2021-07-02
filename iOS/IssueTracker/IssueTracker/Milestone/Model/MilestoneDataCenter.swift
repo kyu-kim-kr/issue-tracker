@@ -9,7 +9,7 @@ import Foundation
 
 //MARK: - 해야함
 class MilestoneDataCenter {
-    var alamofireNetworkManager: AlamofireNetworkManager
+    var alamofireNetworkManager: AlamofireNetworkable
     var makedMilestone: MakedMilestone
     var milestoneLoadHandler: (() -> ())?
     var milestoneList: [Milestone] {

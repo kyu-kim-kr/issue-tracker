@@ -29,7 +29,7 @@ class IssueListCenter {
     }
     
     
-    let alamofireNetworkManager: AlamofireNetworkManager
+    let alamofireNetworkManager: AlamofireNetworkable
     var listLoadHandler: (([Issue]) -> ())?
     var networkCompleteHandler: ((String) -> ())?
     var issueList: [Issue] {

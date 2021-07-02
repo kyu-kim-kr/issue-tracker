@@ -29,7 +29,6 @@ class IssueDetailViewController: UIViewController {
         }
         
         self.issueDetailDataCenter.emojiReloadHandler = { [weak self] in
-            //MARK: - 불러오는지 의심스러움
             self?.detailTableView.reloadData()
         }
     }

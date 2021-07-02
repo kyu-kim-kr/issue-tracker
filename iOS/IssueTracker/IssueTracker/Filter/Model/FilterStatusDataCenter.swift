@@ -30,7 +30,7 @@ class FilterStatusDataCenter: NSObject {
             }
         }
     }
-    var alamofireNetworkManager: AlamofireNetworkManager
+    var alamofireNetworkManager: AlamofireNetworkable
     var authorList: [Author]
     var labelList: [Label]
     var milestoneList: [Milestone]

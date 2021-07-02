@@ -19,7 +19,7 @@ class IssueDetailDataCenter {
             reloadHandler?()
         }
     }
-    private(set) var alamofireNetworkManager: AlamofireNetworkManager
+    private(set) var alamofireNetworkManager: AlamofireNetworkable
     var reloadHandler: (() -> ())?
     var emojiReloadHandler: (() -> ())?
     
