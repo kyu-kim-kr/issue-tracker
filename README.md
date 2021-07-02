@@ -50,14 +50,13 @@
 
 ## 🎊 구현 화면
 
-### 💻 FE
+### 💻 FE - [유튜브에서 확인하기 👀](https://youtu.be/HqTxYrGWDD8)
 
-추후 추가 예정
+<br>
 
 ### 🍎 iOS
 
 ![issueTracker1](https://user-images.githubusercontent.com/62657991/124244476-f0980900-db59-11eb-9860-182b75ae84cf.gif)
-
 ![issueTracker2](https://user-images.githubusercontent.com/62657991/124244450-e970fb00-db59-11eb-9258-22753f813ad0.gif)
 
 <br>
@@ -114,25 +113,18 @@ MySQL
 
 ### 💻 FE
 
- <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white"/>
- <span>&nbsp;&nbsp;</span>
- 
- <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=TypeScript&logoColor=white"/>
-  <span>&nbsp;&nbsp;</span>
-  
- <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/>
-   <span>&nbsp;&nbsp;</span>
-   
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white"/><span>&nbsp;&nbsp;</span>
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=TypeScript&logoColor=white"/>
+<span>&nbsp;&nbsp;</span>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/>
+<span>&nbsp;&nbsp;</span>
 <img src="https://img.shields.io/badge/Recoil-764ABC?style=flat-square&logo=&logoColor=white"/>
-  <span>&nbsp;&nbsp;</span>
-
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
-  <span>&nbsp;&nbsp;</span>
-  
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/>
-  <span>&nbsp;&nbsp;</span>
-  
-  <img src="https://img.shields.io/badge/StyledComponent-A9225C?style=flat-square&logo=&logoColor=white"/>
+<span>&nbsp;&nbsp;</span>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
+<span>&nbsp;&nbsp;</span>
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/>
+<span>&nbsp;&nbsp;</span>
+<img src="https://img.shields.io/badge/StyledComponent-A9225C?style=flat-square&logo=&logoColor=white"/>
 
 <br>
 <br>
