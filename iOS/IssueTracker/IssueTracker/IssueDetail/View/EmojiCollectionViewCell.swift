@@ -16,7 +16,7 @@ class EmojiCollectionViewCell: UICollectionViewCell {
     }
     
     private func setEmojiLayer() {
-        self.emojiButton.layer.cornerRadius = self.emojiButton.frame.width / 3
+        self.emojiButton.layer.cornerRadius = self.emojiButton.frame.width / 4
         self.emojiButton.layer.masksToBounds = true
     }
 }

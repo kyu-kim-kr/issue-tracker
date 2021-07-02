@@ -97,7 +97,7 @@ extension IssueDetailTableViewCell: UICollectionViewDelegate {
 
 extension IssueDetailTableViewCell: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 40, height: 25)
+        return CGSize(width: 35, height: 35)
     }
 }
 
@@ -111,7 +111,7 @@ extension IssueDetailTableViewCell: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmojiCollectionViewCell.className, for: indexPath) as? EmojiCollectionViewCell else { return UICollectionViewCell() }
         guard let emojiData = self.emojiDelegate?.getEmoji(index: indexPath.row) else { return cell }
         cell.isHidden = emojiData.selected
-        cell.emojiButton.setTitle(emojiData.code, for: .normal)
+        cell.emojiButton.setTitle(emojiData.emoji, for: .normal)
         return cell
     }
 }
