@@ -179,12 +179,12 @@ public class IssueRepository {
     }
 
     public Integer countAllOpenedIssues() {
-        String query = "select count(closed) from issue where closed = false";
+        String query = "select count(closed) from issue where closed = false and deleted = false";
         return jdbcTemplate.queryForObject(query, Integer.class);
     }
 
     public Integer countAllClosedIssues() {
-        String query = "select count(closed) from issue where closed = true";
+        String query = "select count(closed) from issue where closed = true and deleted = false";
         return jdbcTemplate.queryForObject(query, Integer.class);
     }
 
