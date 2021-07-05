@@ -104,9 +104,10 @@ iOS: [iOS Project kanban](https://github.com/kyu-kim-kr/issue-tracker/projects/2
 
 ### 👨🏻‍💻 BE
 
-AWS EC2, VPC, S3
-Spring JDBCtemplate
-Java
+AWS(EC2, VPC, S3),
+Spring Boot,
+JDBCtemplate,
+Java,
 MySQL
 
 <br>
