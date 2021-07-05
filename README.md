@@ -153,5 +153,6 @@ MySQL
 |------|---|---|
 |🙊 Eamon|`FE`|https://github.com/eamon3481|
 |🐿 Autumn|`FE`|https://github.com/dyongdi|
+|🐻 MJ|`BE`|https://github.com/MJbae|
 |🐶 Kyu|`BE`|https://github.com/kyupid/|
 |🐴 Issac|`iOS`|https://github.com/okstring|
