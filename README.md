@@ -17,15 +17,14 @@
 - 온전히 유저와 연결된 CRUD 웹 서비스 완성하기
 
 ### 👨🏻‍💻 Backend
-
-  - [x] Github OAuth 적용
-  - [x] 서버 배포를 위한 AWS EC2 인스턴스 사용
-  - [x] 이미지 업로드를 위한 AWS S3 사용
-  - [x] AWS VPC 이용 EC2, DB 서브넷 구분 생성
-  - [x] 데이터베이스 포트는 웹서버에게만 개방
-  - [x] Ngnix와 톰캣을 연동해서 80포트만 개방
-  - [x] SQL 연습을 위해 JDBCTemplate 사용
-  - [ ] 테스트 코드 작성 (실패)
+  - [API Docs](https://documenter.getpostman.com/view/12383029/TzeXjSg7)
+  - Github OAuth 적용
+  - 서버 배포를 위한 AWS EC2 인스턴스 사용
+  - 이미지 업로드를 위한 AWS S3 사용
+  - AWS VPC 이용 EC2, DB 서브넷 구분 생성
+  - 데이터베이스 포트는 웹서버에게만 개방
+  - Ngnix와 톰캣을 연동해서 80포트만 개방
+  - SQL 연습을 위해 JDBCTemplate 사용
 
 ### 💻 Frontend
 - Github OAuth 적용
